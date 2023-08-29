@@ -3,3 +3,7 @@ package.json
 *.md
 *.yml
 tsconfig.json
+
+# storybook
+.storybook
+src/stories/

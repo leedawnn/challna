@@ -12,3 +12,7 @@ vite.config.ts
 # jest
 jest.config.*
 jest.setup.*
+
+# storybook
+.storybook
+src/stories/
