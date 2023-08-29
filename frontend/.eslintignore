@@ -1,0 +1,14 @@
+node_modules
+.eslintrc.cjs
+package.json
+build
+public
+scripts
+*.d.ts
+
+tsconfig.json
+vite.config.ts
+
+# jest
+jest.config.*
+jest.setup.*
