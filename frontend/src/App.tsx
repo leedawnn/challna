@@ -1,5 +1,6 @@
 import "./App.css";
 
+import Button from "./components/Button";
 import reactLogo from "./assets/react.svg";
 import { useState } from "react";
 import viteLogo from "/vite.svg";
@@ -34,6 +35,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Button> hi </Button>
     </>
   );
 }
