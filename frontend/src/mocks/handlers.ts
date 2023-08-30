@@ -2,11 +2,13 @@ import { rest } from 'msw';
 
 export const handlers = [
   rest.post('/login', (req, res, ctx) => {
+    console.log(req);
     sessionStorage.setItem('is-authenticated', 'true');
 
     return res(ctx.status(200));
   }),
   rest.get('/user', (req, res, ctx) => {
+    console.log(req);
     const isAuthenticated = sessionStorage.getItem('is-authenticated');
 
     if (!isAuthenticated) {
