@@ -1,0 +1,38 @@
+name: Frotend Deploy
+
+on:
+  pull_request:
+    branches:
+      - develop
+    paths:
+      - 'frontend/**'
+      - .github/workflows/frontend-deploy-work.yml
+
+env:
+  working-directory: ./frontend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: yarn install
+        working-directory: ${{ env.working-directory }}
+
+      - name: Run build
+        run: yarn build
+        working-directory: ${{ env.working-directory }}
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
+
+      - name: Upload to S3
+        run: aws s3 cp --recursive --region ap-northeast-2 dist s3://moment.r
+        working-directory: ${{ env.working-directory }}
