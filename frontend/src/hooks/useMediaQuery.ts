@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
-import SCREEN_BREAKPOINT, { ScreenBreakpoint } from '../constants/screenBreakpoints';
 
-type ScreenKey = `is${Capitalize<ScreenBreakpoint>}`;
+import { SCREEN_BREAKPOINT } from '../constants/styles';
+
+type ScreenKey = `is${Capitalize<keyof typeof SCREEN_BREAKPOINT>}`;
 type Screen = Map<ScreenKey, MediaQueryList>;
 
 /**

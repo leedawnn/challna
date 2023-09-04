@@ -1,5 +1,5 @@
+import { MEDIA_QUERY } from '../../../constants/styles';
 import { styled } from 'styled-components';
-import MEDIA_QUERY from '../../../constants/mediaQuery';
 
 const Header = () => {
   return (

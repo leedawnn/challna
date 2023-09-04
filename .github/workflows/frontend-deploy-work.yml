@@ -22,7 +22,7 @@ jobs:
         run: yarn install
         working-directory: ${{ env.working-directory }}
 
-      - name: Run build
+      - name: Build
         run: yarn build
         working-directory: ${{ env.working-directory }}
 
@@ -36,3 +36,6 @@ jobs:
       - name: Upload to S3
         run: aws s3 cp --recursive --region ap-northeast-2 dist s3://moment.r
         working-directory: ${{ env.working-directory }}
+
+      - name: Invalidate CloudFront Distribution
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
