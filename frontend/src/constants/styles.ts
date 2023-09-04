@@ -1,4 +1,11 @@
-import { SCREEN_BREAKPOINT } from './screenBreakpoints';
+// Web Responsive Constatns
+
+export const SCREEN_BREAKPOINT = {
+  sm: 375,
+  md: 1023,
+  lg: 1024,
+} as const;
+
 
 /**
  * css에서 반응형 디자인을 할 때 사용합니다.
@@ -20,10 +27,8 @@ import { SCREEN_BREAKPOINT } from './screenBreakpoints';
  *   }
  * `
  */
-const MEDIA_QUERY: Readonly<Record<keyof typeof SCREEN_BREAKPOINT, string>> = {
+export const MEDIA_QUERY: Readonly<Record<keyof typeof SCREEN_BREAKPOINT, string>> = {
   sm: `@media screen and (max-width: ${SCREEN_BREAKPOINT.sm}px)`,
   md: `@media screen and (max-width: ${SCREEN_BREAKPOINT.md}px)`,
   lg: `@media screen and (min-width: ${SCREEN_BREAKPOINT.lg}px)`,
 };
-
-export default MEDIA_QUERY;
