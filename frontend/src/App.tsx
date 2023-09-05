@@ -1,12 +1,11 @@
 import { styled } from 'styled-components';
 import MomentBody from './components/layout/MomentBody';
-import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <Layout>
       <Container>
-        <MomentBody Outlet={Outlet}></MomentBody>
+        <MomentBody />
       </Container>
     </Layout>
   );
