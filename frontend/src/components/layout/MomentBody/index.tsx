@@ -1,8 +1,10 @@
 import { styled } from 'styled-components';
+import Header from '../Header';
 
 const MomentBody = ({ Outlet }: any) => {
   return (
     <Layout>
+      <Header />
       <Outlet />
     </Layout>
   );
@@ -15,9 +17,8 @@ const Layout = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 576px;
-  max-width: 45rem;
-  height: 100vh;
+  width: 36rem;
+  height: 100%;
   background-color: #fff;
   box-sizing: border-box;
 `;
