@@ -1,18 +1,32 @@
-import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import HomePage from '../pages/Home';
+import LoginPage from '../pages/Login';
+import PrivateProvider from './PrivateProvider';
+import PublicProvider from './PublicProvider';
+import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    path: '/',
     element: <App />,
     children: [
       {
-        path: '',
-        element: <HomePage />,
+        path: '/',
+        element: (
+          <PrivateProvider>
+            <HomePage />
+          </PrivateProvider>
+        ),
       },
+      {
+        path: '/login',
+        element: (
+          <PublicProvider>
+            <LoginPage />
+          </PublicProvider>
+        )
+      }
     ],
-  },
+  }
 ]);
 
 export default router;
