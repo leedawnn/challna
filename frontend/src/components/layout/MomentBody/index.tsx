@@ -1,11 +1,13 @@
 import { styled } from 'styled-components';
 import Header from '../Header';
+import Footer from '../Footer';
 
 const MomentBody = ({ Outlet }: any) => {
   return (
     <Layout>
       <Header />
       <Outlet />
+      <Footer />
     </Layout>
   );
 };
