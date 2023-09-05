@@ -3,25 +3,33 @@ import { styled } from 'styled-components';
 
 const Header = () => {
   return (
-    <>
-      <div>이건 헤더</div>
-      <Button>안녕!? 나는 버튼</Button>
-    </>
+    <Layout>
+      <HeaderContainer>이것은 헤더!!@!</HeaderContainer>
+    </Layout>
   );
 };
 
 export default Header;
 
-const Button = styled.button`
-  ${MEDIA_QUERY.lg} {
-    background-color: rebeccapurple;
-  }
+const Layout = styled.header`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 36rem;
+  height: 5.875rem;
+  padding: 0 20px;
+  box-sizing: border-box;
 
-  ${MEDIA_QUERY.md} {
-    background-color: yellow;
+  ${MEDIA_QUERY.lg} {
+    background-color: orange;
   }
 
   ${MEDIA_QUERY.sm} {
     background-color: royalblue;
   }
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
