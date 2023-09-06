@@ -25,6 +25,8 @@ const Container = styled.section`
 
   display: flex;
   flex-direction: column;
+
+  background: linear-gradient(270deg, #66648B 0%, #92B5D9 100%);
 `;
 
 const LogoWrapper = styled.div`
@@ -48,4 +50,5 @@ const SocialWrapper = styled.div`
 
 const SocialTitle = styled.h3`
   font-size: 11px;
+  color: #fff;
 `;
