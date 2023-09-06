@@ -36,7 +36,6 @@ const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
 `;
 
 const SocialWrapper = styled.div`
@@ -51,4 +50,6 @@ const SocialWrapper = styled.div`
 const SocialTitle = styled.h3`
   font-size: 11px;
   color: #fff;
+  
+  margin-bottom: 12px;
 `;
