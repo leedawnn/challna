@@ -20,13 +20,13 @@ export default LoginPage;
 
 const Container = styled.section`
   width: 100%;
-  min-height: 812px;
+  min-height: 100vh;
   height: 100vh;
 
   display: flex;
   flex-direction: column;
 
-  background: linear-gradient(270deg, #66648B 0%, #92B5D9 100%);
+  background: linear-gradient(0deg, #66648B 0%, #92B5D9 100%);
 `;
 
 const LogoWrapper = styled.div`
