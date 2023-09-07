@@ -19,8 +19,9 @@ const LoginPage = () => {
 export default LoginPage;
 
 const Container = styled.section`
+  max-width: 37.5rem;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;

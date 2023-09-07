@@ -14,9 +14,11 @@ export default Header;
 const Layout = styled.header`
   position: sticky;
   top: 0;
+
+  max-width: 37.5rem;
   width: 100%;
-  max-width: 36rem;
   height: 5.875rem;
+  
   padding: 0 20px;
   box-sizing: border-box;
 

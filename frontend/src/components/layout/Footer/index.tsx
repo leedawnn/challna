@@ -12,14 +12,19 @@ export default Footer;
 
 const Layout = styled.footer`
   display: flex;
-  width: 100%;
-  height: 80px;
+
+  width: inherit;
+  height: 5.7rem;
+  box-sizing: border-box;
+
   color: #fff;
   background-color: #292929;
+
+  position: fixed;
+  bottom: 0%;
 `;
 
 const Container = styled.div`
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

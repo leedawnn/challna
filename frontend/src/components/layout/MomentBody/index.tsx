@@ -21,8 +21,8 @@ const Layout = styled.div`
 
   width: 37.5rem;
   min-height: 100vh;
-  height: 100vh;
-  
+
+  padding-bottom: 5.7rem;
   background-color: #fff;
   box-sizing: border-box;
 `;
