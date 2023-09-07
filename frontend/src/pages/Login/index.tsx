@@ -25,11 +25,13 @@ const Layout = styled.section`
   
   position: relative;
   background: linear-gradient(0deg, #66648B 0%, #92B5D9 100%);
+
+  box-sizing: border-box;
 `;
 
 const Container = styled.main`
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 
   display: flex;
   flex-direction: column;
