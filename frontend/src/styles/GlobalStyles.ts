@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   
 
   :root {
-    --kakao-color: '#FEE500';
+    --kakao-color: #FEE500;
   }
 
   html {

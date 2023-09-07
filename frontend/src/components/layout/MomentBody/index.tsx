@@ -17,7 +17,7 @@ const MomentBody = ({ children }: Props) => {
 export default MomentBody;
 
 const Layout = styled.div`
-  width: 576px;
+  width: 57.6rem;
   position: relative;
 
   background-color: #fff;

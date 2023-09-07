@@ -30,7 +30,7 @@ const Button = styled.button`
   height: 50px;
   margin: 0 24px;
 
-  background-color: #FEE500;
+  background-color: var(--kakao-color);
   border-radius: 10px;
 
   display: flex;
