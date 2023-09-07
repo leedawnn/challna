@@ -20,8 +20,7 @@ export default LoginPage;
 
 const Container = styled.section`
   width: 100%;
-  min-height: 100vh;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
@@ -48,7 +47,9 @@ const SocialWrapper = styled.div`
 `;
 
 const SocialTitle = styled.h3`
-  font-size: 11px;
+  all: unset;
+
+  font-size: 12px;
   color: #fff;
   
   margin-bottom: 12px;

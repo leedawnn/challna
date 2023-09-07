@@ -20,6 +20,8 @@ const Layout = styled.div`
   align-items: center;
 
   width: 36rem;
+  min-height: 100vh;
+  height: 100vh;
   
   background-color: #fff;
   box-sizing: border-box;
