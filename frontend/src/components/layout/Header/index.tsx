@@ -15,7 +15,7 @@ const Layout = styled.header`
   position: sticky;
   top: 0;
 
-  max-width: 37.5rem;
+  min-width: 37.5rem;
   width: 100%;
   height: 5.875rem;
   

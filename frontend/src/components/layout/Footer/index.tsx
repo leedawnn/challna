@@ -13,7 +13,8 @@ export default Footer;
 const Layout = styled.footer`
   display: flex;
 
-  width: inherit;
+  min-width: 37.5rem;
+  width: 100vw;
   height: 5.7rem;
   box-sizing: border-box;
 

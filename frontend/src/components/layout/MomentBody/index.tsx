@@ -19,7 +19,8 @@ const Layout = styled.div`
   flex-direction: column;
   align-items: center;
 
-  width: 37.5rem;
+  min-width: 37.5rem;
+  width: 100vw;
   min-height: 100vh;
 
   padding-bottom: 5.7rem;
