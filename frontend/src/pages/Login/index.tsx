@@ -39,7 +39,7 @@ const Container = styled.main`
 
 const LogoWrapper = styled.div`
   width: 100%;
-  height: 80vh;
+  height: calc(var(--vh, 1vh) * 80);
 
   display: flex;
   justify-content: center;
@@ -47,11 +47,18 @@ const LogoWrapper = styled.div`
 `;
 
 const SocialWrapper = styled.div`
+  max-width: 57.6rem;
   width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  position: fixed;
+  bottom: 0px;
+
+  padding-bottom: 20px;
+  box-sizing: border-box;
 `;
 
 const SocialTitle = styled.h3`
