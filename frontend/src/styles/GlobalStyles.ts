@@ -24,10 +24,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     src: url(${NexonGothicBold}) format('truetype');
   }
-
-  :root {
-    --vh: 100%;
-  }
   
 
   html {

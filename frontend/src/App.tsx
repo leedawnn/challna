@@ -1,10 +1,17 @@
 import { Outlet } from 'react-router-dom';
 import { setScreenSize } from './utils/styles';
 import { styled } from 'styled-components';
+import { useEffect } from 'react';
 
 function App() {
 
-  window.addEventListener('resize', () => setScreenSize());
+  useEffect(() => {
+    setScreenSize();
+
+    window.addEventListener('resize', setScreenSize);
+
+    return () => window.removeEventListener('resize', setScreenSize);
+  }, [])
 
   return (
     <Layout>
