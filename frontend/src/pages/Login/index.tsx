@@ -49,7 +49,7 @@ const SocialWrapper = styled.div`
 const SocialTitle = styled.h3`
   all: unset;
 
-  font-size: 12px;
+  font-size: 1.2rem;
   color: #fff;
   
   margin-bottom: 12px;
