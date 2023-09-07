@@ -12,17 +12,18 @@ export default Footer;
 
 const Layout = styled.footer`
   display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-  min-width: 37.5rem;
-  width: 100vw;
+  max-width: 57.6rem;
+  width: 100%;
   height: 5.7rem;
-  box-sizing: border-box;
 
   color: #fff;
   background-color: #292929;
 
   position: fixed;
-  bottom: 0%;
+  bottom: 0px;
 `;
 
 const Container = styled.div`

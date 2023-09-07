@@ -4,34 +4,40 @@ import { styled } from "styled-components";
 
 const LoginPage = () => {
   return (
-    <Container>
-      <LogoWrapper>
-        <Logo />
-      </LogoWrapper>
-      <SocialWrapper>
-        <SocialTitle> 나만의 특별한 추억을 만들어 보세요. </SocialTitle>
-        <SocialButton socialType="kakao" />
-      </SocialWrapper>
-    </Container>
+    <Layout>
+      <Container>
+        <LogoWrapper>
+          <Logo />
+        </LogoWrapper>
+        <SocialWrapper>
+          <SocialTitle> 나만의 특별한 추억을 만들어 보세요. </SocialTitle>
+          <SocialButton socialType="kakao" />
+        </SocialWrapper>
+      </Container>
+    </Layout>
   )
 };
 
 export default LoginPage;
 
-const Container = styled.section`
-  min-width: 37.5rem;
-  width: 100vw;
-  height: 100vh;
+const Layout = styled.section`
+  width: 576px;
+  
+  position: relative;
+  background: linear-gradient(0deg, #66648B 0%, #92B5D9 100%);
+`;
+
+const Container = styled.main`
+  width: 100%;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-
-  background: linear-gradient(0deg, #66648B 0%, #92B5D9 100%);
 `;
 
 const LogoWrapper = styled.div`
   width: 100%;
-  height: 80%;
+  height: 80vh;
 
   display: flex;
   justify-content: center;
@@ -40,7 +46,6 @@ const LogoWrapper = styled.div`
 
 const SocialWrapper = styled.div`
   width: 100%;
-  height: 20%;
 
   display: flex;
   flex-direction: column;
