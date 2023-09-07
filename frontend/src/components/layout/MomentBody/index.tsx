@@ -18,7 +18,6 @@ export default MomentBody;
 
 const Layout = styled.div`
   width: 576px;
-
   position: relative;
 
   background-color: #fff;

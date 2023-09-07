@@ -29,14 +29,20 @@ const Button = styled.button`
   width: calc(100% - 48px);
   height: 50px;
   margin: 0 24px;
-  
+
+  background-color: #FEE500;
   border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
   
   cursor: pointer;
 
   & > img {
+    width: max-content;
     height: 100%;
-    object-fit: cover;
+    
+    object-fit: contain;
     border-radius: 10px;
   }
 `;

@@ -55,9 +55,8 @@ const SocialWrapper = styled.div`
   align-items: center;
 
   position: fixed;
-  bottom: 0px;
+  bottom: 30px;
 
-  padding-bottom: 20px;
   box-sizing: border-box;
 `;
 
