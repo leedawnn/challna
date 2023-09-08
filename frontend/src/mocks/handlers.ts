@@ -1,30 +1,27 @@
 import { rest } from 'msw';
 
-export const handlers = [
-  rest.post('/login', (req, res, ctx) => {
-    console.log(req);
-    sessionStorage.setItem('is-authenticated', 'true');
+export const handlers = () => {
+  return [...userHandlers];
+}
 
-    return res(ctx.status(200));
-  }),
-  rest.get('/user', (req, res, ctx) => {
-    console.log(req);
-    const isAuthenticated = sessionStorage.getItem('is-authenticated');
+const userHandlers = [
+  rest.post('/login/kakao', async (req, res, ctx) => {
+    const { code } = await req.json();
 
-    if (!isAuthenticated) {
+    if (typeof code === 'string' && code) {
       return res(
-        ctx.status(403),
+        ctx.status(200),
         ctx.json({
-          errorMessage: 'Not authorized',
-        }),
-      );
+          message: "성공하였습니다."
+        })
+      )
     }
 
     return res(
-      ctx.status(200),
+      ctx.status(401),
       ctx.json({
-        username: 'admin',
-      }),
-    );
-  }),
-];
+        errorMessage: "코드를 확인해보세요."
+      })
+    )
+  })
+]
