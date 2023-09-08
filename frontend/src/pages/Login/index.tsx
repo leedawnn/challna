@@ -4,13 +4,7 @@ import { styled } from "styled-components";
 import useKakaoLogin from "../../hooks/useKaKaoLogin";
 
 const LoginPage = () => {
-  const { isKaKaoInit, handleLogin } = useKakaoLogin();
-
-  const handleKakaoLogin = () => {
-    if (isKaKaoInit) {
-      handleLogin();
-    }
-  }
+  const { handleKakaoLogin } = useKakaoLogin();
 
   return (
     <Layout>
