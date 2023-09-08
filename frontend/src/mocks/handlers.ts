@@ -1,36 +1,22 @@
+import axios from 'axios';
 import { rest } from 'msw';
 
-export const handlers = [
-  rest.post('/login', (req, res, ctx) => {
-    console.log(req);
-    sessionStorage.setItem('is-authenticated', 'true');
+interface Data {
+  grant_type: string;
+  client_id: string;
+  code: string;
+  [key: string]: string;
+}
 
-    return res(ctx.status(200));
-  }),
-  rest.get('/user', (req, res, ctx) => {
-    console.log(req);
-    const isAuthenticated = sessionStorage.getItem('is-authenticated');
+export const handlers = () => {
+  return [...userHandlers];
+}
 
-    if (!isAuthenticated) {
-      return res(
-        ctx.status(403),
-        ctx.json({
-          errorMessage: 'Not authorized',
-        }),
-      );
-    }
+const userHandlers = [
+  rest.post('/login/kakao', async (req, res, ctx) => {
+    const { code } = await req.json();
 
-    return res(
-      ctx.status(200),
-      ctx.json({
-        username: 'admin',
-      }),
-    );
-  }),
-  rest.post('/login/kakao', (req, res, ctx) => {
-    const { code } = req.body;
-
-    if (typeof code === 'string') {
+    if (typeof code === 'string' && code) {
       return res(
         ctx.status(200),
         ctx.json({
@@ -40,10 +26,10 @@ export const handlers = [
     }
 
     return res(
-      ctx.status(400),
+      ctx.status(401),
       ctx.json({
-        errorMessage: "잘못된 접근입니다."
+        errorMessage: "코드를 확인해보세요."
       })
     )
   })
-];
+]
