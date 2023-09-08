@@ -7,7 +7,9 @@ type Props = {
 const MomentBody = ({ children }: Props) => {
   return (
     <Layout>
-      {children}
+      <Container>
+        {children}
+      </Container>
     </Layout>
   );
 };
@@ -15,12 +17,17 @@ const MomentBody = ({ children }: Props) => {
 export default MomentBody;
 
 const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 57.6rem;
+  position: relative;
 
-  width: 36rem;
+  background-color: #fff;
+`;
+
+const Container = styled.main`
+  width: 100%;
+  min-height: calc(var(--vh, 1vh) * 100);
+
+  padding-bottom: 5.7rem;
   
   background-color: #fff;
-  box-sizing: border-box;
 `;
