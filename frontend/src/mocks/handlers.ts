@@ -1,12 +1,4 @@
-import axios from 'axios';
 import { rest } from 'msw';
-
-interface Data {
-  grant_type: string;
-  client_id: string;
-  code: string;
-  [key: string]: string;
-}
 
 export const handlers = () => {
   return [...userHandlers];
