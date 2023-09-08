@@ -3,6 +3,7 @@ import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
 import PrivateProvider from './PrivateProvider';
 import PublicProvider from './PublicProvider';
+import Redirection from './Redirection';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
         )
       }
     ],
+  },
+  {
+    path: '/login/oauth2/callback/kakao',
+    element: <Redirection />
   }
 ]);
 

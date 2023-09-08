@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 
 type Props = {
   socialType: keyof typeof SOCIAL_OBJ;
+  onClick?: () => void;
 };
 
 const SOCIAL_OBJ = {
@@ -11,11 +12,11 @@ const SOCIAL_OBJ = {
   },
 } as const;
 
-const SocialButton = ({ socialType }: Props) => {
+const SocialButton = ({ socialType, onClick }: Props) => {
   const { logo } = SOCIAL_OBJ[socialType];
 
   return (
-    <Button type="button">
+    <Button type="button" onClick={onClick}>
       <img src={logo} alt={`${socialType}_logo`} width="100%" />
     </Button>
   );
