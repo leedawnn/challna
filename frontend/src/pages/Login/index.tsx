@@ -3,6 +3,12 @@ import SocialButton from "../../components/login/SocialButton";
 import { styled } from "styled-components";
 
 const LoginPage = () => {
+  const LINK = `https://kauth.kakao.com/oauth/authorize?client_id=${import.meta.env.VITE_REST_API_KEY}&redirect_uri=${import.meta.env.VITE_REDIRECT_URL}&response_type=code`;
+
+  const handleKaKaoLogin = () => {
+    window.location.href = LINK;
+  }
+
   return (
     <Layout>
       <Container>
@@ -11,7 +17,7 @@ const LoginPage = () => {
         </LogoWrapper>
         <SocialWrapper>
           <SocialTitle> 나만의 특별한 추억을 만들어 보세요. </SocialTitle>
-          <SocialButton socialType="kakao" />
+          <SocialButton socialType="kakao" onClick={handleKaKaoLogin}/>
         </SocialWrapper>
       </Container>
     </Layout>
