@@ -1,13 +1,15 @@
 import Logo from "../../components/login/Logo";
 import SocialButton from "../../components/login/SocialButton";
 import { styled } from "styled-components";
+import useKakaoLogin from "../../hooks/useKaKaoLogin";
 
 const LoginPage = () => {
-  const handleKaKaoLogin = () => {
-    const { Kakao } = window as any;
-    Kakao.Auth.authorize({
-      redirectUri: import.meta.env.VITE_REDIRECT_URL,
-    })
+  const { isKaKaoInit, handleLogin } = useKakaoLogin();
+
+  const handleKakaoLogin = () => {
+    if (isKaKaoInit) {
+      handleLogin();
+    }
   }
 
   return (
@@ -18,7 +20,7 @@ const LoginPage = () => {
         </LogoWrapper>
         <SocialWrapper>
           <SocialTitle> 나만의 특별한 추억을 만들어 보세요. </SocialTitle>
-          <SocialButton socialType="kakao" onClick={handleKaKaoLogin}/>
+          <SocialButton socialType="kakao" onClick={handleKakaoLogin}/>
         </SocialWrapper>
       </Container>
     </Layout>
