@@ -21,6 +21,8 @@ import { DefaultTheme } from 'styled-components';
  * red (Red)
  *
  * blue (Blue)
+ * 
+ * kakao (kakao 색상)
  */
 
 export const themeDefault: DefaultTheme = {
@@ -31,5 +33,6 @@ export const themeDefault: DefaultTheme = {
     subPurple: '#4B10AC',
     red: '#F45959',
     blue: '#1164CD',
+    kakao: '#FEE500',
   },
 };

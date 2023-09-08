@@ -9,6 +9,7 @@ declare module 'styled-components' {
       subPurple: string;
       red: string;
       blue: string;
+      kakao: string;
     };
   }
 }

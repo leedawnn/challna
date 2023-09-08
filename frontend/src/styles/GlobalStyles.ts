@@ -24,11 +24,6 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
     src: url(${NexonGothicBold}) format('truetype');
   }
-  
-
-  :root {
-    --kakao-color: #FEE500;
-  }
 
   html {
     line-height: 1.15; 
