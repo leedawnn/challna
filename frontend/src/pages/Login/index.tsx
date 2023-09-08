@@ -3,10 +3,11 @@ import SocialButton from "../../components/login/SocialButton";
 import { styled } from "styled-components";
 
 const LoginPage = () => {
-  const LINK = `https://kauth.kakao.com/oauth/authorize?client_id=${import.meta.env.VITE_REST_API_KEY}&redirect_uri=${import.meta.env.VITE_REDIRECT_URL}&response_type=code`;
-
   const handleKaKaoLogin = () => {
-    window.location.href = LINK;
+    const { Kakao } = window as any;
+    Kakao.Auth.authorize({
+      redirectUri: import.meta.env.VITE_REDIRECT_URL,
+    })
   }
 
   return (
