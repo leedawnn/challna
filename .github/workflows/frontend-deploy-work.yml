@@ -20,8 +20,8 @@ jobs:
       
       - name: Generate Environment Variables File
         run: |
-          echo "VITE_JAVASCRIPT_KEY=${{ secrets.VITE_JAVASCRIPT_KEY }}" >> .env
-          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> .env
+          echo "VITE_JAVASCRIPT_KEY=${{ secrets.VITE_JAVASCRIPT_KEY }}" >> ${{ env.working-directory }}/.env
+          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> ${{ env.working-directory }}/.env
 
       - name: Install dependencies
         run: yarn install
