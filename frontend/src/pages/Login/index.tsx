@@ -1,7 +1,7 @@
 import Logo from "../../components/login/Logo";
 import SocialButton from "../../components/login/SocialButton";
 import { styled } from "styled-components";
-import useKakaoLogin from "../../hooks/useKaKaoLogin";
+import useKakaoLogin from "../../hooks/useKakaoLogin";
 
 const LoginPage = () => {
   const { handleKakaoLogin } = useKakaoLogin();
