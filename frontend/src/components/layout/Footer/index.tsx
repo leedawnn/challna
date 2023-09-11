@@ -6,7 +6,7 @@ const Footer = () => {
     <Layout>
       <Container>
         <MenuWrapper>
-          {Object.values(FOOTER_MENUS).map((items) => (
+          {FOOTER_MENUS.map((items) => (
             <MenuItem key={items.id}>
               <MenuIcon src={items.icon} alt={`${items.name} 이미지`} />
               <MenuName>{items.name}</MenuName>
