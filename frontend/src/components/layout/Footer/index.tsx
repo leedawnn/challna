@@ -1,16 +1,19 @@
 import { styled } from 'styled-components';
+import albumIcon from '../../../assets/album.svg';
+import messageIcon from '../../../assets/message.svg';
+import myPageIcon from '../../../assets/my.svg';
 
 const Footer = () => {
-  const FOOTER_ICONS = []; // 추후 메뉴 아이콘 이미지 배열
-  const FOOTER_ITEMS = ['아이콘', '아이콘', '아이콘'];
+  const FOOTER_ICONS = [albumIcon, messageIcon, myPageIcon];
+  const FOOTER_ITEMS = ['앨범', '메시지', '마이'];
 
   return (
     <Layout>
       <Container>
         <MenuWrapper>
-          {FOOTER_ITEMS.map((item: string) => (
-            <MenuItem>
-              <MenuIcon />
+          {FOOTER_ITEMS.map((item: string, index: number) => (
+            <MenuItem key={index}>
+              <MenuIcon src={FOOTER_ICONS[index]} />
               <MenuName>{item}</MenuName>
             </MenuItem>
           ))}
@@ -29,7 +32,7 @@ const Layout = styled.footer`
 
   max-width: 57.6rem;
   width: 100%;
-  height: 10rem;
+  height: 6.6rem;
 
   background-color: #fff;
 
@@ -42,6 +45,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  border-top: 1px solid ${(props) => props.theme.colors.lightGray2};
 `;
 
 const MenuWrapper = styled.div`
@@ -50,6 +54,7 @@ const MenuWrapper = styled.div`
   align-items: center;
   width: 100%;
   margin: 0 4.8rem;
+  padding: 1rem 0 1.5rem;
 `;
 
 const MenuItem = styled.div`
@@ -60,14 +65,14 @@ const MenuItem = styled.div`
   cursor: pointer;
 `;
 
-const MenuIcon = styled.div`
+const MenuIcon = styled.img`
   width: 4rem;
   height: 4rem;
-  background-color: #d9d9d9;
+  color: ${(props) => props.theme.colors.lightGray4};
   margin-bottom: 1rem;
 `;
 
 const MenuName = styled.span`
-  color: #d9d9d9;
+  color: ${(props) => props.theme.colors.lightGray4};
   font-size: 1.4rem;
 `;
