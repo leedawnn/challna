@@ -1,20 +1,15 @@
 import { styled } from 'styled-components';
-import albumIcon from '../../../assets/album.svg';
-import messageIcon from '../../../assets/message.svg';
-import myPageIcon from '../../../assets/my.svg';
+import { FOOTER_MENUS } from '../../../constants/styles';
 
 const Footer = () => {
-  const FOOTER_ICONS = [albumIcon, messageIcon, myPageIcon];
-  const FOOTER_ITEMS = ['앨범', '메시지', '마이'];
-
   return (
     <Layout>
       <Container>
         <MenuWrapper>
-          {FOOTER_ITEMS.map((item: string, index: number) => (
-            <MenuItem key={index}>
-              <MenuIcon src={FOOTER_ICONS[index]} />
-              <MenuName>{item}</MenuName>
+          {Object.values(FOOTER_MENUS).map((items) => (
+            <MenuItem key={items.id}>
+              <MenuIcon src={items.icon} alt={`${items.name} 이미지`} />
+              <MenuName>{items.name}</MenuName>
             </MenuItem>
           ))}
         </MenuWrapper>
