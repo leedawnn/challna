@@ -9,10 +9,6 @@ const Redirection = () => {
     const params = new URL(document.location.toString()).searchParams;
     const code = params.get('code');
 
-    const data = {
-      code,
-    }
-
     axios.get(`http://3.37.235.110/login?code=${code}`).then((res) => {
       if (res.status === 200) {
         navigate('/');
