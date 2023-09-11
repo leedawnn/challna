@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 import albumIcon from '../../../assets/album.svg';
 import messageIcon from '../../../assets/message.svg';
 import myPageIcon from '../../../assets/my.svg';
-import { MEDIA_QUERY } from '../../../constants/styles';
 
 const Footer = () => {
   const FOOTER_ICONS = [albumIcon, messageIcon, myPageIcon];
