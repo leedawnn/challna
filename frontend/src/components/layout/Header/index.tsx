@@ -1,10 +1,14 @@
-import { MEDIA_QUERY } from '../../../constants/styles';
 import { styled } from 'styled-components';
+import backButton from '../../../assets/back.svg';
+import moreButton from '../../../assets/more.svg';
 
 const Header = () => {
   return (
     <Layout>
-      <HeaderContainer>이것은 헤더!!@!</HeaderContainer>
+      <HeaderContainer>
+        <MenuItem src={backButton} alt="뒤로가기 버튼" />
+        <MenuItem src={moreButton} alt="더보기 버튼" />
+      </HeaderContainer>
     </Layout>
   );
 };
@@ -16,21 +20,20 @@ const Layout = styled.header`
   top: 0;
 
   width: inherit;
-  height: 5.875rem;
-  
-  padding: 0 20px;
+  height: 6rem;
+
+  background-color: #fff;
+
+  padding: 5rem 2rem 2rem;
   box-sizing: border-box;
-
-  ${MEDIA_QUERY.lg} {
-    background-color: orange;
-  }
-
-  ${MEDIA_QUERY.sm} {
-    background-color: royalblue;
-  }
+  margin: 0 auto;
 `;
 
 const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const MenuItem = styled.img`
+  cursor: pointer;
 `;
