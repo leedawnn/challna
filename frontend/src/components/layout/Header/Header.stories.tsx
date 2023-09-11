@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Footer from '../../../components/layout/Footer';
+import Header from '.';
 
 /**
- * 모먼트에서 사용하는 기본적인 푸터입니다.
+ * 모먼트에서 사용하는 기본적인 헤더입니다.
  */
 
-const meta: Meta<typeof Footer> = {
-  title: 'Templates/Footer',
-  component: Footer,
+const meta: Meta<typeof Header> = {
+  title: 'Templates/Header',
+  component: Header,
   tags: ['autodocs'],
   parameters: {
     layout: 'mobile',
@@ -22,8 +22,8 @@ const meta: Meta<typeof Footer> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Footer>;
+type Story = StoryObj<typeof Header>;
 
 export const Default: Story = {
-  render: () => <Footer />,
+  render: () => <Header />,
 };
