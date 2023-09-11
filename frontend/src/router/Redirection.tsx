@@ -13,7 +13,7 @@ const Redirection = () => {
       code,
     }
 
-    axios.post('/login/kakao', data).then((res) => {
+    axios.get(`http://3.37.235.110/login?code=${code}`).then((res) => {
       if (res.status === 200) {
         navigate('/');
       }
