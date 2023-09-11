@@ -10,7 +10,14 @@ const meta: Meta<typeof Header> = {
   component: Header,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'mobile',
+    breakpoints: {
+      breakpointNames: {
+        small: '0',
+        medium: '376',
+        large: '1000',
+      },
+    },
   },
 };
 

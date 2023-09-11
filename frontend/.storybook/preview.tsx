@@ -2,13 +2,18 @@ import React from 'react';
 import { themeDefault } from '../src/styles/theme';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../src/styles/GlobalStyles';
+import { Layout, Container } from '../src/components/layout/MomentBody/index';
 
 const preview = {
   decorators: [
     (Story) => (
       <ThemeProvider theme={themeDefault}>
-        <GlobalStyle />
-        <Story />
+        <Layout>
+          <Container>
+            <GlobalStyle />
+            <Story />
+          </Container>
+        </Layout>
       </ThemeProvider>
     ),
   ],

@@ -26,6 +26,7 @@ const Layout = styled.header`
 
   padding: 5rem 2rem 2rem;
   box-sizing: border-box;
+  margin: 0 auto;
 `;
 
 const HeaderContainer = styled.div`
