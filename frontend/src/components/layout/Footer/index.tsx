@@ -66,13 +66,16 @@ const MenuItem = styled.div`
 `;
 
 const MenuIcon = styled.img`
-  width: 4rem;
-  height: 4rem;
+  width: 2.4rem;
+  height: 2.4rem;
   color: ${(props) => props.theme.colors.lightGray4};
   margin-bottom: 1rem;
 `;
 
 const MenuName = styled.span`
   color: ${(props) => props.theme.colors.lightGray4};
-  font-size: 1.4rem;
+  font-family: ${(props) => props.theme.typography.body1.fontFamily};
+  font-style: ${(props) => props.theme.typography.body1.fontStyle};
+  font-size: ${(props) => props.theme.typography.body1.fontSize};
+  line-height: ${(props) => props.theme.typography.body1.lineHeight};
 `;

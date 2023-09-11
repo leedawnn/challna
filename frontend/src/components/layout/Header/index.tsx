@@ -20,7 +20,7 @@ const Layout = styled.header`
   top: 0;
 
   width: inherit;
-  height: 9.3rem;
+  height: 6rem;
 
   background-color: #fff;
 
