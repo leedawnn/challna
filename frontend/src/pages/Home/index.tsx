@@ -1,13 +1,18 @@
 import HomeAlbum from "../../components/home/HomeAlbum";
 import NoneContent from "../../components/layout/NoneContent";
-import { useState } from "react";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchGetQuery = () => {
+  return axios.get('/api/album');
+}
 
 const HomePage = () => {
-  const [data, setData] = useState(null);
+  const { data } = useQuery(['album'], fetchGetQuery);
 
   return (
     <>
-      {data ? <NoneContent contentType="main" /> : <HomeAlbum />}
+      {data ? <HomeAlbum /> : <NoneContent contentType="main" />}
     </>
   );
 };

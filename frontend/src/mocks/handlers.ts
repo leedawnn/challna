@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
 export const handlers = () => {
-  return [...userHandlers];
+  return [...userHandlers, ...albumHandlers];
 }
 
 const userHandlers = [
@@ -25,6 +25,19 @@ const userHandlers = [
       ctx.status(401),
       ctx.json({
         errorMessage: "코드를 확인해보세요."
+      })
+    )
+  })
+];
+
+const albumHandlers = [
+  rest.get('/api/album', (req, res, ctx) => {
+    console.log(req);
+
+    return res(
+      ctx.status(200),
+      ctx.json({
+        albumCount: 9,
       })
     )
   })
