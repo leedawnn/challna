@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import GlobalStyle from './styles/GlobalStyles.ts';
+import { Provider } from 'jotai';
 import { RouterProvider } from 'react-router-dom';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -24,8 +25,10 @@ initializeMockupWorker().then(() => {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <GlobalStyle />
-        <RouterProvider router={router} />
+        <Provider>
+          <GlobalStyle />
+          <RouterProvider router={router} />
+        </Provider>
       </QueryClientProvider>
     </StrictMode>,
   );

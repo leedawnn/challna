@@ -12,7 +12,11 @@ const userHandlers = [
       return res(
         ctx.status(200),
         ctx.json({
-          message: "성공하였습니다."
+          id: null,
+          kakaoId: 12345678,
+          email: "test@moment.com",
+          kakaoName: "test",
+          profile_image: "image_url"
         })
       )
     }
