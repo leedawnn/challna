@@ -30,7 +30,7 @@ const Layout = styled.header`
   z-index: 10;
 
   width: inherit;
-  height: 8.4rem;
+  height: 6rem;
 
   background-color: #fff;
 

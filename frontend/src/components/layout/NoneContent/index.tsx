@@ -38,6 +38,8 @@ const NoneContent = ({ contentType }: Props) => {
 export default NoneContent;
 
 const Layout = styled.section`
+  padding-top: 2.4rem;
+
   box-sizing: border-box;
 `;
 

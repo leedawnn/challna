@@ -33,6 +33,7 @@ const Container = styled.section`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 7.5px;
 
+  padding-top: 2.4rem;
   box-sizing: border-box;
 `;
 
