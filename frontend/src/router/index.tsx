@@ -1,6 +1,7 @@
 import App from '../App';
 import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
+import TestPage from '../pages/Test';
 import PrivateProvider from './PrivateProvider';
 import PublicProvider from './PublicProvider';
 import Redirection from './Redirection';
@@ -24,14 +25,22 @@ const router = createBrowserRouter([
           <PublicProvider>
             <LoginPage />
           </PublicProvider>
-        )
-      }
+        ),
+      },
+      {
+        path: '/test',
+        element: (
+          <PrivateProvider>
+            <TestPage />
+          </PrivateProvider>
+        ),
+      },
     ],
   },
   {
     path: '/login/oauth2/callback/kakao',
-    element: <Redirection />
-  }
+    element: <Redirection />,
+  },
 ]);
 
 export default router;
