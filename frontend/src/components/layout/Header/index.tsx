@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <Layout>
       <UserWrapper>
-        <UserTitle> {userInfo?.kakaoName} 님 </UserTitle>
+        <UserTitle> {userInfo?.kakaoName ?? "김태웅"} 님 </UserTitle>
         <MenuItem src={rightButton} alt="오른쪽 버튼" />
       </UserWrapper>
       {/* <MoreWrapper>
