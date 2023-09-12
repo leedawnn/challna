@@ -1,5 +1,5 @@
-import backButton from '../../../assets/back.svg';
-import moreButton from '../../../assets/more.svg';
+// import backButton from '../../../assets/back.svg';
+// import moreButton from '../../../assets/more.svg';
 import rightButton from '../../../assets/right.svg';
 import { styled } from 'styled-components';
 import { useAtomValue } from 'jotai';
@@ -59,13 +59,13 @@ const UserTitle = styled.h3`
   box-sizing: border-box;
 `;
 
-const MoreWrapper = styled.div`
+// const MoreWrapper = styled.div`
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
 
-`;
+// `;
 
 const MenuItem = styled.img`
   cursor: pointer;
