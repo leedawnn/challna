@@ -15,6 +15,13 @@ const HomeAlbum = () => {
       <AlbumWrapper />
       <AlbumWrapper />
       <AlbumWrapper />
+      <AlbumWrapper />
+      <AlbumWrapper />
+      <AlbumWrapper />
+      <AlbumWrapper />
+      <AlbumWrapper />
+      <AlbumWrapper />
+      <AlbumWrapper />
     </Container>
   );
 }
@@ -31,7 +38,15 @@ const Container = styled.section`
 `;
 
 const AlbumWrapper = styled.div`
-  height: 122px;
+  height: auto;
 
   background-color: black;
+
+  position: relative;
+  
+  &:before {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* for square shape */
+  }
 `;
