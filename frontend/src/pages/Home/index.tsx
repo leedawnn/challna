@@ -1,3 +1,4 @@
+import HomeAlbum from "../../components/home/HomeAlbum";
 import NoneContent from "../../components/layout/NoneContent";
 import { useState } from "react";
 
@@ -6,7 +7,7 @@ const HomePage = () => {
 
   return (
     <>
-      {!data ? <NoneContent contentType="main" /> : <div></div>}
+      {data ? <NoneContent contentType="main" /> : <HomeAlbum />}
     </>
   );
 };
