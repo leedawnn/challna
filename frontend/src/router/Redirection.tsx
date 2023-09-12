@@ -1,4 +1,6 @@
-import axios from "axios";
+import { HTTP_STATUS } from "../constants/api";
+import { fetchQuery } from '../utils/fetchQuery';
+import { getKaKaoUser } from "../api/auth";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetAtom } from "jotai";
@@ -12,13 +14,14 @@ const Redirection = () => {
     const params = new URL(document.location.toString()).searchParams;
     const code = params.get('code');
 
-    axios.get(`http://3.37.235.110/login?code=${code}&text=111`).then((res) => {
-      if (res.status === 200) {
-        setUser({...res.data.kakaoLoginEntity});
-        navigate('/');
-      }
-    });
-    
+    getKaKaoUser(fetchQuery({code}))
+      .then((res) => {
+        if (res.status === HTTP_STATUS.OK) {
+          setUser({...res.data.kakaoLoginEntity});
+          navigate('/');
+        }
+      })
+
   }, [])
 
   return (
