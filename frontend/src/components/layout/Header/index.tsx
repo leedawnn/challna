@@ -27,9 +27,10 @@ export default Header;
 const Layout = styled.header`
   position: sticky;
   top: 0;
+  z-index: 10;
 
   width: inherit;
-  height: 6rem;
+  height: 8.4rem;
 
   background-color: #fff;
 
