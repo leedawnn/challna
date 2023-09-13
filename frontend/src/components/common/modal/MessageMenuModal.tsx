@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import deleteIcon from '../../../assets/delete.svg';
 
-const DeleteModal = ({ isModalOpen }: any) => {
+const MessageMenuModal = ({ isModalOpen }: any) => {
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -25,7 +25,7 @@ const DeleteModal = ({ isModalOpen }: any) => {
   );
 };
 
-export default DeleteModal;
+export default MessageMenuModal;
 
 const Layout = styled.div`
   display: flex;
