@@ -8,11 +8,11 @@ const fetchGetQuery = () => {
 }
 
 const HomePage = () => {
-  const { data } = useQuery(['album'], fetchGetQuery);
+  const { data: albumData } = useQuery(['album'], fetchGetQuery);
 
   return (
     <>
-      {data ? <HomeAlbum /> : <NoneContent contentType="main" />}
+      {albumData ? <HomeAlbum data={albumData.data.data || []}/> : <NoneContent contentType="main" />}
     </>
   );
 };

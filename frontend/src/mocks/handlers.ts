@@ -1,3 +1,4 @@
+import { albumData } from './data/services';
 import { rest } from 'msw';
 
 export const handlers = () => {
@@ -37,7 +38,8 @@ const albumHandlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        albumCount: 9,
+        data: albumData,
+        total: albumData.length,
       })
     )
   })
