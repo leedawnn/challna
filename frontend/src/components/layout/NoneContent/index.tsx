@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import * as S from './NoneContent.styled';
 
 type NoneContentTypes = {
   [key in string]: {
@@ -26,42 +26,13 @@ const NoneContent = ({ contentType }: Props) => {
   const { title, subTitle } = NONE_CONTENT[contentType];
 
   return (
-    <Layout>
-      <Container>
-        <NoneTitle> {title} </NoneTitle>
-        <NoneSubTitle> {subTitle} </NoneSubTitle>
-      </Container>
-    </Layout>
+    <S.Layout>
+      <S.Container>
+        <S.NoneTitle> {title} </S.NoneTitle>
+        <S.NoneSubTitle> {subTitle} </S.NoneSubTitle>
+      </S.Container>
+    </S.Layout>
   );
 }
 
 export default NoneContent;
-
-const Layout = styled.section`
-  padding-top: 2.4rem;
-
-  box-sizing: border-box;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-`;
-
-const NoneTitle = styled.h1`
-  font-family: ${({ theme }) => theme.fontStyle.bold};
-  font-size: 16px;
-  color: ${({ theme }) => theme.colors.black};
-
-  margin: 0;
-`;
-
-const NoneSubTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fontStyle.regular};
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.lightGray5};
-
-  margin: 0;
-`;
