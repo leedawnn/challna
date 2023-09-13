@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <Layout>
       <UserWrapper>
-        <UserTitle> {userInfo?.kakaoName ?? "김태웅"} 님 </UserTitle>
+        <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
         <MenuItem src={rightButton} alt="오른쪽 버튼" />
       </UserWrapper>
       {/* <MoreWrapper>
@@ -50,11 +50,10 @@ const UserWrapper = styled.div`
 `;
 
 const UserTitle = styled.h3`
-  font-family: ${({ theme }) => theme.typography.subHead3.fontFamily };
-  font-style: ${({ theme }) => theme.typography.subHead3.fontStyle };
-  font-size: ${({ theme }) => theme.typography.subHead3.fontSize };
-  line-height: ${({ theme }) => theme.typography.subHead3.lineHeight };
-  
+  font-family: ${({ theme }) => theme.typography.subHead3.fontFamily};
+  font-size: ${({ theme }) => theme.typography.subHead3.fontSize};
+  line-height: ${({ theme }) => theme.typography.subHead3.lineHeight};
+
   margin: 0;
   padding: 2px;
   box-sizing: border-box;
