@@ -1,5 +1,5 @@
-import { styled } from 'styled-components';
 import { FOOTER_MENUS } from '../../../constants/styles';
+import { styled } from 'styled-components';
 
 const Footer = () => {
   return (
@@ -30,6 +30,7 @@ const Layout = styled.footer`
   height: 6.6rem;
 
   background-color: #fff;
+  border-top: 1px solid ${(props) => props.theme.colors.lightGray2};
 
   position: fixed;
   bottom: 0px;
@@ -40,7 +41,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  border-top: 1px solid ${(props) => props.theme.colors.lightGray2};
 `;
 
 const MenuWrapper = styled.div`
