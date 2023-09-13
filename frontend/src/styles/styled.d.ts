@@ -7,74 +7,63 @@ declare module 'styled-components' {
       light: string;
       bold: string;
     };
-    fontStyle: {
+    fontWeight: {
       regular: number;
       bold: number;
     };
     typography: {
       body1: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       body2: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       body3: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       subHead: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       subHead2: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       subHead3: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       headline: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       display: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       display2: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       display3: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };
       display4: {
         fontFamily: string;
-        fontStyle: string;
         fontSize: string;
         lineHeight: string;
       };

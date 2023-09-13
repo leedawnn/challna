@@ -6,7 +6,7 @@ import { DefaultTheme } from 'styled-components';
  * @example
  * const BodyText = styled.p`
  *   font-family:${({theme})=>theme.typography.body1.fontFamily};
- *   font-style:${({theme})=>theme.typography.body1.fontStyle}
+ *   font-style:${({theme})=>theme.typography.body1.fontWeight}
  *   font-size:${({theme})=>theme.typography.body1.fontSize};
  *   line-height:${({theme})=>theme.typography.body1.lineHeight};
  * `;
@@ -48,74 +48,63 @@ export const themeDefault: DefaultTheme = {
     light: 'NexonGothicLight',
     bold: 'NexonGothicBold',
   },
-  fontStyle: {
+  fontWeight: {
     regular: 400,
     bold: 700,
   },
   typography: {
     body1: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.regular}',
+      fontFamily: 'NexonGothicMedium',
       fontSize: '12px',
       lineHeight: '18px',
     },
     body2: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.regular}',
+      fontFamily: 'NexonGothicMedium',
       fontSize: '14px',
       lineHeight: '22px',
     },
     body3: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.regular}',
+      fontFamily: 'NexonGothicMedium',
       fontSize: '16px',
       lineHeight: '24px',
     },
     subHead: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '12px',
       lineHeight: '18px',
     },
     subHead2: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '14px',
       lineHeight: '20px',
     },
     subHead3: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '16px',
       lineHeight: '22px',
     },
     headline: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '20px',
       lineHeight: '30px',
     },
     display: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '24px',
       lineHeight: '34px',
     },
     display2: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '32px',
       lineHeight: '42px',
     },
     display3: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '36px',
       lineHeight: '46px',
     },
     display4: {
-      fontFamily: '${props => props.theme.fonts.medium}',
-      fontStyle: '${props => props.theme.fontStyle.bold}',
+      fontFamily: 'NexonGothicBold',
       fontSize: '40px',
       lineHeight: '52px',
     },
