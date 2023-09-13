@@ -9,9 +9,9 @@ type Props = {
 const PrivateProvider = ({ children }: Props) => {
   return (
     <MomentBody>
-      {/* <Header /> */}
+      <Header />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </MomentBody>
   );
 };
