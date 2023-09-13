@@ -2,6 +2,18 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import deleteIcon from '../../../assets/delete.svg';
 
+/**
+ *
+ * MessageMenuModal은 메시지 탭에서 더보기(...) 버튼에 연결하는 모달입니다.
+ *
+ * props로 isModalOpen에 해당하는 boolean이 필요하며, createPortal을 사용하여야합니다.
+ *
+ * @example
+ * ts`
+ *  {isModalOpen && createPortal(<MessageMenuModal은 isModalOpen={isModalOpen} />, document.body)}
+ * `;
+ */
+
 const MessageMenuModal = ({ isModalOpen }: any) => {
   useEffect(() => {
     if (isModalOpen) {
@@ -32,17 +44,19 @@ const Layout = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  position: absolute;
+  position: fixed;
   z-index: 1;
 
-  left: 0;
+  left: 50%;
   bottom: 0;
+  transform: translate(-50%, 0);
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: ${(props) => props.theme.colors.white};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); // 임의 box-shadow
 
+  max-width: 57.6rem;
   width: 100%;
   height: calc(var(--vh) * 12.3);
 `;
