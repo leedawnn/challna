@@ -20,8 +20,6 @@ export const AlbumWrapper = styled.div`
     display: block;
     padding-bottom: 100%; /* for square shape */
   }
-
-  background-color: black;
 `;
 
 export const AlbumImage = styled.img`
