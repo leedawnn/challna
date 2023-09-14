@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import DeleteModal from '../../components/common/modal/DeleteModal';
+// import DeleteModal from '../../components/common/modal/DeleteModal';
 import MessageMenuModal from '../../components/common/modal/MessageMenuModal';
 
 const TestPage = () => {
