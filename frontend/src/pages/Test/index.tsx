@@ -25,7 +25,8 @@ const TestPage = () => {
     <>
       <div>Modal 테스트 페이지!</div>
       <button onClick={handleDelete}>삭제</button>
-      {isModalOpen && createPortal(<DeleteModal isModalOpen={isModalOpen} />, document.body)}
+      {isModalOpen &&
+        createPortal(<DeleteModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.body)}
     </>
   );
 };

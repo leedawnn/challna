@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import { MEDIA_QUERY } from '../../../constants/styles';
 
@@ -14,7 +15,16 @@ import { MEDIA_QUERY } from '../../../constants/styles';
  * `;
  */
 
-const DeleteModal = ({ isModalOpen }: any) => {
+type DeleteModalProps = {
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+const DeleteModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => {
+  const handleCancelDelete = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -32,7 +42,7 @@ const DeleteModal = ({ isModalOpen }: any) => {
       <DeleteModalWrapper>
         <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
         <DeleteButton>삭제</DeleteButton>
-        <ModalCloseButton>취소</ModalCloseButton>
+        <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
       </DeleteModalWrapper>
     </Layout>
   );
@@ -93,6 +103,7 @@ const DeleteButton = styled.button`
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(244, 89, 89, 0.5);
   background-color: ${(props) => props.theme.colors.red};
+  margin-bottom: 5px;
 
   color: ${(props) => props.theme.colors.white};
   font-family: ${(props) => props.theme.typography.subHead2.fontFamily};
