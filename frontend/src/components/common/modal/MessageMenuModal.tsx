@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import deleteIcon from '../../../assets/delete.svg';
 
@@ -14,7 +15,28 @@ import deleteIcon from '../../../assets/delete.svg';
  * `;
  */
 
-const MessageMenuModal = ({ isModalOpen }: any) => {
+type MessageMenuModalProps = {
+  isModalOpen: boolean;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+};
+
+const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const closeModal = (e: MouseEvent) => {
+      if (isModalOpen && modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        setIsModalOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', closeModal);
+
+    return () => {
+      document.removeEventListener('mousedown', closeModal);
+    };
+  }, [isModalOpen]);
+
   useEffect(() => {
     if (isModalOpen) {
       document.body.style.overflow = 'hidden';
@@ -28,12 +50,18 @@ const MessageMenuModal = ({ isModalOpen }: any) => {
   }, [isModalOpen]);
 
   return (
-    <Layout>
-      <DeleteModalWrapper>
-        <img src={deleteIcon} alt="삭제 버튼 아이콘" />
-        <DeleteText>삭제</DeleteText>
-      </DeleteModalWrapper>
-    </Layout>
+    <>
+      {isModalOpen && (
+        <div ref={modalRef}>
+          <Layout>
+            <DeleteModalWrapper>
+              <img src={deleteIcon} alt="삭제 버튼 아이콘" />
+              <DeleteText>삭제</DeleteText>
+            </DeleteModalWrapper>
+          </Layout>
+        </div>
+      )}
+    </>
   );
 };
 

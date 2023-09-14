@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import DeleteModal from '../../components/common/modal/DeleteModal';
+import MessageMenuModal from '../../components/common/modal/MessageMenuModal';
 
 const TestPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +27,7 @@ const TestPage = () => {
       <div>Modal 테스트 페이지!</div>
       <button onClick={handleDelete}>삭제</button>
       {isModalOpen &&
-        createPortal(<DeleteModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.body)}
+        createPortal(<MessageMenuModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.body)}
     </>
   );
 };
