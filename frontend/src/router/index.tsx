@@ -9,10 +9,11 @@ import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
+    path: ROUTES_PATH.main,
     element: <App />,
     children: [
       {
-        path: ROUTES_PATH.main,
+        index: true,
         element: (
           <PrivateProvider>
             <HomePage />
@@ -25,14 +26,14 @@ const router = createBrowserRouter([
           <PublicProvider>
             <LoginPage />
           </PublicProvider>
-        )
-      }
+        ),
+      },
     ],
   },
   {
     path: ROUTES_PATH.redirect,
-    element: <Redirection />
-  }
+    element: <Redirection />,
+  },
 ]);
 
 export default router;
