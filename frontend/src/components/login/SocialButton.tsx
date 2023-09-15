@@ -1,4 +1,4 @@
-import KAKAO_LOGO from '../../assets/kakao_login.svg';
+import KAKAO_LOGO from '../../assets/images/kakao_login.png';
 import { styled } from 'styled-components';
 
 type Props = {
