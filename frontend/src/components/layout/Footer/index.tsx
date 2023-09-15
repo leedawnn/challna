@@ -1,15 +1,18 @@
 import { FOOTER_MENUS } from '../../../constants/styles';
 import { styled } from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
   return (
     <Layout>
       <Container>
         <MenuWrapper>
           {FOOTER_MENUS.map((items) => (
             <MenuItem key={items.id}>
-              <MenuIcon src={items.icon} alt={`${items.name} 이미지`} />
-              <MenuName>{items.name}</MenuName>
+              <items.icon active={pathname === items.path} />
+              <MenuName current={pathname === items.path}>{items.name}</MenuName>
             </MenuItem>
           ))}
         </MenuWrapper>
@@ -49,7 +52,7 @@ const MenuWrapper = styled.div`
   align-items: center;
   width: 100%;
   margin: 0 4.8rem;
-  padding: 1rem 0 1.5rem;
+  padding: 1rem 0;
 `;
 
 const MenuItem = styled.div`
@@ -57,18 +60,17 @@ const MenuItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 4px;
+
   cursor: pointer;
+
+  & > svg {
+    height: 24px;
+  }
 `;
 
-const MenuIcon = styled.img`
-  width: 2.4rem;
-  height: 2.4rem;
-  color: ${(props) => props.theme.colors.lightGray4};
-  margin-bottom: 1rem;
-`;
-
-const MenuName = styled.span`
-  color: ${(props) => props.theme.colors.lightGray4};
+const MenuName = styled.span<{ current: boolean }>`
+  color: ${(props) => (props.current ? props.theme.colors.point : props.theme.colors.lightGray4)};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
   font-style: ${(props) => props.theme.typography.body1.fontStyle};
   font-size: ${(props) => props.theme.typography.body1.fontSize};

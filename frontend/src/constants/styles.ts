@@ -1,6 +1,6 @@
-import albumIcon from '../assets/album.svg';
-import messageIcon from '../assets/message.svg';
-import myPageIcon from '../assets/my.svg';
+import albumIcon from '../assets/icons/AlbumIcon';
+import messageIcon from '../assets/icons/MessageIcon';
+import myPageIcon from '../assets/icons/MyPageIcon';
 
 // Web Responsive Constatns
 
@@ -38,16 +38,19 @@ export const FOOTER_MENUS = [
   {
     id: 1,
     name: '앨범',
+    path: '/',
     icon: albumIcon,
   },
   {
     id: 2,
     name: '메시지',
+    path: '/message',
     icon: messageIcon,
   },
   {
     id: 3,
     name: '마이',
+    path: '/mypage',
     icon: myPageIcon,
   },
 ] as const;
