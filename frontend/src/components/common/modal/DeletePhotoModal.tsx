@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import { MEDIA_QUERY } from '../../../constants/styles';
@@ -20,10 +20,32 @@ type DeleteModalProps = {
   setIsModalOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const DeleteModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => {
+const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => {
+  const deletePhotoModalRef = useRef<HTMLDivElement>(null);
+
+  const handlePhotoDelete = () => {
+    // 삭제 로직 추가 예정
+
+    setIsModalOpen((prev) => !prev);
+  };
+
   const handleCancelDelete = () => {
     setIsModalOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const closeDeleteModal = (e: MouseEvent) => {
+      if (isModalOpen && deletePhotoModalRef.current && !deletePhotoModalRef.current.contains(e.target as Node)) {
+        setIsModalOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', closeDeleteModal);
+
+    return () => {
+      document.removeEventListener('mousedown', closeDeleteModal);
+    };
+  }, [isModalOpen]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -38,17 +60,23 @@ const DeleteModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => {
   }, [isModalOpen]);
 
   return (
-    <Layout>
-      <DeleteModalWrapper>
-        <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
-        <DeleteButton>삭제</DeleteButton>
-        <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
-      </DeleteModalWrapper>
-    </Layout>
+    <>
+      {isModalOpen && (
+        <div ref={deletePhotoModalRef}>
+          <Layout>
+            <DeleteModalWrapper>
+              <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
+              <DeleteButton onClick={handlePhotoDelete}>삭제</DeleteButton>
+              <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
+            </DeleteModalWrapper>
+          </Layout>
+        </div>
+      )}
+    </>
   );
 };
 
-export default DeleteModal;
+export default DeletePhotoModal;
 
 const Layout = styled.div`
   display: flex;
@@ -72,6 +100,8 @@ const Layout = styled.div`
   width: 100%;
   height: calc(var(--vh) * 14.8);
   padding: 3rem 0;
+
+  overflow-y: auto;
 
   ${MEDIA_QUERY.sm} {
     height: calc(var(--vh) * 20.8);

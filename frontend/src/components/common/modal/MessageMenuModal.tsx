@@ -23,6 +23,12 @@ type MessageMenuModalProps = {
 const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
+  const handleMessageDelete = () => {
+    setIsModalOpen((prev) => !prev);
+
+    // 삭제 로직 추가 예정
+  };
+
   useEffect(() => {
     const closeModal = (e: MouseEvent) => {
       if (isModalOpen && modalRef.current && !modalRef.current.contains(e.target as Node)) {
@@ -54,7 +60,7 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
       {isModalOpen && (
         <div ref={modalRef}>
           <Layout>
-            <DeleteModalWrapper>
+            <DeleteModalWrapper onClick={handleMessageDelete}>
               <img src={deleteIcon} alt="삭제 버튼 아이콘" />
               <DeleteText>삭제</DeleteText>
             </DeleteModalWrapper>
@@ -87,6 +93,8 @@ const Layout = styled.div`
   max-width: 57.6rem;
   width: 100%;
   height: calc(var(--vh) * 12.3);
+
+  overflow-y: auto;
 `;
 
 const DeleteModalWrapper = styled.div`
