@@ -94,7 +94,7 @@ const Layout = styled.div`
   width: 100%;
   height: calc(var(--vh) * 12.3);
 
-  overflow-y: auto;
+  overflow-y: hidden;
 `;
 
 const DeleteModalWrapper = styled.div`

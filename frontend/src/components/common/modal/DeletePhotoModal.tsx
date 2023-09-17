@@ -101,7 +101,7 @@ const Layout = styled.div`
   height: calc(var(--vh) * 14.8);
   padding: 3rem 0;
 
-  overflow-y: auto;
+  overflow-y: hidden;
 
   ${MEDIA_QUERY.sm} {
     height: calc(var(--vh) * 20.8);
