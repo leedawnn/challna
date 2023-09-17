@@ -59,24 +59,46 @@ const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => 
     };
   }, [isModalOpen]);
 
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
+
   return (
     <>
       {isModalOpen && (
-        <div ref={deletePhotoModalRef}>
-          <Layout>
+        <ModalBackground>
+          <Layout ref={deletePhotoModalRef}>
             <DeleteModalWrapper>
               <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
               <DeleteButton onClick={handlePhotoDelete}>삭제</DeleteButton>
               <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
             </DeleteModalWrapper>
           </Layout>
-        </div>
+        </ModalBackground>
       )}
     </>
   );
 };
 
 export default DeletePhotoModal;
+
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+`;
 
 const Layout = styled.div`
   display: flex;
@@ -85,7 +107,7 @@ const Layout = styled.div`
   align-items: center;
 
   position: fixed;
-  z-index: 1;
+  z-index: 99;
 
   left: 50%;
   bottom: 0;

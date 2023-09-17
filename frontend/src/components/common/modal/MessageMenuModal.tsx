@@ -55,23 +55,45 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
     };
   }, [isModalOpen]);
 
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
+
   return (
     <>
       {isModalOpen && (
-        <div ref={modalRef}>
-          <Layout>
+        <ModalBackground>
+          <Layout ref={modalRef}>
             <DeleteModalWrapper onClick={handleMessageDelete}>
               <img src={deleteIcon} alt="삭제 버튼 아이콘" />
               <DeleteText>삭제</DeleteText>
             </DeleteModalWrapper>
           </Layout>
-        </div>
+        </ModalBackground>
       )}
     </>
   );
 };
 
 export default MessageMenuModal;
+
+const ModalBackground = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+`;
 
 const Layout = styled.div`
   display: flex;
