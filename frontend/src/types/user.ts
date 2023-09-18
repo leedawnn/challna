@@ -1,5 +1,10 @@
-export type User = {
-  id: string | null;
+export type AuthToken = {
+  accessToken: string;
+  accessTokenExpireDate: string;
+  refreshToken: string;
+}
+
+export type User = AuthToken & {
   kakaoId: number;
   email: string;
   kakaoName: string;

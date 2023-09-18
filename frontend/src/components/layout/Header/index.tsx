@@ -1,6 +1,6 @@
-// import backButton from '../../../assets/back.svg';
-// import moreButton from '../../../assets/more.svg';
-import rightButton from '../../../assets/right.svg';
+// import BackButton from '../../../assets/icons/BackIcon';
+// import MoreIcon from '../../../assets/icons/MoreIcon';
+import RightButton from '../../../assets/icons/RightIcon';
 import { styled } from 'styled-components';
 import { useAtomValue } from 'jotai';
 import { userStore } from '../../../stores/userStore';
@@ -12,11 +12,11 @@ const Header = () => {
     <Layout>
       <UserWrapper>
         <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
-        <MenuItem src={rightButton} alt="오른쪽 버튼" />
+        <RightButton />
       </UserWrapper>
       {/* <MoreWrapper>
-        <MenuItem src={backButton} alt="뒤로가기 버튼" />
-        <MenuItem src={moreButton} alt="더보기 버튼" />
+        <BackButton />
+        <MoreIcon />
       </MoreWrapper> */}
     </Layout>
   );
@@ -60,13 +60,9 @@ const UserTitle = styled.h3`
 `;
 
 // const MoreWrapper = styled.div`
-
 //   display: flex;
 //   justify-content: space-between;
 //   align-items: center;
 
+//   cursor: pointer;
 // `;
-
-const MenuItem = styled.img`
-  cursor: pointer;
-`;
