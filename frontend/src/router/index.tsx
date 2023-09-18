@@ -1,6 +1,7 @@
 import App from '../App';
 import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
+import TestPage from '../pages/Test';
 import PrivateProvider from './PrivateProvider';
 import PublicProvider from './PublicProvider';
 import { ROUTES_PATH } from '../constants/routes';
@@ -25,14 +26,22 @@ const router = createBrowserRouter([
           <PublicProvider>
             <LoginPage />
           </PublicProvider>
-        )
-      }
+        ),
+      },
+      {
+        path: '/test',
+        element: (
+          <PrivateProvider>
+            <TestPage />
+          </PrivateProvider>
+        ),
+      },
     ],
   },
   {
     path: ROUTES_PATH.redirect,
-    element: <Redirection />
-  }
+    element: <Redirection />,
+  },
 ]);
 
 export default router;
