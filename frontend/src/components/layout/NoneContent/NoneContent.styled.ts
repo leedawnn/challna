@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Layout = styled.section`
   padding-top: 2.4rem;
@@ -14,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const NoneTitle = styled.h1`
-  font-family: ${({ theme }) => theme.fontStyle.bold};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-size: 16px;
   color: ${({ theme }) => theme.colors.black};
 
@@ -22,7 +22,7 @@ export const NoneTitle = styled.h1`
 `;
 
 export const NoneSubTitle = styled.h3`
-  font-family: ${({ theme }) => theme.fontStyle.regular};
+  font-weight: ${({ theme }) => theme.fontWeight.regular};
   font-size: 12px;
   color: ${({ theme }) => theme.colors.lightGray5};
 

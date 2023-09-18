@@ -70,7 +70,6 @@ const MenuIcon = styled.img`
 const MenuName = styled.span`
   color: ${(props) => props.theme.colors.lightGray4};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  font-style: ${(props) => props.theme.typography.body1.fontStyle};
   font-size: ${(props) => props.theme.typography.body1.fontSize};
   line-height: ${(props) => props.theme.typography.body1.lineHeight};
 `;
