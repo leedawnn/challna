@@ -51,7 +51,6 @@ const UserWrapper = styled.div`
 
 const UserTitle = styled.h3`
   font-family: ${({ theme }) => theme.typography.subHead3.fontFamily};
-  font-style: ${({ theme }) => theme.typography.subHead3.fontStyle};
   font-size: ${({ theme }) => theme.typography.subHead3.fontSize};
   line-height: ${({ theme }) => theme.typography.subHead3.lineHeight};
 

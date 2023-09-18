@@ -72,7 +72,6 @@ const MenuItem = styled.div`
 const MenuName = styled.span<{ current: boolean }>`
   color: ${(props) => (props.current ? props.theme.colors.point : props.theme.colors.lightGray4)};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  font-style: ${(props) => props.theme.typography.body1.fontStyle};
   font-size: ${(props) => props.theme.typography.body1.fontSize};
   line-height: ${(props) => props.theme.typography.body1.lineHeight};
 `;

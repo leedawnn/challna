@@ -1,10 +1,10 @@
-import Footer from "../components/layout/Footer";
-import Header from "../components/layout/Header";
-import MomentBody from "../components/layout/MomentBody";
+import Footer from '../components/layout/Footer';
+import Header from '../components/layout/Header';
+import MomentBody from '../components/layout/MomentBody';
 
 type Props = {
   children: React.ReactNode;
-}
+};
 
 const PrivateProvider = ({ children }: Props) => {
   return (
@@ -14,6 +14,6 @@ const PrivateProvider = ({ children }: Props) => {
       <Footer />
     </MomentBody>
   );
-}
+};
 
 export default PrivateProvider;
