@@ -10,10 +10,11 @@ import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
+    path: ROUTES_PATH.main,
     element: <App />,
     children: [
       {
-        path: ROUTES_PATH.main,
+        index: true,
         element: (
           <PrivateProvider>
             <HomePage />

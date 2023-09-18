@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useRef } from 'react';
+
+import DeleteIcon from '../../../assets/icons/DeleteIcon';
 import styled from 'styled-components';
-import deleteIcon from '../../../assets/delete.svg';
 
 /**
  *
@@ -74,7 +75,7 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
         <ModalBackground>
           <Layout ref={modalRef}>
             <DeleteModalWrapper onClick={handleMessageDelete}>
-              <img src={deleteIcon} alt="삭제 버튼 아이콘" />
+              <DeleteIcon />
               <DeleteText>삭제</DeleteText>
             </DeleteModalWrapper>
           </Layout>
