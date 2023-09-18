@@ -97,7 +97,8 @@ const ModalBackground = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
 `;
 
 const Layout = styled.div`
@@ -107,7 +108,7 @@ const Layout = styled.div`
   align-items: center;
 
   position: fixed;
-  z-index: 99;
+  z-index: 11;
 
   left: 50%;
   bottom: 0;

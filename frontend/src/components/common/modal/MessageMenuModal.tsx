@@ -93,6 +93,7 @@ const ModalBackground = styled.div`
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.8);
+  z-index: 99;
 `;
 
 const Layout = styled.div`
@@ -101,7 +102,7 @@ const Layout = styled.div`
   justify-content: center;
 
   position: fixed;
-  z-index: 1;
+  z-index: 11;
 
   left: 50%;
   bottom: 0;
