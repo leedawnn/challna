@@ -3,7 +3,7 @@ import * as S from './HomeAlbum.styled';
 import type { Album } from '../../types/album';
 
 type Props = {
-  data: any;
+  data: Album[];
 };
 
 const HomeAlbum = ({ data }: Props) => {
