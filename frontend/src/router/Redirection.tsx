@@ -14,7 +14,7 @@ const Redirection = () => {
     const params = new URL(document.location.toString()).searchParams;
     const code = params.get('code');
 
-    getKaKaoUser(fetchQuery({ code, text: '111' })).then((res) => {
+    getKaKaoUser(fetchQuery({ code })).then((res) => {
       if (res.status === HTTP_STATUS.OK) {
         setUser({ ...res.data });
         navigate('/');

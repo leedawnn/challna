@@ -8,7 +8,7 @@ type Props = {
   fetchNextPage: () => Promise<InfiniteQueryObserverResult>;
 };
 
-const useIntersectionObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }: Props) => {
+const useInfinityObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }: Props) => {
   const [target, setTarget] = useState<HTMLDivElement | null | undefined>(null);
 
   const observerCallback: IntersectionObserverCallback = (entires) => {
@@ -34,4 +34,4 @@ const useIntersectionObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }
   return { setTarget };
 };
 
-export default useIntersectionObserver;
+export default useInfinityObserver;

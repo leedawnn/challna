@@ -6,7 +6,7 @@ import NoneContent from '../../components/layout/NoneContent';
 import { fetchQuery } from '../../utils/fetchQuery';
 import { useAtomValue } from 'jotai';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import useIntersectionObserver from '../../hooks/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 
 const HomePage = () => {

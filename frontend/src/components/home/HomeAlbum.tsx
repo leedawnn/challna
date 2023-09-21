@@ -1,6 +1,7 @@
 import * as S from './HomeAlbum.styled';
 
 import type { Album } from '../../types/album';
+import LazyImage from '../common/LazyImage';
 
 type Props = {
   data: Album[];
@@ -11,7 +12,7 @@ const HomeAlbum = ({ data }: Props) => {
     <S.Container>
       {data?.map((album: Album, index: number) => (
         <S.AlbumWrapper key={album.id || index}>
-          <S.AlbumImage src={album.accessUrl} alt={album.originName} />
+          <LazyImage src={album.accessUrl} alt={album.originName} />
         </S.AlbumWrapper>
       ))}
     </S.Container>
