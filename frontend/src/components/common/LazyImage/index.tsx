@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import SkeletonImage from '../../ui/SkeletonImage';
 import styled from 'styled-components';
 import useLazyImageObserver from '../../../hooks/useLazyImageObserver';
 
@@ -8,9 +10,21 @@ type Props = {
 };
 
 const LazyImage = React.memo(({ src, alt }: Props) => {
+  const [isLoading, setIsLoading] = useState(true);
   const { imageSrc, imageRef } = useLazyImageObserver({ src });
 
-  return <Image ref={imageRef} src={imageSrc} alt={alt} />;
+  return (
+    <>
+      <Image
+        ref={imageRef}
+        src={imageSrc}
+        alt={alt}
+        onLoad={() => setIsLoading(false)}
+        style={{ visibility: !isLoading ? 'visible' : 'hidden' }}
+      />
+      {isLoading && <SkeletonImage />}
+    </>
+  );
 });
 
 export default LazyImage;

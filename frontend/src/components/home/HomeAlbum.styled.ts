@@ -14,6 +14,7 @@ export const AlbumWrapper = styled.div`
   height: auto;
 
   position: relative;
+  overflow: hidden;
 
   &:after {
     content: '';
