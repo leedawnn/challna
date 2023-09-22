@@ -10,7 +10,7 @@ type Props = {
 const LazyImage = React.memo(({ src, alt }: Props) => {
   const { imageSrc, imageRef } = useLazyImageObserver({ src });
 
-  return <Image ref={imageRef} src={imageSrc as string} alt={alt} />;
+  return <Image ref={imageRef} src={imageSrc} alt={alt} />;
 });
 
 export default LazyImage;
@@ -20,6 +20,8 @@ const Image = styled.img`
 
   width: 100%;
   height: 100%;
+
+  object-fit: cover;
 
   cursor: pointer;
 `;

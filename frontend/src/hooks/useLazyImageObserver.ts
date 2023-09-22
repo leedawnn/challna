@@ -5,7 +5,7 @@ type Props = {
 };
 
 const useLazyImageObserver = ({ src }: Props) => {
-  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [imageSrc, setImageSrc] = useState<string>();
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
