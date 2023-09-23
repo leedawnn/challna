@@ -11,7 +11,7 @@ const useLazyImageObserver = ({ src }: Props) => {
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
 
-    if (!imageSrc) {
+    if (imageRef) {
       observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
@@ -21,7 +21,7 @@ const useLazyImageObserver = ({ src }: Props) => {
             }
           }
         },
-        { threshold: [0.25] },
+        { threshold: [0.3] },
       );
 
       if (imageRef.current) {
@@ -32,7 +32,7 @@ const useLazyImageObserver = ({ src }: Props) => {
     return () => {
       observer && observer.disconnect();
     };
-  }, [imageSrc, imageRef]);
+  }, [imageRef, imageSrc]);
 
   return { imageSrc, imageRef };
 };
