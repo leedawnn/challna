@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { InfiniteQueryObserverResult } from '@tanstack/react-query';
 
@@ -9,15 +9,19 @@ type Props = {
 };
 
 const useInfinityObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }: Props) => {
-  const [target, setTarget] = useState<HTMLDivElement | null | undefined>(null);
+  const [target, setTarget] = useState<HTMLDivElement | null>(null);
 
-  const observerCallback: IntersectionObserverCallback = (entires) => {
-    entires.forEach((entry) => {
-      if (entry.isIntersecting && hasNextPage) {
-        fetchNextPage();
-      }
-    });
-  };
+  // 추후 fetchNextPage에 대한 에러 핸들링 부분 추가
+  const observerCallback: IntersectionObserverCallback = useCallback(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && hasNextPage) {
+          fetchNextPage();
+        }
+      });
+    },
+    [hasNextPage],
+  );
 
   useEffect(() => {
     if (!target) return;
@@ -29,7 +33,7 @@ const useInfinityObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }: Pr
     observer.observe(target);
 
     return () => observer.unobserve(target);
-  }, [observerCallback, threshold, target]);
+  }, [threshold, target]);
 
   return { setTarget };
 };
