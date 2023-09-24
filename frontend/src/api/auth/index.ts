@@ -5,6 +5,7 @@ import instance from '../axios';
 export const IS_VALID_TOKEN = ['auth', 'isValidToken'];
 
 export const getKaKaoUser = (queryString: string) => {
+  console.log('qqqqq', queryString);
   return instance({ url: `/login?${queryString}`, method: HTTP_METHOD.GET });
 };
 
