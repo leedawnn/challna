@@ -5,6 +5,8 @@ import DeletePhotoModal from '../../components/common/modal/DeletePhotoModal';
 const TestPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  localStorage.removeItem('ACCESS_TOKEN'); // 엑세스 토큰 없애서 만료된 것처럼 테스트...
+
   const handleDelete = () => {
     setIsModalOpen((prev) => !prev);
   };

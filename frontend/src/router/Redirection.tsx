@@ -18,13 +18,13 @@ const Redirection = () => {
     const code = params.get('code');
 
     getKaKaoUser(fetchQuery({ code })).then((res) => {
+      console.log('rrreeessss', res);
       if (res.status === HTTP_STATUS.OK) {
         setUser({ ...res.data.kakaoLoginEntity });
         setAccessToken('access_token'); // 임의의 엑세스 토큰 저장
         navigate('/');
       }
     });
-    navigate('/');
   }, []);
 
   return <></>;

@@ -1,4 +1,4 @@
-import { useSetAtom } from 'jotai';
+import { useAtom, useSetAtom } from 'jotai';
 import { accessTokenStore } from '../stores/accessToken';
 import { useMutation } from '@tanstack/react-query';
 import { IS_VALID_TOKEN, restoreAcccessToken } from '../api/auth';
@@ -11,17 +11,29 @@ interface ReissueReqData {
 }
 
 export async function getAccessToken() {
-  const setAccessToken = useSetAtom(accessTokenStore);
+  // const setAccessToken = useSetAtom(accessTokenStore);
+  const [accessToken, setAccessToken] = useAtom(accessTokenStore);
 
   try {
-    const result = useMutation(IS_VALID_TOKEN, (data: ReissueReqData) => restoreAcccessToken({ data }), {
-      onSuccess: (res) => {
-        if (res.status === HTTP_STATUS.OK) {
-          setAccessToken(res.data.accessToken);
-        }
+    const result = useMutation(
+      IS_VALID_TOKEN,
+      (data: ReissueReqData) =>
+        restoreAcccessToken({
+          headers: {
+            'X-AUTH-TOKEN': accessToken,
+          },
+          data,
+        }),
+      {
+        onSuccess: (res) => {
+          if (res.status === HTTP_STATUS.OK) {
+            // setAccessToken(res.data?.data.accessToken);
+            // setAccessToken('refresh_token'); // 임의의 리프레시 토큰
+            console.log('refresh!!!!!');
+          }
+        },
       },
-    });
-    console.log('토큰 res: ', result);
+    );
 
     const newAccessToken = result.data?.data.refreshToken;
     return newAccessToken;

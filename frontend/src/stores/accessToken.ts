@@ -5,11 +5,12 @@ import { getAccessToken } from '../hooks/getAccessToken';
 export const accessTokenStore = atom<string | null>(null);
 
 export const restoreAccessTokenAtom = atom(
-  (get) => get(userStore),
+  (get) => get(accessTokenStore),
   async (get, set) => {
-    if (!get(userStore)) return;
+    if (!get(accessTokenStore)) return;
     const newAccessToken = await getAccessToken();
 
     set(accessTokenStore, newAccessToken);
+    return newAccessToken;
   },
 );
