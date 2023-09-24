@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import SkeletonImage from '../../ui/SkeletonImage';
+import SkeletonImage from '../../skeleton/SkeletonImage';
 import styled from 'styled-components';
 import useLazyImageObserver from '../../../hooks/useLazyImageObserver';
 
