@@ -1,5 +1,4 @@
 import { atom } from 'jotai';
-import { userStore } from './userStore';
 import { getAccessToken } from '../hooks/getAccessToken';
 
 export const accessTokenStore = atom<string | null>(null);

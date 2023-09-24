@@ -28,7 +28,7 @@ export async function getAccessToken() {
         onSuccess: (res) => {
           if (res.status === HTTP_STATUS.OK) {
             // setAccessToken(res.data?.data.accessToken);
-            // setAccessToken('refresh_token'); // 임의의 리프레시 토큰
+            setAccessToken('refresh_token'); // 임의의 리프레시 토큰
             console.log('refresh!!!!!');
           }
         },

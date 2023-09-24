@@ -3,15 +3,16 @@ import { fetchQuery } from '../utils/fetchQuery';
 import { getKaKaoUser } from '../api/auth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAtom, useSetAtom } from 'jotai';
+import { useSetAtom } from 'jotai';
 import { userStore } from '../stores/userStore';
 import { atomWithStorage } from 'jotai/utils';
 
 const Redirection = () => {
   const navigate = useNavigate();
   const setUser = useSetAtom(userStore);
+
   const accessTokenAtom = atomWithStorage('ACCESS_TOKEN', '');
-  const [, setAccessToken] = useAtom(accessTokenAtom);
+  const setAccessToken = useSetAtom(accessTokenAtom);
 
   useEffect(() => {
     const params = new URL(document.location.toString()).searchParams;
