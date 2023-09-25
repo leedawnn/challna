@@ -31,10 +31,11 @@ const Layout = styled.header`
   z-index: 10;
 
   width: inherit;
+  height: 6rem;
 
   background-color: #fff;
 
-  padding: 1.7rem 2.4rem;
+  padding: 2rem 2.4rem;
   box-sizing: border-box;
   margin: 0 auto;
 `;
