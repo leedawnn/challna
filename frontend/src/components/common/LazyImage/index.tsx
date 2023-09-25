@@ -23,7 +23,7 @@ const LazyImage = React.memo(({ src, alt }: Props) => {
         onLoad={() => setIsLoading(false)}
         style={{ visibility: !isLoading ? 'visible' : 'hidden' }}
       />
-      {isLoading && <Skeleton.Image />}
+      {isLoading && <Skeleton.AlbumImage />}
     </>
   );
 });
