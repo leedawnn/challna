@@ -1,6 +1,7 @@
+import * as Skeleton from '../../common/Skeleton';
+
 import React, { useState } from 'react';
 
-import SkeletonImage from '../../skeleton/SkeletonImage';
 import styled from 'styled-components';
 import useLazyImageObserver from '../../../hooks/useLazyImageObserver';
 
@@ -22,7 +23,7 @@ const LazyImage = React.memo(({ src, alt }: Props) => {
         onLoad={() => setIsLoading(false)}
         style={{ visibility: !isLoading ? 'visible' : 'hidden' }}
       />
-      {isLoading && <SkeletonImage />}
+      {isLoading && <Skeleton.Image />}
     </>
   );
 });

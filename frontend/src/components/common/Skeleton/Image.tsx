@@ -10,7 +10,7 @@ const loading = keyframes`
   }
 `;
 
-const SkeletonImage = () => {
+const Image = () => {
   return (
     <Wrapper>
       <AnimationBar />
@@ -18,7 +18,7 @@ const SkeletonImage = () => {
   );
 };
 
-export default SkeletonImage;
+export default Image;
 
 const Wrapper = styled.div`
   width: 100%;
