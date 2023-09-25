@@ -1,18 +1,30 @@
-import HomeAlbum from "../../components/home/HomeAlbum";
-import NoneContent from "../../components/layout/NoneContent";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-
-const fetchGetQuery = () => {
-  return axios.get('/api/album');
-}
+import HomeAlbum from '../../components/home/HomeAlbum';
+import NoneContent from '../../components/layout/NoneContent';
+import { useAtomValue } from 'jotai';
+import useInfinityAlbum from '../../hooks/useInfinityAlbum';
+import useIntersectionObserver from '../../hooks/useInfinityObserver';
+import { userStore } from '../../stores/userStore';
 
 const HomePage = () => {
-  const { data: albumData } = useQuery(['album'], fetchGetQuery);
+  const users = useAtomValue(userStore);
+
+  const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users?.accessToken ?? '');
+
+  const { setTarget } = useIntersectionObserver({
+    hasNextPage,
+    fetchNextPage,
+  });
 
   return (
     <>
-      {albumData ? <HomeAlbum data={albumData.data.data || []}/> : <NoneContent contentType="main" />}
+      {albumData ? (
+        <>
+          <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
+          <div ref={setTarget} />
+        </>
+      ) : (
+        <NoneContent contentType="main" />
+      )}
     </>
   );
 };
