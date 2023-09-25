@@ -75,5 +75,7 @@ const UserTitle = styled.h3`
 //   justify-content: space-between;
 //   align-items: center;
 
-//   cursor: pointer;
+//   & > svg {
+//    cursor: pointer;
+//  }
 // `;
