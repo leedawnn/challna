@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { MEDIA_QUERY } from '../../../constants/styles';
+import { ROUTES_PATH } from '../../../constants/routes';
 // import BackButton from '../../../assets/icons/BackIcon';
 // import MoreIcon from '../../../assets/icons/MoreIcon';
 import RightButton from '../../../assets/icons/RightIcon';
@@ -11,7 +13,7 @@ const Header = () => {
 
   return (
     <Layout>
-      <UserWrapper>
+      <UserWrapper to={ROUTES_PATH.mypage}>
         <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
         <RightButton />
       </UserWrapper>
@@ -40,12 +42,15 @@ const Layout = styled.header`
   margin: 0 auto;
 `;
 
-const UserWrapper = styled.div`
+const UserWrapper = styled(Link)`
   width: max-content;
 
   display: flex;
   align-items: center;
   gap: 8px;
+
+  color: ${({ theme }) => theme.colors.black};
+  text-decoration: none;
 
   cursor: pointer;
 
