@@ -12,7 +12,7 @@ const Footer = () => {
           {FOOTER_MENUS.map((items) => (
             <MenuItem key={items.id}>
               <items.icon active={pathname === items.path} />
-              <MenuName current={pathname === items.path}>{items.name}</MenuName>
+              <MenuName $current={pathname === items.path}>{items.name}</MenuName>
             </MenuItem>
           ))}
         </MenuWrapper>
@@ -69,8 +69,8 @@ const MenuItem = styled.div`
   }
 `;
 
-const MenuName = styled.span<{ current: boolean }>`
-  color: ${(props) => (props.current ? props.theme.colors.point : props.theme.colors.lightGray4)};
+const MenuName = styled.span<{ $current: boolean }>`
+  color: ${(props) => (props.$current ? props.theme.colors.point : props.theme.colors.lightGray4)};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
   font-size: ${(props) => props.theme.typography.body1.fontSize};
   line-height: ${(props) => props.theme.typography.body1.lineHeight};
