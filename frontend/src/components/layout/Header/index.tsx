@@ -1,3 +1,4 @@
+import { MEDIA_QUERY } from '../../../constants/styles';
 // import BackButton from '../../../assets/icons/BackIcon';
 // import MoreIcon from '../../../assets/icons/MoreIcon';
 import RightButton from '../../../assets/icons/RightIcon';
@@ -30,11 +31,10 @@ const Layout = styled.header`
   z-index: 10;
 
   width: inherit;
-  height: 6rem;
 
   background-color: #fff;
 
-  padding: 2.2rem 2.4rem 0 2.4rem;
+  padding: 1.7rem 2.4rem;
   box-sizing: border-box;
   margin: 0 auto;
 `;
@@ -47,16 +47,26 @@ const UserWrapper = styled.div`
   gap: 8px;
 
   cursor: pointer;
+
+  & > svg {
+    width: 0.9em;
+    height: 0.9em;
+    padding-bottom: 3px;
+  }
 `;
 
 const UserTitle = styled.h3`
   font-family: ${({ theme }) => theme.typography.subHead3.fontFamily};
-  font-size: ${({ theme }) => theme.typography.subHead3.fontSize};
+  font-size: 2rem;
   line-height: ${({ theme }) => theme.typography.subHead3.lineHeight};
 
   margin: 0;
   padding: 2px;
   box-sizing: border-box;
+
+  ${MEDIA_QUERY.sm} {
+    font-size: ${({ theme }) => theme.typography.subHead4.fontSize};
+  }
 `;
 
 // const MoreWrapper = styled.div`
