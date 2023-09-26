@@ -42,6 +42,11 @@ declare module 'styled-components' {
         fontSize: string;
         lineHeight: string;
       };
+      subHead4: {
+        fontFamily: string;
+        fontSize: string;
+        lineHeight: string;
+      };
       headline: {
         fontFamily: string;
         fontSize: string;

@@ -1,6 +1,7 @@
-import { FOOTER_MENUS } from '../../../constants/styles';
+import { FOOTER_MENUS, MEDIA_QUERY } from '../../../constants/styles';
+import { Link, useLocation } from 'react-router-dom';
+
 import { styled } from 'styled-components';
-import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const { pathname } = useLocation();
@@ -10,7 +11,7 @@ const Footer = () => {
       <Container>
         <MenuWrapper>
           {FOOTER_MENUS.map((items) => (
-            <MenuItem key={items.id}>
+            <MenuItem to={items.path} key={items.id}>
               <items.icon active={pathname === items.path} />
               <MenuName $current={pathname === items.path}>{items.name}</MenuName>
             </MenuItem>
@@ -30,7 +31,8 @@ const Layout = styled.footer`
 
   max-width: 57.6rem;
   width: 100%;
-  height: 6.6rem;
+  height: 100%;
+  height: 8.6rem;
 
   background-color: #fff;
   border-top: 1px solid ${(props) => props.theme.colors.lightGray2};
@@ -50,28 +52,33 @@ const MenuWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+
   width: 100%;
+  height: 100%;
+
   margin: 0 4.8rem;
-  padding: 1rem 0;
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled(Link)`
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 4px;
 
-  cursor: pointer;
-
-  & > svg {
-    height: 24px;
-  }
+  text-decoration: none;
 `;
 
 const MenuName = styled.span<{ $current: boolean }>`
   color: ${(props) => (props.$current ? props.theme.colors.point : props.theme.colors.lightGray4)};
   font-family: ${(props) => props.theme.typography.body1.fontFamily};
-  font-size: ${(props) => props.theme.typography.body1.fontSize};
+  font-size: 14px;
   line-height: ${(props) => props.theme.typography.body1.lineHeight};
+
+  ${MEDIA_QUERY.sm} {
+    font-size: ${(props) => props.theme.typography.body1.fontSize};
+  }
 `;
