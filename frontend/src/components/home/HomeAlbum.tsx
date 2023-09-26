@@ -1,27 +1,22 @@
 import * as S from './HomeAlbum.styled';
 
-interface DummyData {
-  id: number;
-  name: string;
-  imgUrl: string;
-}
+import type { Album } from '../../types/album';
+import LazyImage from '../common/LazyImage';
 
 type Props = {
-  data: DummyData[];
+  data: Album[];
 };
 
 const HomeAlbum = ({ data }: Props) => {
   return (
     <S.Container>
-      {
-        data?.map((album: DummyData) => (
-          <S.AlbumWrapper>
-            <S.AlbumImage src={album.imgUrl} alt={album.name} />
-          </S.AlbumWrapper>
-        ))
-      }
+      {data?.map((album: Album, index: number) => (
+        <S.AlbumWrapper key={album.id || index}>
+          <LazyImage src={album.accessUrl} alt={album.originName} />
+        </S.AlbumWrapper>
+      ))}
     </S.Container>
   );
-}
+};
 
 export default HomeAlbum;

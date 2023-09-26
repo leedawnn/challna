@@ -16,7 +16,7 @@ const Redirection = () => {
 
     getKaKaoUser(fetchQuery({ code })).then((res) => {
       if (res.status === HTTP_STATUS.OK) {
-        setUser({ ...res.data.kakaoLoginEntity });
+        setUser({ ...res.data });
         navigate('/');
       }
     });
