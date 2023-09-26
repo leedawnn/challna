@@ -25,7 +25,7 @@ export const Container = styled.main`
   width: 100%;
   min-height: calc(var(--vh, 1vh) * 100);
 
-  padding-bottom: 5.7rem;
+  padding-bottom: 8.6rem;
 
   background-color: #fff;
 `;

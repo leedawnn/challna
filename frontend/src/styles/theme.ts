@@ -83,6 +83,11 @@ export const themeDefault: DefaultTheme = {
       fontSize: '16px',
       lineHeight: '22px',
     },
+    subHead4: {
+      fontFamily: 'NexonGothicBold',
+      fontSize: '18px',
+      lineHeight: '26px',
+    },
     headline: {
       fontFamily: 'NexonGothicBold',
       fontSize: '20px',
