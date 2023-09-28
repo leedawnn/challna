@@ -4,9 +4,10 @@ import './swiperCustom.css';
 
 import * as S from './AlbumDetail.styled';
 
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useEffect, useRef, useState } from 'react';
+
+import { useState } from 'react';
 
 const AlbumDeatilImage = () => {
   const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
