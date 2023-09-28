@@ -10,7 +10,7 @@ const loading = keyframes`
   }
 `;
 
-const Image = () => {
+const AlbumImage = () => {
   return (
     <Wrapper>
       <AnimationBar />
@@ -18,7 +18,7 @@ const Image = () => {
   );
 };
 
-export default Image;
+export default AlbumImage;
 
 const Wrapper = styled.div`
   width: 100%;
