@@ -8,8 +8,10 @@ import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { MAIN_ALBUM_KEY } from '../../api/album';
+import { albumDetailStore } from '../../stores/albumDetailStore';
 import { useLocation } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
+import { useSetAtom } from 'jotai';
 import { useState } from 'react';
 
 const AlbumDeatilImage = () => {
@@ -17,6 +19,15 @@ const AlbumDeatilImage = () => {
   const queryClient = useQueryClient();
   const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
   const { pages }: any = queryClient.getQueryData(MAIN_ALBUM_KEY);
+  const setAlbumDetails = useSetAtom(albumDetailStore);
+
+  const handleActiveAlbumSave = (swiper: any) => {
+    const currentImage = pages
+      .flatMap((page: any) => page.data.content)
+      .filter((_: any, index: number) => index === swiper.activeIndex);
+
+    setAlbumDetails(currentImage[0]);
+  };
 
   return (
     <>
@@ -28,12 +39,12 @@ const AlbumDeatilImage = () => {
           modules={[Thumbs, Navigation]}
           className="mySwiper"
           initialSlide={location.state.order}
-          onSlideChange={() => console.log('test')}
+          onSlideChange={handleActiveAlbumSave}
         >
           {pages
             ?.flatMap((page: any) => page.data.content)
             .map((item: any, index: number) => (
-              <SwiperSlide key={item.id || index}>
+              <SwiperSlide key={item.id || index} accessKey="hi">
                 <img src={item.accessUrl} alt={item.originName} />
               </SwiperSlide>
             ))}
