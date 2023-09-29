@@ -7,9 +7,12 @@ import * as S from './AlbumDetail.styled';
 import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 const AlbumDeatilImage = () => {
+  const location = useLocation();
+  console.log(location);
   const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
@@ -21,6 +24,7 @@ const AlbumDeatilImage = () => {
           thumbs={{ swiper: thumsSwiper && !thumsSwiper.destroyed ? thumsSwiper : null }}
           modules={[Thumbs, Navigation]}
           className="mySwiper"
+          initialSlide={location.state.order}
         >
           <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
@@ -124,6 +128,7 @@ const AlbumDeatilImage = () => {
             clickable: true,
           }}
           className="mySwiper2"
+          initialSlide={location.state.order}
         >
           <SwiperSlide>
             <img src="https://swiperjs.com/demos/images/nature-1.jpg" />

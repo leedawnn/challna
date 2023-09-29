@@ -1,26 +1,37 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+import BackButton from '../../../assets/icons/BackIcon';
 import { MEDIA_QUERY } from '../../../constants/styles';
+import MoreIcon from '../../../assets/icons/MoreIcon';
 import { ROUTES_PATH } from '../../../constants/routes';
-// import BackButton from '../../../assets/icons/BackIcon';
-// import MoreIcon from '../../../assets/icons/MoreIcon';
 import RightButton from '../../../assets/icons/RightIcon';
 import { styled } from 'styled-components';
 import { useAtomValue } from 'jotai';
 import { userStore } from '../../../stores/userStore';
+import { validateCheckDetail } from '../../../utils/validate';
 
 const Header = () => {
+  const { pathname } = useLocation();
+  const naviagte = useNavigate();
   const userInfo = useAtomValue(userStore);
+
+  const handleBackUrl = () => {
+    naviagte(-1);
+  };
 
   return (
     <Layout>
-      <UserWrapper to={ROUTES_PATH.mypage}>
-        <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
-        <RightButton />
-      </UserWrapper>
-      {/* <MoreWrapper>
-        <BackButton />
-        <MoreIcon />
-      </MoreWrapper> */}
+      {validateCheckDetail(pathname) ? (
+        <MoreWrapper>
+          <BackButton onClick={handleBackUrl} />
+          <MoreIcon />
+        </MoreWrapper>
+      ) : (
+        <UserWrapper to={ROUTES_PATH.mypage}>
+          <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
+          <RightButton />
+        </UserWrapper>
+      )}
     </Layout>
   );
 };
@@ -75,12 +86,12 @@ const UserTitle = styled.h3`
   }
 `;
 
-// const MoreWrapper = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
+const MoreWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-//   & > svg {
-//    cursor: pointer;
-//  }
-// `;
+  & > svg {
+    cursor: pointer;
+  }
+`;

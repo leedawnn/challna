@@ -4,5 +4,5 @@ export const ROUTES_PATH = {
   redirect: '/login/oauth2/callback/kakao',
   message: '/message',
   mypage: '/mypage',
-  albumDetail: '/album/:id',
+  albumDetail: '/album/details',
 } as const;

@@ -23,6 +23,7 @@ export const Layout = styled.div`
 
 export const Container = styled.main`
   width: 100%;
+  max-width: 100vw;
   min-height: calc(var(--vh, 1vh) * 100);
 
   padding-bottom: 8.6rem;

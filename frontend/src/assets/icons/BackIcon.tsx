@@ -1,6 +1,8 @@
-const BackIcon = () => {
+import type { ComponentPropsWithRef } from 'react';
+
+const BackIcon = (props: ComponentPropsWithRef<'svg'>) => {
   return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
