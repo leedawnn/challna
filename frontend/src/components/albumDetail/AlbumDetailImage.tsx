@@ -28,6 +28,7 @@ const AlbumDeatilImage = () => {
           modules={[Thumbs, Navigation]}
           className="mySwiper"
           initialSlide={location.state.order}
+          onSlideChange={() => console.log('test')}
         >
           {pages
             ?.flatMap((page: any) => page.data.content)
