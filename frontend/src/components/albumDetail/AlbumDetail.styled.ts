@@ -1,3 +1,4 @@
+import { MEDIA_QUERY } from '../../constants/styles';
 import styled from 'styled-components';
 
 export const Container = styled.section`
@@ -20,9 +21,13 @@ export const FooterContainer = styled.div`
 `;
 
 export const AlbumDataText = styled.span`
-  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  font-size: ${({ theme }) => theme.typography.body2.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   color: ${({ theme }) => theme.colors.gray1};
+
+  ${MEDIA_QUERY.sm} {
+    font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  }
 `;
 
 export const IconWrapper = styled.div`
@@ -30,6 +35,5 @@ export const IconWrapper = styled.div`
   align-items: center;
   gap: 30px;
 
-  padding-right: 24px;
   box-sizing: border-box;
 `;
