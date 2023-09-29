@@ -51,6 +51,8 @@ const Layout = styled.header`
   padding: 2rem 2.4rem;
   box-sizing: border-box;
   margin: 0 auto;
+
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray2};
 `;
 
 const UserWrapper = styled(Link)`

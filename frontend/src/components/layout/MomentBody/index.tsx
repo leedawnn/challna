@@ -29,4 +29,5 @@ export const Container = styled.main`
   padding-bottom: 8.6rem;
 
   background-color: #fff;
+  box-sizing: border-box;
 `;

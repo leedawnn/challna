@@ -7,13 +7,16 @@ import * as S from './AlbumDetail.styled';
 import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { MAIN_ALBUM_KEY } from '../../api/album';
 import { useLocation } from 'react-router-dom';
+import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 
 const AlbumDeatilImage = () => {
   const location = useLocation();
-  console.log(location);
+  const queryClient = useQueryClient();
   const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
+  const { pages }: any = queryClient.getQueryData(MAIN_ALBUM_KEY);
 
   return (
     <>
@@ -26,96 +29,13 @@ const AlbumDeatilImage = () => {
           className="mySwiper"
           initialSlide={location.state.order}
         >
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
+          {pages
+            ?.flatMap((page: any) => page.data.content)
+            .map((item: any, index: number) => (
+              <SwiperSlide key={item.id || index}>
+                <img src={item.accessUrl} alt={item.originName} />
+              </SwiperSlide>
+            ))}
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
@@ -130,97 +50,13 @@ const AlbumDeatilImage = () => {
           className="mySwiper2"
           initialSlide={location.state.order}
         >
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-          </SwiperSlide>
+          {pages
+            ?.flatMap((page: any) => page.data.content)
+            .map((item: any, index: number) => (
+              <SwiperSlide key={item.id || index}>
+                <img src={item.accessUrl} alt={item.originName} />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </S.Container>
     </>
