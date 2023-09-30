@@ -26,8 +26,6 @@ export const Container = styled.main`
   max-width: 100vw;
   min-height: calc(var(--vh, 1vh) * 100);
 
-  padding-bottom: 8.6rem;
-
   background-color: #fff;
   box-sizing: border-box;
 `;
