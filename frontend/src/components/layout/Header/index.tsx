@@ -44,11 +44,9 @@ const Layout = styled.header`
   z-index: 10;
 
   width: inherit;
-  height: 6rem;
 
   background-color: #fff;
 
-  padding: 2rem 2.4rem;
   box-sizing: border-box;
   margin: 0 auto;
 
@@ -57,6 +55,7 @@ const Layout = styled.header`
 
 const UserWrapper = styled(Link)`
   width: max-content;
+  height: 8rem;
 
   display: flex;
   align-items: center;
@@ -65,6 +64,8 @@ const UserWrapper = styled(Link)`
   color: ${({ theme }) => theme.colors.black};
   text-decoration: none;
 
+  padding: 34px 0 20px 24px;
+  box-sizing: border-box;
   cursor: pointer;
 
   & > svg {
@@ -89,9 +90,14 @@ const UserTitle = styled.h3`
 `;
 
 const MoreWrapper = styled.div`
+  height: 6rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 1.6rem 2rem;
+  box-sizing: border-box;
 
   & > svg {
     cursor: pointer;
