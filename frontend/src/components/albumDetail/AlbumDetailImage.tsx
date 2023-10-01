@@ -7,6 +7,7 @@ import * as S from './AlbumDetail.styled';
 import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import type { Album } from '../../types/album';
 import { MAIN_ALBUM_KEY } from '../../api/album';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { useLocation } from 'react-router-dom';
@@ -43,9 +44,9 @@ const AlbumDeatilImage = () => {
         >
           {pages
             ?.flatMap((page: any) => page.data.content)
-            .map((item: any, index: number) => (
-              <SwiperSlide key={item.id || index} accessKey="hi">
-                <img src={item.accessUrl} alt={item.originName} />
+            .map((album: Album, index: number) => (
+              <SwiperSlide key={album.id || index} accessKey="hi">
+                <img src={album.accessUrl} alt={album.originName} />
               </SwiperSlide>
             ))}
         </Swiper>
@@ -64,9 +65,9 @@ const AlbumDeatilImage = () => {
         >
           {pages
             ?.flatMap((page: any) => page.data.content)
-            .map((item: any, index: number) => (
-              <SwiperSlide key={item.id || index}>
-                <img src={item.accessUrl} alt={item.originName} />
+            .map((album: Album, index: number) => (
+              <SwiperSlide key={album.id || index}>
+                <img src={album.resizeUrl} alt={album.originName} />
               </SwiperSlide>
             ))}
         </Swiper>

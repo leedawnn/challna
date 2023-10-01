@@ -15,7 +15,7 @@ const HomeAlbum = ({ data }: Props) => {
       {data?.map((album: Album, index: number) => (
         <S.AlbumWrapper key={album.id || index}>
           <Link to={ROUTES_PATH.albumDetail} state={{ order: index }}>
-            <LazyImage src={album.accessUrl} alt={album.originName} />
+            <LazyImage src={album.resizeUrl} alt={album.originName} />
           </Link>
         </S.AlbumWrapper>
       ))}

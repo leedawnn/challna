@@ -36,4 +36,8 @@ export const IconWrapper = styled.div`
   gap: 30px;
 
   box-sizing: border-box;
+
+  & > svg {
+    cursor: pointer;
+  }
 `;

@@ -13,7 +13,7 @@ const AlbumDetailFooter = () => {
     <S.FooterContainer>
       <S.AlbumDataText> {formatDate(albumDetail?.metaDateTime)} </S.AlbumDataText>
       <S.IconWrapper>
-        <MessageDetailIcon />
+        {albumDetail?.contentCheck && <MessageDetailIcon />}
         <DeleteDetailIocn />
       </S.IconWrapper>
     </S.FooterContainer>
