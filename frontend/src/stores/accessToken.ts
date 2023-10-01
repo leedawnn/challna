@@ -1,5 +1,5 @@
 import { atom } from 'jotai';
-import { getAccessToken } from '../hooks/getAccessToken';
+import { useGetAccessToken } from '../hooks/useGetAccessToken';
 
 export const accessTokenStore = atom<string | null>(null);
 
@@ -7,7 +7,7 @@ export const restoreAccessTokenAtom = atom(
   (get) => get(accessTokenStore),
   async (get, set) => {
     if (!get(accessTokenStore)) return;
-    const newAccessToken = await getAccessToken();
+    const newAccessToken = await useGetAccessToken();
 
     set(accessTokenStore, newAccessToken);
     return newAccessToken;
