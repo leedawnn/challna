@@ -23,13 +23,13 @@ const queryClient = new QueryClient({
 
 initializeMockupWorker().then(() => {
   root.render(
-    // <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Provider>
-        <GlobalStyle />
-        <RouterProvider router={router} />
-      </Provider>
-    </QueryClientProvider>,
-    // </StrictMode>,
+    <StrictMode>
+      <QueryClientProvider client={queryClient}>
+        <Provider>
+          <GlobalStyle />
+          <RouterProvider router={router} />
+        </Provider>
+      </QueryClientProvider>
+    </StrictMode>,
   );
 });
