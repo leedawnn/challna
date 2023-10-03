@@ -4,6 +4,7 @@ export type Album = {
   id: number | null;
   kakaoId: number;
   metaDateTime: string;
+  resizeUrl: string;
+  contentCheck: boolean;
   originName: string;
-  storedName: string;
 };

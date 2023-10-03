@@ -1,11 +1,12 @@
+import AlbumDetailPage from '../pages/AlbumDetail';
 import App from '../App';
 import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
-import TestPage from '../pages/Test';
 import PrivateProvider from './PrivateProvider';
 import PublicProvider from './PublicProvider';
 import { ROUTES_PATH } from '../constants/routes';
 import Redirection from './Redirection';
+import TestPage from '../pages/Test';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
@@ -18,6 +19,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateProvider>
             <HomePage />
+          </PrivateProvider>
+        ),
+      },
+      {
+        path: ROUTES_PATH.albumDetail,
+        element: (
+          <PrivateProvider>
+            <AlbumDetailPage />
           </PrivateProvider>
         ),
       },

@@ -2,23 +2,28 @@ import { FOOTER_MENUS, MEDIA_QUERY } from '../../../constants/styles';
 import { Link, useLocation } from 'react-router-dom';
 
 import { styled } from 'styled-components';
+import { validateCheckDetail } from '../../../utils/validate';
 
 const Footer = () => {
   const { pathname } = useLocation();
 
   return (
-    <Layout>
-      <Container>
-        <MenuWrapper>
-          {FOOTER_MENUS.map((items) => (
-            <MenuItem to={items.path} key={items.id}>
-              <items.icon active={pathname === items.path} />
-              <MenuName $current={pathname === items.path}>{items.name}</MenuName>
-            </MenuItem>
-          ))}
-        </MenuWrapper>
-      </Container>
-    </Layout>
+    <>
+      {!validateCheckDetail(pathname) && (
+        <Layout>
+          <Container>
+            <MenuWrapper>
+              {FOOTER_MENUS.map((items) => (
+                <MenuItem to={items.path} key={items.id}>
+                  <items.icon active={pathname === items.path} />
+                  <MenuName $current={pathname === items.path}>{items.name}</MenuName>
+                </MenuItem>
+              ))}
+            </MenuWrapper>
+          </Container>
+        </Layout>
+      )}
+    </>
   );
 };
 
