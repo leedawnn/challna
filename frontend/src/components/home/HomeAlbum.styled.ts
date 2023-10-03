@@ -5,6 +5,7 @@ export const Container = styled.section`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 7.5px;
 
+  padding-bottom: 8.6rem;
   box-sizing: border-box;
 `;
 
