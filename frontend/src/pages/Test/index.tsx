@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import DeletePhotoModal from '../../components/common/modal/DeletePhotoModal';
+import { withAuth } from '../../hoc/withAuth';
 
 const TestPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,4 +32,4 @@ const TestPage = () => {
   );
 };
 
-export default TestPage;
+export default withAuth(TestPage);
