@@ -4,12 +4,6 @@ on:
   pull_request:
     branches:
       - develop
-    paths:
-      - 'frontend/**'
-      - .github/workflows/frontend-deploy-work.yml
-
-env:
-  working-directory: ./frontend
 
 jobs:
   build:
@@ -20,16 +14,14 @@ jobs:
       
       - name: Generate Environment Variables File
         run: |
-          echo "VITE_JAVASCRIPT_KEY=${{ secrets.VITE_JAVASCRIPT_KEY }}" >> ${{ env.working-directory }}/.env
-          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> ${{ env.working-directory }}/.env
+          echo "VITE_JAVASCRIPT_KEY=${{ secrets.VITE_JAVASCRIPT_KEY }}" >> .env
+          echo "VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}" >> .env
 
       - name: Install dependencies
         run: yarn install
-        working-directory: ${{ env.working-directory }}
 
       - name: Build
         run: yarn build
-        working-directory: ${{ env.working-directory }}
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -40,7 +32,6 @@ jobs:
 
       - name: Upload to S3
         run: aws s3 cp --recursive --region ap-northeast-2 dist s3://moment-bucket-1
-        working-directory: ${{ env.working-directory }}
 
       - name: Invalidate CloudFront Distribution
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
