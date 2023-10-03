@@ -4,12 +4,7 @@ import { useMutation } from '@tanstack/react-query';
 import { IS_VALID_TOKEN, restoreAcccessToken } from '../api/auth';
 import { HTTP_STATUS } from '../constants/api';
 import { atomWithStorage } from 'jotai/utils';
-
-interface ReissueReqData {
-  accessToken: string;
-  refreshToken: string;
-  accessTokenExpireDate: Date;
-}
+import { AuthToken } from '../types/user';
 
 export async function useGetAccessToken() {
   const [accessToken, setAccessToken] = useAtom(accessTokenStore);
@@ -20,7 +15,7 @@ export async function useGetAccessToken() {
   try {
     const result = useMutation(
       IS_VALID_TOKEN,
-      (data: ReissueReqData) =>
+      (data: AuthToken) =>
         restoreAcccessToken({
           headers: {
             'X-AUTH-TOKEN': accessToken,
