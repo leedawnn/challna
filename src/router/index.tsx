@@ -27,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/test',
-        Component: withAuth(TestPage),
+        element: <TestPage />,
       },
     ],
   },
