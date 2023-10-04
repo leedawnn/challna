@@ -1,18 +1,16 @@
-import { useAtomValue } from 'jotai';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import { ROUTES_PATH } from '../constants/routes';
 import { accessTokenStore } from '../stores/accessToken';
+import { useAtomValue } from 'jotai';
 
-// 추후 React.ComponentType을 명확하게 명시해줘야함
-export const withAuth = (WrappedComponent: React.ComponentType) => (props: any) => {
-  const accessToken = useAtomValue(accessTokenStore);
-  const navigate = useNavigate();
+// 추후 제네릭으로 선언한 부분에 props로 넘겨주는 값이 있을 경우, 추가 선언 필요
 
-  useEffect(() => {
-    if (!accessToken) {
-      navigate('/login');
-    }
-  }, [accessToken]);
+export const withAuth =
+  (Component: React.ComponentType) =>
+  <P extends {}>(props: P) => {
+    const accessToken = useAtomValue(accessTokenStore);
 
-  return <WrappedComponent {...props} />;
-};
+    if (!accessToken) return <Navigate to={ROUTES_PATH.login} />;
+
+    return <Component {...props} />;
+  };
