@@ -6,6 +6,7 @@ import LoginPage from '../pages/Login';
 import { ROUTES_PATH } from '../constants/routes';
 import TestPage from '../pages/Test';
 import { createBrowserRouter } from 'react-router-dom';
+import { withAuth } from '../hoc/withAuth';
 
 const router = createBrowserRouter([
   {
@@ -14,11 +15,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        Component: withAuth(HomePage),
       },
       {
         path: ROUTES_PATH.albumDetail,
-        element: <AlbumDetailPage />,
+        Component: withAuth(AlbumDetailPage),
       },
       {
         path: ROUTES_PATH.login,
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/test',
-        element: <TestPage />,
+        Component: withAuth(TestPage),
       },
     ],
   },
