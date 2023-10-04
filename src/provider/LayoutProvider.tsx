@@ -33,7 +33,7 @@ export default LayoutProvider;
 
 const Layout = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 
   background-color: rgb(245, 245, 245);
 `;
