@@ -22,7 +22,7 @@ const AlbumDetailFooter = () => {
         {isVisible &&
           createPortal(
             <DeletePhotoModal isModalOpen={isVisible} handleChangeVisible={handleChangeVisible} />,
-            document.body,
+            document.getElementById('modal-root') as HTMLElement,
           )}
       </S.IconWrapper>
     </S.FooterContainer>
