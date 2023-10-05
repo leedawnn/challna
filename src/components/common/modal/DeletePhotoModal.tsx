@@ -1,4 +1,3 @@
-import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useRef } from 'react';
 
 import styled from 'styled-components';
@@ -18,26 +17,22 @@ import { MEDIA_QUERY } from '../../../constants/styles';
 
 type DeleteModalProps = {
   isModalOpen: boolean;
-  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  handleChangeVisible: () => void;
 };
 
-const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => {
+const DeletePhotoModal = ({ isModalOpen, handleChangeVisible }: DeleteModalProps) => {
   const deletePhotoModalRef = useRef<HTMLDivElement>(null);
 
   const handlePhotoDelete = () => {
     // 삭제 로직 추가 예정
 
-    setIsModalOpen((prev: boolean) => !prev);
-  };
-
-  const handleCancelDelete = () => {
-    setIsModalOpen((prev: boolean) => !prev);
+    handleChangeVisible();
   };
 
   useEffect(() => {
     const closeDeleteModal = (e: MouseEvent) => {
       if (isModalOpen && deletePhotoModalRef.current && !deletePhotoModalRef.current.contains(e.target as Node)) {
-        setIsModalOpen(false);
+        handleChangeVisible();
       }
     };
 
@@ -46,7 +41,7 @@ const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => 
     return () => {
       document.removeEventListener('mousedown', closeDeleteModal);
     };
-  }, [isModalOpen, setIsModalOpen]);
+  }, [isModalOpen, handleChangeVisible]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -79,7 +74,7 @@ const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => 
         <DeleteModalWrapper>
           <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
           <DeleteButton onClick={handlePhotoDelete}>삭제</DeleteButton>
-          <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
+          <ModalCloseButton onClick={handleChangeVisible}>취소</ModalCloseButton>
         </DeleteModalWrapper>
       </Layout>
     </ModalBackground>
