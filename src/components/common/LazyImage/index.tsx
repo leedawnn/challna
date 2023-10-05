@@ -1,8 +1,7 @@
-import * as Skeleton from '../../common/Skeleton';
-
 import React, { useState } from 'react';
 
 import styled from 'styled-components';
+import * as Skeleton from '../Skeleton';
 import useLazyImageObserver from '../../../hooks/useLazyImageObserver';
 
 type Props = {

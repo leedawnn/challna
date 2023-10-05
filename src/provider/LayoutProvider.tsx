@@ -1,9 +1,9 @@
+import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import Footer from '../components/layout/Footer';
 import Header from '../components/layout/Header';
 import MomentBody from '../components/layout/MomentBody';
 import { ROUTES_PATH } from '../constants/routes';
-import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
 
 type Props = {
   children: React.ReactNode;

@@ -1,11 +1,11 @@
-import LayoutProvider from './provider/LayoutProvider';
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { useEffect } from 'react';
+import LayoutProvider from './provider/LayoutProvider';
 import { setScreenSize } from './utils/styles';
 import { themeDefault } from './styles/theme';
-import { useEffect } from 'react';
 
-function App() {
+const App = () => {
   useEffect(() => {
     setScreenSize();
 
@@ -21,6 +21,6 @@ function App() {
       </LayoutProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

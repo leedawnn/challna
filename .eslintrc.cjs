@@ -3,7 +3,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    module: 'node',
+    node: true,
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', '@typescript-eslint', 'prettier'],
@@ -51,16 +51,35 @@ module.exports = {
     // 중첩된 삼항 연산자(nested ternary operator)의 사용을 금지
     'no-nested-ternary': 0,
     // 파일의 경로가 틀렸는지 확인하는 옵션 false
-    'import/no-unresolved': ['error', { caseSensitive: false }],
-    // props spreading 허용하지 않는 경고 표시
-    'react/jsx-props-no-spreading': [1, { custom: 'ignore' }],
+    'import/no-unresolved': 0,
     'linebreak-style': 0,
     'import/extensions': 0,
     'no-use-before-define': 0,
     // 테스트 또는 개발환경을 구성 파일에서는 devDependency 사용 허용
     'import/no-extraneous-dependencies': 0,
+    // 변수나 함수 이름이 외부 범위와 중복되는 것을 방지
     'no-shadow': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
+    // props spreading 허용하지 않는 경고 표시
+    'react/jsx-props-no-spreading': 0,
+    // --noImplicitAny 옵션을 false로
+    '@typescript-eslint/no-explicit-any': 'off',
+    // 지정된 전역 변수를 허용하지 않음
+    'no-restricted-globals': 'off',
+    // 화살표 함수 인수와 관련
+    'arrow-parens': 1,
+    // 불필요한 fragment 허용하지 않기
+    'react/jsx-no-useless-fragment': 0,
+    // return 문에서 값을 항상 지정하거나 절대 지정하지 않도록 하는 옵션
+    'consistent-return': 0,
+    // React 컴포넌트의 props에 대한 기본값(defaultProps)을 명시적으로 지정하도록 하는 옵션
+    'react/require-default-props': 0,
+    // 옵션을 통해 특정 타입 밴 가능하고, 해당 타입 사용 시 warn
+    '@typescript-eslint/ban-types': 0,
+    // 사용하지 않는 표현식 금지하는 옵션
+    'no-unused-expressions': 0,
+    // Hook에 누락된 종속성이 있을 때 경고
+    'react-hooks/exhaustive-deps': 0,
   },
   settings: {
     'import/resolver': {
@@ -69,4 +88,4 @@ module.exports = {
       },
     },
   },
-}
+};

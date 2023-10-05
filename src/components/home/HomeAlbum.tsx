@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom';
 import * as S from './HomeAlbum.styled';
 
 import type { Album } from '../../types/album';
 import LazyImage from '../common/LazyImage';
-import { Link } from 'react-router-dom';
 import { ROUTES_PATH } from '../../constants/routes';
 
 type Props = {

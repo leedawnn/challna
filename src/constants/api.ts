@@ -1,8 +1,8 @@
 export const HTTP_METHOD = {
-  GET: "GET",
-  POST: "POST",
-  DELETE: "DELETE",
-  PATCH: "PATCH",
+  GET: 'GET',
+  POST: 'POST',
+  DELETE: 'DELETE',
+  PATCH: 'PATCH',
 } as const;
 
 export const HTTP_STATUS = {

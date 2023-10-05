@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 interface ReturnResult {
   isKaKaoInit: boolean;
@@ -24,19 +24,18 @@ const useKakaoLogin: UseKakaoLogin = () => {
         setIsKaKaoInit(false);
       }
     }
-  }, [])
+  }, []);
 
   const handleKakaoLogin = () => {
     kakao.Auth.authorize({
       redirectUri: `${import.meta.env.VITE_BASE_URL}/login/oauth2/callback/kakao`,
     });
-  }
-
+  };
 
   return {
     isKaKaoInit,
     handleKakaoLogin,
-  }
+  };
 };
 
 export default useKakaoLogin;

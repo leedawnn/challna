@@ -1,10 +1,10 @@
+import { useAtomValue } from 'jotai';
 import * as S from './AlbumDetail.styled';
 
-import DeleteDetailIocn from '../../assets/icons/DeleteDetailIcon';
+import DeleteIcon from '../../assets/icons/DeleteIcon';
 import MessageDetailIcon from '../../assets/icons/MessageDetailIcon';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { formatDate } from '../../utils/formatDate';
-import { useAtomValue } from 'jotai';
 
 const AlbumDetailFooter = () => {
   const albumDetail = useAtomValue(albumDetailStore);
@@ -14,7 +14,7 @@ const AlbumDetailFooter = () => {
       <S.AlbumDataText> {formatDate(albumDetail?.metaDateTime)} </S.AlbumDataText>
       <S.IconWrapper>
         {albumDetail?.contentCheck && <MessageDetailIcon />}
-        <DeleteDetailIocn />
+        <DeleteIcon active={false} />
       </S.IconWrapper>
     </S.FooterContainer>
   );

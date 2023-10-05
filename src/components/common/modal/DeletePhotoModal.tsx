@@ -1,5 +1,6 @@
-import { useEffect, useRef } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useRef } from 'react';
+
 import styled from 'styled-components';
 import { MEDIA_QUERY } from '../../../constants/styles';
 
@@ -26,11 +27,11 @@ const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => 
   const handlePhotoDelete = () => {
     // 삭제 로직 추가 예정
 
-    setIsModalOpen((prev) => !prev);
+    setIsModalOpen((prev: boolean) => !prev);
   };
 
   const handleCancelDelete = () => {
-    setIsModalOpen((prev) => !prev);
+    setIsModalOpen((prev: boolean) => !prev);
   };
 
   useEffect(() => {
@@ -45,7 +46,7 @@ const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => 
     return () => {
       document.removeEventListener('mousedown', closeDeleteModal);
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, setIsModalOpen]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -73,19 +74,15 @@ const DeletePhotoModal = ({ isModalOpen, setIsModalOpen }: DeleteModalProps) => 
   }, []);
 
   return (
-    <>
-      {isModalOpen && (
-        <ModalBackground>
-          <Layout ref={deletePhotoModalRef}>
-            <DeleteModalWrapper>
-              <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
-              <DeleteButton onClick={handlePhotoDelete}>삭제</DeleteButton>
-              <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
-            </DeleteModalWrapper>
-          </Layout>
-        </ModalBackground>
-      )}
-    </>
+    <ModalBackground>
+      <Layout ref={deletePhotoModalRef}>
+        <DeleteModalWrapper>
+          <ModalConfirmText>정말 삭제 하시겠습니까?</ModalConfirmText>
+          <DeleteButton onClick={handlePhotoDelete}>삭제</DeleteButton>
+          <ModalCloseButton onClick={handleCancelDelete}>취소</ModalCloseButton>
+        </DeleteModalWrapper>
+      </Layout>
+    </ModalBackground>
   );
 };
 
@@ -116,7 +113,7 @@ const Layout = styled.div`
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); // 임의 box-shadow
 
   max-width: 57.6rem;
@@ -141,10 +138,10 @@ const DeleteModalWrapper = styled.div`
 `;
 
 const ModalConfirmText = styled.span`
-  color: ${(props) => props.theme.colors.black};
-  font-family: ${(props) => props.theme.typography.body2.fontFamily};
-  font-size: ${(props) => props.theme.typography.body2.fontSize};
-  line-height: ${(props) => props.theme.typography.body2.lineHeight};
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.typography.body2.fontFamily};
+  font-size: ${({ theme }) => theme.typography.body2.fontSize};
+  line-height: ${({ theme }) => theme.typography.body2.lineHeight};
 
   margin-bottom: 1rem;
 `;
@@ -155,13 +152,13 @@ const DeleteButton = styled.button`
   border-style: none;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(244, 89, 89, 0.5);
-  background-color: ${(props) => props.theme.colors.red};
+  background-color: ${({ theme }) => theme.colors.red};
   margin-bottom: 5px;
 
-  color: ${(props) => props.theme.colors.white};
-  font-family: ${(props) => props.theme.typography.subHead2.fontFamily};
-  font-size: ${(props) => props.theme.typography.subHead2.fontSize};
-  line-height: ${(props) => props.theme.typography.subHead2.lineHeight};
+  color: ${({ theme }) => theme.colors.white};
+  font-family: ${({ theme }) => theme.typography.subHead2.fontFamily};
+  font-size: ${({ theme }) => theme.typography.subHead2.fontSize};
+  line-height: ${({ theme }) => theme.typography.subHead2.lineHeight};
 
   cursor: pointer;
 `;
