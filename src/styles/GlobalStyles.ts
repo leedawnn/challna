@@ -1,7 +1,7 @@
+import { createGlobalStyle } from 'styled-components';
 import NexonGothicBold from '../assets/fonts/NexonGothicBold.woff';
 import NexonGothicLight from '../assets/fonts/NexonGothicLight.woff';
 import NexonGothicMedium from '../assets/fonts/NexonGothicMedium.woff';
-import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -131,6 +131,7 @@ const GlobalStyle = createGlobalStyle`
   [type="reset"],
   [type="submit"] {
     -webkit-appearance: button;
+    appearance: button;
   }
 
   button::-moz-focus-inner,
@@ -182,6 +183,7 @@ const GlobalStyle = createGlobalStyle`
 
   [type="search"] {
     -webkit-appearance: textfield; /* 1 */
+    appearance: textfield;
     outline-offset: -2px; /* 2 */
   }
 

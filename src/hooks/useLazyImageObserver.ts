@@ -30,7 +30,7 @@ const useLazyImageObserver = ({ src }: Props) => {
     }
 
     return () => {
-      observer && observer.disconnect();
+      observer?.disconnect();
     };
   }, [imageRef, imageSrc]);
 

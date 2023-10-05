@@ -1,8 +1,8 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useRef } from 'react';
 
-import DeleteIcon from '../../../assets/icons/DeleteIcon';
 import styled from 'styled-components';
+import DeleteIcon from '../../../assets/icons/DeleteIcon';
 
 /**
  *
@@ -25,7 +25,7 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleMessageDelete = () => {
-    setIsModalOpen((prev) => !prev);
+    setIsModalOpen((prev: boolean) => !prev);
 
     // 삭제 로직 추가 예정
   };
@@ -42,7 +42,7 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
     return () => {
       document.removeEventListener('mousedown', closeModal);
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, setIsModalOpen]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -70,18 +70,14 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
   }, []);
 
   return (
-    <>
-      {isModalOpen && (
-        <ModalBackground>
-          <Layout ref={modalRef}>
-            <DeleteModalWrapper onClick={handleMessageDelete}>
-              <DeleteIcon />
-              <DeleteText>삭제</DeleteText>
-            </DeleteModalWrapper>
-          </Layout>
-        </ModalBackground>
-      )}
-    </>
+    <ModalBackground>
+      <Layout ref={modalRef}>
+        <DeleteModalWrapper onClick={handleMessageDelete}>
+          <DeleteIcon active />
+          <DeleteText>삭제</DeleteText>
+        </DeleteModalWrapper>
+      </Layout>
+    </ModalBackground>
   );
 };
 
@@ -111,7 +107,7 @@ const Layout = styled.div`
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: ${(props) => props.theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); // 임의 box-shadow
 
   max-width: 57.6rem;
@@ -129,6 +125,6 @@ const DeleteModalWrapper = styled.div`
 `;
 
 const DeleteText = styled.span`
-  color: ${(props) => props.theme.colors.red};
+  color: ${({ theme }) => theme.colors.red};
   margin-left: 1.2rem;
 `;
