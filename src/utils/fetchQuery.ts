@@ -6,7 +6,7 @@ const generateQueryString = ([key, value]: QueryString) => {
   }
 
   return `${key}=${encodeURIComponent(value)}`;
-}
+};
 
 export const fetchQuery = ({ ...rest }) => {
   const params = {
@@ -15,7 +15,7 @@ export const fetchQuery = ({ ...rest }) => {
 
   const queryString = Object.entries(params)
     .flatMap(([key, value]: any) => {
-      if (value === undefined || value === null || value === "") {
+      if (value === undefined || value === null || value === '') {
         return [];
       }
 
@@ -24,5 +24,5 @@ export const fetchQuery = ({ ...rest }) => {
     .filter(Boolean)
     .join('&');
 
-    return queryString;
-}
+  return queryString;
+};

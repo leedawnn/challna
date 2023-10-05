@@ -1,10 +1,11 @@
 import { useAtom, useSetAtom } from 'jotai';
-import { accessTokenStore } from '../stores/accessToken';
+import { atomWithStorage } from 'jotai/utils';
 import { useMutation } from '@tanstack/react-query';
 import { IS_VALID_TOKEN, restoreAcccessToken } from '../api/auth';
-import { HTTP_STATUS } from '../constants/api';
-import { atomWithStorage } from 'jotai/utils';
+
 import { AuthToken } from '../types/user';
+import { HTTP_STATUS } from '../constants/api';
+import { accessTokenStore } from '../stores/accessToken';
 
 export async function useGetAccessToken() {
   const [accessToken, setAccessToken] = useAtom(accessTokenStore);

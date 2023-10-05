@@ -1,12 +1,12 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import { styled } from 'styled-components';
+import { useAtomValue } from 'jotai';
 import BackButton from '../../../assets/icons/BackIcon';
 import { MEDIA_QUERY } from '../../../constants/styles';
 import MoreIcon from '../../../assets/icons/MoreIcon';
 import { ROUTES_PATH } from '../../../constants/routes';
 import RightButton from '../../../assets/icons/RightIcon';
-import { styled } from 'styled-components';
-import { useAtomValue } from 'jotai';
 import { userStore } from '../../../stores/userStore';
 import { validateCheckDetail } from '../../../utils/validate';
 

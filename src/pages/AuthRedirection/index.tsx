@@ -1,11 +1,11 @@
-import { HTTP_STATUS } from '../../constants/api';
-import { accessTokenStore } from '../../stores/accessToken';
 import { atomWithStorage } from 'jotai/utils';
-import { fetchQuery } from '../../utils/fetchQuery';
-import { getKaKaoUser } from '../../api/auth';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
+import { HTTP_STATUS } from '../../constants/api';
+import { accessTokenStore } from '../../stores/accessToken';
+import { fetchQuery } from '../../utils/fetchQuery';
+import { getKaKaoUser } from '../../api/auth';
 import { userStore } from '../../stores/userStore';
 
 const AuthRedirection = () => {
