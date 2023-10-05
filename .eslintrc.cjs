@@ -3,7 +3,6 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    module: 'node',
   },
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', '@typescript-eslint', 'prettier'],
@@ -61,6 +60,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
     'no-shadow': 0,
     'jsx-a11y/no-noninteractive-element-interactions': 0,
+    'react/jsx-props-no-spreading': 0,
   },
   settings: {
     'import/resolver': {
@@ -69,4 +69,4 @@ module.exports = {
       },
     },
   },
-}
+};
