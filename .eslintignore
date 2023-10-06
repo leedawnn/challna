@@ -16,3 +16,6 @@ jest.setup.*
 # storybook
 .storybook
 src/stories/
+
+# Mock
+src/mocks

@@ -1,4 +1,3 @@
-import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useRef } from 'react';
 
 import styled from 'styled-components';
@@ -18,14 +17,14 @@ import DeleteIcon from '../../../assets/icons/DeleteIcon';
 
 type MessageMenuModalProps = {
   isModalOpen: boolean;
-  setIsModalOpen: Dispatch<SetStateAction<boolean>>;
+  handleChangeVisible: () => void;
 };
 
-const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps) => {
+const MessageMenuModal = ({ isModalOpen, handleChangeVisible }: MessageMenuModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleMessageDelete = () => {
-    setIsModalOpen((prev: boolean) => !prev);
+    handleChangeVisible();
 
     // 삭제 로직 추가 예정
   };
@@ -33,7 +32,7 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
   useEffect(() => {
     const closeModal = (e: MouseEvent) => {
       if (isModalOpen && modalRef.current && !modalRef.current.contains(e.target as Node)) {
-        setIsModalOpen(false);
+        handleChangeVisible();
       }
     };
 
@@ -42,32 +41,7 @@ const MessageMenuModal = ({ isModalOpen, setIsModalOpen }: MessageMenuModalProps
     return () => {
       document.removeEventListener('mousedown', closeModal);
     };
-  }, [isModalOpen, setIsModalOpen]);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isModalOpen]);
-
-  useEffect(() => {
-    document.body.style.cssText = `
-      position: fixed; 
-      top: -${window.scrollY}px;
-      overflow-y: scroll;
-      width: 100%;`;
-    return () => {
-      const scrollY = document.body.style.top;
-      document.body.style.cssText = '';
-      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
-    };
-  }, []);
+  }, [isModalOpen, handleChangeVisible]);
 
   return (
     <ModalBackground>

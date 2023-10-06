@@ -3,7 +3,7 @@ import KAKAO_LOGO from '../../assets/images/kakao_login.png';
 
 type Props = {
   socialType: keyof typeof SOCIAL_OBJ;
-  onClick?: () => void;
+  onClick: () => void;
 };
 
 const SOCIAL_OBJ = {

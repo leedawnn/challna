@@ -30,7 +30,7 @@ const AuthRedirection = () => {
     });
   }, []);
 
-  return <></>;
+  return null;
 };
 
 export default AuthRedirection;

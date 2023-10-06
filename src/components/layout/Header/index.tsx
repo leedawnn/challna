@@ -1,16 +1,20 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import { createPortal } from 'react-dom';
 import { styled } from 'styled-components';
 import { useAtomValue } from 'jotai';
 import BackButton from '../../../assets/icons/BackIcon';
 import { MEDIA_QUERY } from '../../../constants/styles';
+import MessageMenuModal from '../../common/Modal/MessageMenuModal';
 import MoreIcon from '../../../assets/icons/MoreIcon';
 import { ROUTES_PATH } from '../../../constants/routes';
 import RightButton from '../../../assets/icons/RightIcon';
+import useVisible from '../../../hooks/useVisible';
 import { userStore } from '../../../stores/userStore';
 import { validateCheckDetail } from '../../../utils/validate';
 
 const Header = () => {
+  const { isVisible, handleChangeVisible } = useVisible();
   const { pathname } = useLocation();
   const naviagte = useNavigate();
   const userInfo = useAtomValue(userStore);
@@ -24,7 +28,12 @@ const Header = () => {
       {validateCheckDetail(pathname) ? (
         <MoreWrapper>
           <BackButton onClick={handleBackUrl} />
-          <MoreIcon />
+          <MoreIcon onClick={handleChangeVisible} />
+          {isVisible &&
+            createPortal(
+              <MessageMenuModal isModalOpen={isVisible} handleChangeVisible={handleChangeVisible} />,
+              document.getElementById('modal-root') as HTMLElement,
+            )}
         </MoreWrapper>
       ) : (
         <UserWrapper to={ROUTES_PATH.mypage}>

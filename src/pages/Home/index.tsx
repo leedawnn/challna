@@ -15,17 +15,13 @@ const HomePage = () => {
     fetchNextPage,
   });
 
-  return (
+  return albumData ? (
     <>
-      {albumData ? (
-        <>
-          <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
-          <div ref={setTarget} />
-        </>
-      ) : (
-        <NoneContent contentType="main" />
-      )}
+      <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
+      <div ref={setTarget} />
     </>
+  ) : (
+    <NoneContent contentType="main" />
   );
 };
 

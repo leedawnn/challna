@@ -4,9 +4,9 @@ import { Provider } from 'jotai';
 import { RouterProvider } from 'react-router-dom';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import GlobalStyle from './styles/GlobalStyles.ts';
+import GlobalStyle from './styles/GlobalStyles';
 import initializeMockupWorker from './mocks';
-import router from './router/index.tsx';
+import router from './router';
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
 

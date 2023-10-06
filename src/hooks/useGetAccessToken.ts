@@ -26,7 +26,6 @@ export async function useGetAccessToken() {
       {
         onSuccess: (res) => {
           if (res.status === HTTP_STATUS.OK) {
-            console.log('res: ', res); // 추후 엑세스 토큰이 만료되었을 때, 함수 호출이 잘 되는지 확인 후 제거 필요
             setAccessToken(res.data?.data.accessToken);
             setRefreshToken(res.data?.data.refreshToken);
           }

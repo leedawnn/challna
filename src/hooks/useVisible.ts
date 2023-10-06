@@ -9,7 +9,6 @@ const useVisible = () => {
 
   return {
     isVisible,
-    setIsVisible,
     handleChangeVisible,
   };
 };

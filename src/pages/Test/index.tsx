@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { createPortal } from 'react-dom';
-import DeletePhotoModal from '../../components/common/modal/DeletePhotoModal';
+import DeletePhotoModal from '../../components/common/Modal/DeletePhotoModal';
 
 const TestPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,7 +29,7 @@ const TestPage = () => {
         삭제
       </button>
       {isModalOpen &&
-        createPortal(<DeletePhotoModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />, document.body)}
+        createPortal(<DeletePhotoModal isModalOpen={isModalOpen} handleChangeVisible={handleDelete} />, document.body)}
     </>
   );
 };
