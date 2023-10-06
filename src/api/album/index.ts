@@ -12,3 +12,13 @@ export const getAlbumLists = (accessToken: string, queryString: string) => {
     },
   });
 };
+
+export const deleteAlbumImage = (accessToken: string, boardId: string) => {
+  return instance({
+    url: `/board/${boardId}`,
+    method: HTTP_METHOD.DELETE,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+    },
+  });
+};

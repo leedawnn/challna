@@ -1,7 +1,12 @@
 import { MouseEventHandler } from 'react';
+import { useAtomValue } from 'jotai';
 import * as S from './Modal.styled';
 
 import DeleteIcon from '../../../assets/icons/DeleteIcon';
+import { HTTP_STATUS } from '../../../constants/api';
+import { accessTokenStore } from '../../../stores/accessToken';
+import { albumDetailStore } from '../../../stores/albumDetailStore';
+import { deleteAlbumImage } from '../../../api/album';
 
 /**
  *
@@ -20,9 +25,18 @@ type Props = {
 };
 
 const MoreModal = ({ handleChangeVisible }: Props) => {
-  const handleMessageDelete = () => {
-    handleChangeVisible();
-    // 삭제 로직 추가 예정
+  const accessToken = useAtomValue(accessTokenStore);
+  const albumImage = useAtomValue(albumDetailStore);
+
+  const handleMessageDelete = async () => {
+    try {
+      const response = await deleteAlbumImage(accessToken as string, albumImage?.boardId as any as string);
+      if (response.status === HTTP_STATUS.OK) {
+        handleChangeVisible();
+      }
+    } catch {
+      throw new Error('에러 발생');
+    }
   };
 
   const handlePreventCloseModal: MouseEventHandler = (event) => {
