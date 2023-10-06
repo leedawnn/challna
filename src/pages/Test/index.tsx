@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { createPortal } from 'react-dom';
-import DeletePhotoModal from '../../components/common/Modal/DeletePhotoModal';
+import DeletePhotoModal from '../../components/common/Modal/DeleteConfirmModal';
 
 const TestPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

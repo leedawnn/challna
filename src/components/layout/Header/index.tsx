@@ -5,8 +5,8 @@ import { styled } from 'styled-components';
 import { useAtomValue } from 'jotai';
 import BackButton from '../../../assets/icons/BackIcon';
 import { MEDIA_QUERY } from '../../../constants/styles';
-import MessageMenuModal from '../../common/Modal/MessageMenuModal';
 import MoreIcon from '../../../assets/icons/MoreIcon';
+import MoreModal from '../../common/Modal/MoreModal';
 import { ROUTES_PATH } from '../../../constants/routes';
 import RightButton from '../../../assets/icons/RightIcon';
 import useVisible from '../../../hooks/useVisible';
@@ -31,7 +31,7 @@ const Header = () => {
           <MoreIcon onClick={handleChangeVisible} />
           {isVisible &&
             createPortal(
-              <MessageMenuModal isModalOpen={isVisible} handleChangeVisible={handleChangeVisible} />,
+              <MoreModal handleChangeVisible={handleChangeVisible} />,
               document.getElementById('modal-root') as HTMLElement,
             )}
         </MoreWrapper>
