@@ -8,6 +8,11 @@ export const Container = styled.section`
   box-sizing: border-box;
 `;
 
+export const FooterLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const FooterContainer = styled.div`
   width: 100%;
   height: 80px;

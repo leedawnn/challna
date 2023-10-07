@@ -14,18 +14,20 @@ const AlbumDetailFooter = () => {
   const { isVisible, handleChangeVisible } = useVisible();
 
   return (
-    <S.FooterContainer>
-      <S.AlbumDataText> {formatDate(albumDetail?.metaDateTime)} </S.AlbumDataText>
-      <S.IconWrapper>
-        {albumDetail?.contentCheck && <MessageDetailIcon />}
-        <DeleteIcon active={false} onClick={handleChangeVisible} />
-        {isVisible &&
-          createPortal(
-            <DeleteConfirmModal handleChangeVisible={handleChangeVisible} />,
-            document.getElementById('modal-root') as HTMLElement,
-          )}
-      </S.IconWrapper>
-    </S.FooterContainer>
+    <S.FooterLayout>
+      <S.FooterContainer>
+        <S.AlbumDataText> {formatDate(albumDetail?.metaDateTime)} </S.AlbumDataText>
+        <S.IconWrapper>
+          {albumDetail?.contentCheck && <MessageDetailIcon active={false} />}
+          <DeleteIcon active={false} onClick={handleChangeVisible} />
+          {isVisible &&
+            createPortal(
+              <DeleteConfirmModal handleChangeVisible={handleChangeVisible} />,
+              document.getElementById('modal-root') as HTMLElement,
+            )}
+        </S.IconWrapper>
+      </S.FooterContainer>
+    </S.FooterLayout>
   );
 };
 
