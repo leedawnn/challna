@@ -9,8 +9,19 @@ export const Container = styled.section`
 `;
 
 export const FooterLayout = styled.div`
+  max-width: 576px;
+  width: inherit;
+
   display: flex;
   flex-direction: column;
+
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 150;
+
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const FooterContainer = styled.div`
@@ -45,4 +56,16 @@ export const IconWrapper = styled.div`
   & > svg {
     cursor: pointer;
   }
+`;
+
+export const MessageContainer = styled.div`
+  padding: 0 27px 30px 27px;
+
+  box-sizing: border-box;
+`;
+
+export const MessageText = styled.span`
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fontWeight.regular};
+  font-size: 12px;
 `;

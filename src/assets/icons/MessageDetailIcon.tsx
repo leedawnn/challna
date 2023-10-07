@@ -4,9 +4,9 @@ type Props = ComponentPropsWithRef<'svg'> & {
   active: boolean;
 };
 
-const MessageDetailIcon = ({ active }: Props) => {
+const MessageDetailIcon = ({ active, ...props }: Props) => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         d={`M10 0C7.34873 0.0029116 4.80688 1.05742 2.93215 2.93215C1.05742 4.80688 0.0029116 7.34873 0 10V18.433C0.000529213 18.8484 0.165793 19.2467 0.459548 19.5405C0.753303 19.8342 1.15157 19.9995 1.567 20H10C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 ${
           active
