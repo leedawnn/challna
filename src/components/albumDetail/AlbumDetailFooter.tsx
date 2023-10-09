@@ -1,6 +1,6 @@
-import { startTransition, useState } from 'react';
+import { startTransition, useEffect, useState } from 'react';
+import { useAtom, useAtomValue } from 'jotai';
 import { createPortal } from 'react-dom';
-import { useAtomValue } from 'jotai';
 import { useQuery } from '@tanstack/react-query';
 import * as S from './AlbumDetail.styled';
 
@@ -12,15 +12,20 @@ import MessageDetailIcon from '../../assets/icons/MessageDetailIcon';
 import { accessTokenStore } from '../../stores/accessToken';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { formatDate } from '../../utils/formatDate';
+import { messageStore } from '../../stores/messageStore';
 import useVisible from '../../hooks/useVisible';
 
 const AlbumDetailFooter = () => {
-  const [isActive, setIsActive] = useState(false);
-  const [shouldFetch, setShouldFetch] = useState(false);
+  const [shouldFetch, setShouldFetch] = useState<boolean>(false);
+  const [messageCheck, setMessageCheck] = useAtom(messageStore);
   const accessToken = useAtomValue(accessTokenStore);
   const albumDetail = useAtomValue(albumDetailStore);
   const { isVisible, handleChangeVisible } = useVisible();
-  const { data: messageData, remove } = useQuery(
+  const {
+    data: messageData,
+    refetch,
+    remove,
+  } = useQuery(
     ALBUM_MESSAGE_KEY,
     () => {
       return getAlbumMessage(accessToken as string, albumDetail?.boardId as number);
@@ -29,29 +34,51 @@ const AlbumDetailFooter = () => {
       enabled: shouldFetch,
       onSuccess: () => {
         setShouldFetch(false);
-        setIsActive(true);
       },
     },
   );
 
   const handleOpenMessage = () => {
     startTransition(() => {
-      if (messageData) {
-        remove();
+      if (messageData?.data.content) {
         setShouldFetch(false);
-        setIsActive(false);
+        setMessageCheck((prev) => ({
+          ...prev,
+          isIconCheck: false,
+        }));
+        remove();
       } else {
         setShouldFetch(true);
+        setMessageCheck((prev) => ({
+          ...prev,
+          isIconCheck: true,
+        }));
+        refetch();
       }
     });
   };
+
+  useEffect(() => {
+    if (messageCheck.isIconCheck && albumDetail?.contentCheck) {
+      refetch();
+    }
+
+    if (messageCheck.isIconCheck && !albumDetail?.contentCheck) {
+      setMessageCheck((prev) => ({
+        ...prev,
+        isIconCheck: false,
+      }));
+    }
+  }, [messageCheck]);
 
   return (
     <S.FooterLayout>
       <S.FooterContainer>
         <S.AlbumDataText> {formatDate(albumDetail?.metaDateTime)} </S.AlbumDataText>
         <S.IconWrapper>
-          {albumDetail?.contentCheck && <MessageDetailIcon active={isActive} onClick={handleOpenMessage} />}
+          {albumDetail?.contentCheck && (
+            <MessageDetailIcon active={messageCheck.isIconCheck} onClick={handleOpenMessage} />
+          )}
           <DeleteIcon active={false} onClick={handleChangeVisible} />
           {isVisible &&
             createPortal(
@@ -60,7 +87,7 @@ const AlbumDetailFooter = () => {
             )}
         </S.IconWrapper>
       </S.FooterContainer>
-      {messageData && (
+      {messageCheck.isIconCheck && messageCheck.isMessageOpen && messageData?.data.content && (
         <S.MessageContainer>
           <S.MessageText> {messageData?.data.content} </S.MessageText>
         </S.MessageContainer>

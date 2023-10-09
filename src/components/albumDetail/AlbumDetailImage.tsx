@@ -9,9 +9,10 @@ import { useLocation } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
 import { useSetAtom } from 'jotai';
 import { useState } from 'react';
-import { albumDetailStore } from '../../stores/albumDetailStore';
-import { MAIN_ALBUM_KEY } from '../../api/album';
 import type { Album } from '../../types/album';
+import { MAIN_ALBUM_KEY } from '../../api/album';
+import { albumDetailStore } from '../../stores/albumDetailStore';
+import { messageStore } from '../../stores/messageStore';
 import * as S from './AlbumDetail.styled';
 
 const AlbumDeatilImage = () => {
@@ -20,6 +21,7 @@ const AlbumDeatilImage = () => {
   const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
   const { pages }: any = queryClient.getQueryData(MAIN_ALBUM_KEY);
   const setAlbumDetails = useSetAtom(albumDetailStore);
+  const setIsActive = useSetAtom(messageStore);
 
   const handleActiveAlbumSave = (swiper: any) => {
     const currentImage = pages
@@ -27,6 +29,11 @@ const AlbumDeatilImage = () => {
       .filter((_: any, index: number) => index === swiper.activeIndex);
 
     setAlbumDetails(currentImage[0]);
+    setIsActive((prev) => ({
+      ...prev,
+      isMessageOpen: currentImage[0].contentCheck,
+      isSwiperCheck: prev.isSwiperCheck + 1,
+    }));
   };
 
   return (
