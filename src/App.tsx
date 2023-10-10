@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useEffect } from 'react';
 import LayoutProvider from './provider/LayoutProvider';
+import ModalProvider from './provider/ModalProvider';
 import { setScreenSize } from './utils/styles';
 import { themeDefault } from './styles/theme';
 
@@ -16,9 +17,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeDefault}>
-      <LayoutProvider>
-        <Outlet />
-      </LayoutProvider>
+      <ModalProvider>
+        <LayoutProvider>
+          <Outlet />
+        </LayoutProvider>
+      </ModalProvider>
     </ThemeProvider>
   );
 };

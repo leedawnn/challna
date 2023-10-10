@@ -1,6 +1,5 @@
 import { startTransition, useEffect, useState } from 'react';
 import { useAtom, useAtomValue } from 'jotai';
-import { createPortal } from 'react-dom';
 import { useQuery } from '@tanstack/react-query';
 import * as S from './AlbumDetail.styled';
 
@@ -13,14 +12,14 @@ import { accessTokenStore } from '../../stores/accessToken';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { formatDate } from '../../utils';
 import { messageStore } from '../../stores/messageStore';
-import useVisible from '../../hooks/useVisible';
+import { useModal } from '../../provider/ModalProvider';
 
 const AlbumDetailFooter = () => {
   const [shouldFetch, setShouldFetch] = useState<boolean>(false);
   const [messageCheck, setMessageCheck] = useAtom(messageStore);
   const accessToken = useAtomValue(accessTokenStore);
   const albumDetail = useAtomValue(albumDetailStore);
-  const { isVisible, handleChangeVisible } = useVisible();
+  const { handleOpenModal } = useModal();
   const {
     data: messageData,
     refetch,
@@ -58,6 +57,10 @@ const AlbumDetailFooter = () => {
     });
   };
 
+  const handleOpenDeleteModal = () => {
+    handleOpenModal(<DeleteConfirmModal />);
+  };
+
   useEffect(() => {
     if (messageCheck.isIconCheck && albumDetail?.contentCheck) {
       refetch();
@@ -79,12 +82,7 @@ const AlbumDetailFooter = () => {
           {albumDetail?.contentCheck && (
             <MessageDetailIcon active={messageCheck.isIconCheck} onClick={handleOpenMessage} />
           )}
-          <DeleteIcon active={false} onClick={handleChangeVisible} />
-          {isVisible &&
-            createPortal(
-              <DeleteConfirmModal handleChangeVisible={handleChangeVisible} />,
-              document.getElementById('modal-root') as HTMLElement,
-            )}
+          <DeleteIcon active={false} onClick={handleOpenDeleteModal} />
         </S.IconWrapper>
       </S.FooterContainer>
       {messageCheck.isIconCheck && messageCheck.isMessageOpen && messageData?.data.content && (

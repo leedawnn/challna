@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import { createPortal } from 'react-dom';
 import { styled } from 'styled-components';
 import { useAtomValue } from 'jotai';
 import BackButton from '../../../assets/icons/BackIcon';
@@ -9,18 +8,22 @@ import MoreIcon from '../../../assets/icons/MoreIcon';
 import MoreModal from '../../common/Modal/MoreModal';
 import { ROUTES_PATH } from '../../../constants/routes';
 import RightButton from '../../../assets/icons/RightIcon';
-import useVisible from '../../../hooks/useVisible';
+import { useModal } from '../../../provider/ModalProvider';
 import { userStore } from '../../../stores/userStore';
 import { validateCheckDetail } from '../../../utils/validate';
 
 const Header = () => {
-  const { isVisible, handleChangeVisible } = useVisible();
   const { pathname } = useLocation();
   const naviagte = useNavigate();
   const userInfo = useAtomValue(userStore);
+  const { handleOpenModal } = useModal();
 
   const handleBackUrl = () => {
     naviagte(-1);
+  };
+
+  const handleOpenMoreModal = () => {
+    handleOpenModal(<MoreModal />);
   };
 
   return (
@@ -28,12 +31,7 @@ const Header = () => {
       {validateCheckDetail(pathname) ? (
         <MoreWrapper>
           <BackButton onClick={handleBackUrl} />
-          <MoreIcon onClick={handleChangeVisible} />
-          {isVisible &&
-            createPortal(
-              <MoreModal handleChangeVisible={handleChangeVisible} />,
-              document.getElementById('modal-root') as HTMLElement,
-            )}
+          <MoreIcon onClick={handleOpenMoreModal} />
         </MoreWrapper>
       ) : (
         <UserWrapper to={ROUTES_PATH.mypage}>
