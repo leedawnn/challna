@@ -1,28 +1,37 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useCallback } from 'react';
+import { useAtomValue } from 'jotai';
+import { useLocation } from 'react-router-dom';
 import * as S from './Modal.styled';
 
-/**
- *
- * DeleteModal은 삭제 버튼에 연결하는 모달입니다.
- *
- * props로 isModalOpen에 해당하는 boolean이 필요하며, createPortal을 사용하여야합니다.
- *
- * @example
- * ts`
- *  {isModalOpen && createPortal(<DeleteModal isModalOpen={isModalOpen} />, document.body)}
- * `;
- */
+import { HTTP_STATUS } from '../../../constants/api';
+import { accessTokenStore } from '../../../stores/accessToken';
+import { albumDetailStore } from '../../../stores/albumDetailStore';
+import { deleteBoardData } from '../../../api/album';
+import { getDeleteUrl } from '../../../utils';
 
 type Props = {
   handleChangeVisible: () => void;
 };
 
 const DeleteConfirmModal = ({ handleChangeVisible }: Props) => {
-  const handlePhotoDelete = () => {
-    // 삭제 로직 추가 예정
+  const accessToken = useAtomValue(accessTokenStore);
+  const albumDetailInfo = useAtomValue(albumDetailStore);
+  const { pathname } = useLocation();
 
-    handleChangeVisible();
-  };
+  const handleDeleteBoardData = useCallback(async () => {
+    if (!accessToken || !albumDetailInfo?.image_Id) return;
+
+    try {
+      const url = getDeleteUrl(pathname, albumDetailInfo.image_Id);
+      const response = await deleteBoardData(accessToken, url);
+      if (response.status === HTTP_STATUS.OK) {
+        handleChangeVisible();
+      }
+    } catch {
+      // 에러 처리 부분 추가 필요
+      throw new Error('에러 발생');
+    }
+  }, [accessToken, albumDetailInfo]);
 
   const handlePreventCloseModal: MouseEventHandler = (event) => {
     event.stopPropagation();
@@ -33,7 +42,7 @@ const DeleteConfirmModal = ({ handleChangeVisible }: Props) => {
       <S.ModalContainer onClick={handlePreventCloseModal}>
         <S.DeleteConfirmWrapper>
           <S.DeleteConfirmTitle>정말 삭제 하시겠습니까?</S.DeleteConfirmTitle>
-          <S.DeleteConfirmButton onClick={handlePhotoDelete}>삭제</S.DeleteConfirmButton>
+          <S.DeleteConfirmButton onClick={handleDeleteBoardData}>삭제</S.DeleteConfirmButton>
           <S.DeleteCancelButton onClick={handleChangeVisible}>취소</S.DeleteCancelButton>
         </S.DeleteConfirmWrapper>
       </S.ModalContainer>

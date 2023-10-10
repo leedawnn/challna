@@ -19,7 +19,7 @@ const MoreModal = ({ handleChangeVisible }: Props) => {
   const accessToken = useAtomValue(accessTokenStore);
   const albumDetailInfo = useAtomValue(albumDetailStore);
 
-  const handleMessageDelete = useCallback(async () => {
+  const handleDeleteBoardData = useCallback(async () => {
     if (!accessToken || !albumDetailInfo?.image_Id) return;
 
     try {
@@ -41,7 +41,7 @@ const MoreModal = ({ handleChangeVisible }: Props) => {
   return (
     <S.BackdropLayout onClick={handleChangeVisible}>
       <S.ModalContainer onClick={handlePreventCloseModal}>
-        <S.MoreDeleteWrapper onClick={handleMessageDelete}>
+        <S.MoreDeleteWrapper onClick={handleDeleteBoardData}>
           <DeleteIcon active />
           <S.MoreDeleteText>삭제</S.MoreDeleteText>
         </S.MoreDeleteWrapper>
