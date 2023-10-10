@@ -21,7 +21,7 @@ const HomeAlbum = ({ data }: Props) => {
   return (
     <S.Container>
       {data?.map((album: Album, index: number) => (
-        <S.AlbumWrapper key={album.id || index}>
+        <S.AlbumWrapper key={album.image_Id || index}>
           <Link to={ROUTES_PATH.albumDetail} state={{ order: index }} onClick={handleSaveImageDetail(album)}>
             <LazyImage src={album.resizeUrl} alt={album.originName} />
           </Link>

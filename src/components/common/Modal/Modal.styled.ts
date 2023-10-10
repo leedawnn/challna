@@ -6,7 +6,7 @@ export const BackdropLayout = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 100;
+  z-index: 25;
 
   min-width: 100vh;
   min-height: 100vh;
@@ -26,7 +26,7 @@ export const ModalContainer = styled.div`
   position: fixed;
   left: 50%;
   bottom: 0;
-  z-index: 101;
+  z-index: 15;
   transform: translate(-50%, 0);
 
   border-top-left-radius: 10px;

@@ -50,7 +50,7 @@ const AlbumDeatilImage = () => {
         {pages
           ?.flatMap((page: any) => page.data.content)
           .map((album: Album, index: number) => (
-            <SwiperSlide key={album.id ?? index}>
+            <SwiperSlide key={album.image_Id ?? index}>
               <img src={album.accessUrl} alt={album.originName} />
             </SwiperSlide>
           ))}
@@ -71,7 +71,7 @@ const AlbumDeatilImage = () => {
         {pages
           ?.flatMap((page: any) => page.data.content)
           .map((album: Album, index: number) => (
-            <SwiperSlide key={album.id || index}>
+            <SwiperSlide key={album.image_Id || index}>
               <img src={album.resizeUrl} alt={album.originName} />
             </SwiperSlide>
           ))}

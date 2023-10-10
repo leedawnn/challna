@@ -19,7 +19,7 @@ export const FooterLayout = styled.div`
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
-  z-index: 150;
+  z-index: 20;
 
   background-color: ${({ theme }) => theme.colors.white};
 `;

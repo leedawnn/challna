@@ -30,7 +30,7 @@ const MoreModal = ({ handleChangeVisible }: Props) => {
 
   const handleMessageDelete = async () => {
     try {
-      const response = await deleteAlbumImage(accessToken as string, albumImage?.boardId as any as string);
+      const response = await deleteAlbumImage(accessToken as string, albumImage?.image_Id as any as number);
       if (response.status === HTTP_STATUS.OK) {
         handleChangeVisible();
       }
