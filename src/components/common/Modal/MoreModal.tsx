@@ -1,43 +1,38 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useCallback } from 'react';
 import { useAtomValue } from 'jotai';
+import { useLocation } from 'react-router-dom';
 import * as S from './Modal.styled';
 
 import DeleteIcon from '../../../assets/icons/DeleteIcon';
 import { HTTP_STATUS } from '../../../constants/api';
 import { accessTokenStore } from '../../../stores/accessToken';
 import { albumDetailStore } from '../../../stores/albumDetailStore';
-import { deleteAlbumImage } from '../../../api/album';
-
-/**
- *
- * MessageMenuModal은 메시지 탭에서 더보기(...) 버튼에 연결하는 모달입니다.
- *
- * props로 isModalOpen에 해당하는 boolean이 필요하며, createPortal을 사용하여야합니다.
- *
- * @example
- * ts`
- *  {isModalOpen && createPortal(<MessageMenuModal은 isModalOpen={isModalOpen} />, document.body)}
- * `;
- */
+import { deleteBoardData } from '../../../api/album';
+import { getDeleteUrl } from '../../../utils';
 
 type Props = {
   handleChangeVisible: () => void;
 };
 
 const MoreModal = ({ handleChangeVisible }: Props) => {
+  const { pathname } = useLocation();
   const accessToken = useAtomValue(accessTokenStore);
-  const albumImage = useAtomValue(albumDetailStore);
+  const albumDetailInfo = useAtomValue(albumDetailStore);
 
-  const handleMessageDelete = async () => {
+  const handleMessageDelete = useCallback(async () => {
+    if (!accessToken || !albumDetailInfo?.image_Id) return;
+
     try {
-      const response = await deleteAlbumImage(accessToken as string, albumImage?.image_Id as any as number);
+      const url = getDeleteUrl(pathname, albumDetailInfo.image_Id);
+      const response = await deleteBoardData(accessToken, url);
       if (response.status === HTTP_STATUS.OK) {
         handleChangeVisible();
       }
     } catch {
+      // 에러 처리 부분 추가 필요
       throw new Error('에러 발생');
     }
-  };
+  }, [accessToken, albumDetailInfo]);
 
   const handlePreventCloseModal: MouseEventHandler = (event) => {
     event.stopPropagation();

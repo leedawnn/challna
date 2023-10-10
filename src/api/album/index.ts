@@ -24,9 +24,9 @@ export const getAlbumMessage = (accessToken: string, boardId: number) => {
   });
 };
 
-export const deleteAlbumImage = (accessToken: string, imageId: number) => {
+export const deleteBoardData = (accessToken: string, url: string) => {
   return instance({
-    url: `/board/${imageId}`,
+    url,
     method: HTTP_METHOD.DELETE,
     headers: {
       'X-AUTH-TOKEN': accessToken,

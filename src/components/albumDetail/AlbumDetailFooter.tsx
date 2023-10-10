@@ -11,7 +11,7 @@ import DeleteIcon from '../../assets/icons/DeleteIcon';
 import MessageDetailIcon from '../../assets/icons/MessageDetailIcon';
 import { accessTokenStore } from '../../stores/accessToken';
 import { albumDetailStore } from '../../stores/albumDetailStore';
-import { formatDate } from '../../utils/formatDate';
+import { formatDate } from '../../utils';
 import { messageStore } from '../../stores/messageStore';
 import useVisible from '../../hooks/useVisible';
 
