@@ -18,13 +18,13 @@ import * as S from './AlbumDetail.styled';
 const AlbumDeatilImage = () => {
   const location = useLocation();
   const queryClient = useQueryClient();
+  const albumDatas = queryClient.getQueryData<any>(MAIN_ALBUM_KEY);
   const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
-  const { pages }: any = queryClient.getQueryData(MAIN_ALBUM_KEY);
   const setAlbumDetails = useSetAtom(albumDetailStore);
   const setIsActive = useSetAtom(messageStore);
 
   const handleActiveAlbumSave = (swiper: any) => {
-    const currentImage = pages
+    const currentImage = albumDatas?.pages
       .flatMap((page: any) => page.data.content)
       .filter((_: any, index: number) => index === swiper.activeIndex);
 
@@ -47,7 +47,7 @@ const AlbumDeatilImage = () => {
         initialSlide={location.state.order}
         onSlideChange={handleActiveAlbumSave}
       >
-        {pages
+        {albumDatas?.pages
           ?.flatMap((page: any) => page.data.content)
           .map((album: Album) => (
             <SwiperSlide key={album.image_Id}>
@@ -68,7 +68,7 @@ const AlbumDeatilImage = () => {
         className="mySwiper2"
         initialSlide={location.state.order}
       >
-        {pages
+        {albumDatas?.pages
           ?.flatMap((page: any) => page.data.content)
           .map((album: Album) => (
             <SwiperSlide key={album.image_Id}>

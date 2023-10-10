@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useEffect } from 'react';
+import GlobalStyle from './styles/GlobalStyles';
 import LayoutProvider from './provider/LayoutProvider';
 import ModalProvider from './provider/ModalProvider';
 import { setScreenSize } from './utils/styles';
@@ -17,6 +18,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeDefault}>
+      <GlobalStyle />
       <ModalProvider>
         <LayoutProvider>
           <Outlet />
