@@ -1,6 +1,6 @@
 import * as S from './Modal.styled';
 
-import useHandleDeleteBoardData from '../../../hooks/\buseHandleDeleteBoardData';
+import useHandleDeleteBoardData from '../../../hooks/useHandleDeleteBoardData';
 import { useModal } from '../../../provider/ModalProvider';
 
 const DeleteConfirmModal = () => {

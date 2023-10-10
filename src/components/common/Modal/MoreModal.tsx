@@ -1,7 +1,7 @@
 import * as S from './Modal.styled';
 
 import DeleteIcon from '../../../assets/icons/DeleteIcon';
-import useHandleDeleteBoardData from '../../../hooks/\buseHandleDeleteBoardData';
+import useHandleDeleteBoardData from '../../../hooks/useHandleDeleteBoardData';
 
 const MoreModal = () => {
   const handleDeleteBoardData = useHandleDeleteBoardData();
