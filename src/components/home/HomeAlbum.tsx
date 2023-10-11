@@ -5,6 +5,7 @@ import * as S from './HomeAlbum.styled';
 import type { Album } from '../../types/album';
 import LazyImage from '../common/LazyImage';
 import { ROUTES_PATH } from '../../constants/routes';
+import { activeSliderStore } from '../../stores/activeSliderStore';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 
 type Props = {
@@ -13,16 +14,18 @@ type Props = {
 
 const HomeAlbum = ({ data }: Props) => {
   const setAlbumDetails = useSetAtom(albumDetailStore);
+  const setActiveSliderStore = useSetAtom(activeSliderStore);
 
-  const handleSaveImageDetail = (album: Album) => () => {
+  const handleSaveImageDetail = (album: Album, index: number) => () => {
     setAlbumDetails(album);
+    setActiveSliderStore(index);
   };
 
   return (
     <S.Container>
       {data?.map((album: Album, index: number) => (
         <S.AlbumWrapper key={album.image_Id || index}>
-          <Link to={ROUTES_PATH.albumDetail} state={{ order: index }} onClick={handleSaveImageDetail(album)}>
+          <Link to={ROUTES_PATH.albumDetail} onClick={handleSaveImageDetail(album, index)}>
             <LazyImage src={album.resizeUrl} alt={album.originName} />
           </Link>
         </S.AlbumWrapper>

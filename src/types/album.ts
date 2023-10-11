@@ -7,4 +7,5 @@ export type Album = {
   resizeUrl: string;
   contentCheck: boolean;
   originName: string;
+  activeIndex?: number;
 };
