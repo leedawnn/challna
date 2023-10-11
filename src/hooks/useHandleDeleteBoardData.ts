@@ -40,8 +40,10 @@ const useHandleDeleteBoardData = () => {
             })),
           };
         });
-        if (albumDetailInfo.activeIndex) {
-          setActiveSlider(albumDetailInfo.activeIndex - 1);
+
+        if (albumDetailInfo.activeIndex || albumDetailInfo.activeIndex === 0) {
+          const changeIndex = albumDetailInfo.activeIndex + 1;
+          setActiveSlider(changeIndex);
         }
       }
     } catch {

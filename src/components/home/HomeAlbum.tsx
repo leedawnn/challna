@@ -17,7 +17,7 @@ const HomeAlbum = ({ data }: Props) => {
   const setActiveSliderStore = useSetAtom(activeSliderStore);
 
   const handleSaveImageDetail = (album: Album, index: number) => () => {
-    setAlbumDetails(album);
+    setAlbumDetails({ ...album, activeIndex: index });
     setActiveSliderStore(index);
   };
 

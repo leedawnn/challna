@@ -31,7 +31,7 @@ const AlbumDeatilImage = () => {
     setAlbumDetails({ ...currentImage[0], activeIndex: swiper.activeIndex });
     setIsActive((prev) => ({
       ...prev,
-      isMessageOpen: currentImage[0].contentCheck,
+      isMessageOpen: currentImage[0]?.contentCheck,
       isSwiperCheck: prev.isSwiperCheck + 1,
     }));
   };
