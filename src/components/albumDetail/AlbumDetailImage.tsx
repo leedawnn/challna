@@ -46,6 +46,7 @@ const AlbumDeatilImage = () => {
         className="mySwiper"
         initialSlide={activeSlider}
         onSlideChange={handleActiveAlbumSave}
+        onSlidesLengthChange={handleActiveAlbumSave}
       >
         {albumDatas?.pages
           ?.flatMap((page: any) => page.data.content)
