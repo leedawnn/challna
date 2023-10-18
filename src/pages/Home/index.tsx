@@ -15,7 +15,7 @@ const HomePage = () => {
     fetchNextPage,
   });
 
-  return albumData ? (
+  return albumData && albumData?.pages ? (
     <>
       <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
       <div ref={setTarget} />
