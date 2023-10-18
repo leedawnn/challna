@@ -6,16 +6,16 @@ import useInfinityObserver from '../../hooks/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 
 const HomePage = () => {
-  const users = useAtomValue(userStore);
+  const users = useAtomValue(userStore)!;
 
-  const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users?.accessToken ?? '');
+  const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users.accessToken);
 
   const { setTarget } = useInfinityObserver({
     hasNextPage,
     fetchNextPage,
   });
 
-  return albumData && albumData?.pages ? (
+  return albumData ? (
     <>
       <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
       <div ref={setTarget} />
