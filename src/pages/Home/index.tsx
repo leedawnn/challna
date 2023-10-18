@@ -2,7 +2,7 @@ import { useAtomValue } from 'jotai';
 import HomeAlbum from '../../components/home/HomeAlbum';
 import NoneContent from '../../components/layout/NoneContent';
 import useInfinityAlbum from '../../hooks/useInfinityAlbum';
-import useIntersectionObserver from '../../hooks/useInfinityObserver';
+import useInfinityObserver from '../../hooks/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 
 const HomePage = () => {
@@ -10,7 +10,7 @@ const HomePage = () => {
 
   const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users?.accessToken ?? '');
 
-  const { setTarget } = useIntersectionObserver({
+  const { setTarget } = useInfinityObserver({
     hasNextPage,
     fetchNextPage,
   });

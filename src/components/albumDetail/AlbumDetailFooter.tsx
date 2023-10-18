@@ -40,20 +40,16 @@ const AlbumDetailFooter = () => {
   const handleOpenMessage = () => {
     startTransition(() => {
       if (messageData?.data.content) {
-        setShouldFetch(false);
-        setMessageCheck((prev) => ({
-          ...prev,
-          isIconCheck: false,
-        }));
         remove();
       } else {
-        setShouldFetch(true);
-        setMessageCheck((prev) => ({
-          ...prev,
-          isIconCheck: true,
-        }));
         refetch();
       }
+
+      setShouldFetch((prev) => !prev);
+      setMessageCheck((prev) => ({
+        ...prev,
+        isIconCheck: !prev.isIconCheck,
+      }));
     });
   };
 
