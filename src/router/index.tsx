@@ -7,6 +7,7 @@ import LoginPage from '../pages/Login';
 import { ROUTES_PATH } from '../constants/routes';
 import TestPage from '../pages/Test';
 import { withAuth } from '../hoc/withAuth';
+import Messages from '../pages/Messages';
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,20 @@ const router = createBrowserRouter([
         Component: withAuth(AlbumDetailPage),
       },
       {
+        path: ROUTES_PATH.message,
+        Component: withAuth(Messages),
+      },
+      {
         path: ROUTES_PATH.login,
         element: <LoginPage />,
       },
       {
         path: '/test',
         element: <TestPage />,
+      },
+      {
+        path: '/messages',
+        element: <Messages />,
       },
     ],
   },
