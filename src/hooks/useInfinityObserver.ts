@@ -4,7 +4,7 @@ import { InfiniteQueryObserverResult } from '@tanstack/react-query';
 
 type Props = {
   threshold?: number;
-  hasNextPage: boolean | undefined;
+  hasNextPage?: boolean;
   fetchNextPage: () => Promise<InfiniteQueryObserverResult>;
 };
 

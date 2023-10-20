@@ -55,7 +55,7 @@ const AlbumDeatilImage = () => {
         onSlidesLengthChange={handleActiveAlbumSave}
       >
         {albumDetailData?.pages.map((album: any) => (
-          <SwiperSlide key={album.image_Id}>
+          <SwiperSlide key={album.imageId}>
             <img src={album.accessUrl} alt={album.originName} loading="lazy" />
           </SwiperSlide>
         ))}
@@ -74,7 +74,7 @@ const AlbumDeatilImage = () => {
         initialSlide={activeSlider}
       >
         {albumDetailData?.pages.map((album: any, index: number) => (
-          <SwiperSlide key={album.image_Id}>
+          <SwiperSlide key={album.imageId}>
             <img src={album.resizeUrl} alt={album.originName} />
             {albumDetailData.pages.length - 3 === index && <div ref={setTarget} />}
           </SwiperSlide>
