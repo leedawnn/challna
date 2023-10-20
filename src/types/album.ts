@@ -1,8 +1,7 @@
 export type Album = {
   accessUrl: string;
   boardId: number | null;
-  image_Id: number | null;
-  kakaoId: number;
+  imageId: number | null;
   metaDateTime: string;
   resizeUrl: string;
   contentCheck: boolean;
