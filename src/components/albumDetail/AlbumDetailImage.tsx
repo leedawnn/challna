@@ -5,33 +5,39 @@ import './swiperCustom.css';
 import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useAtomValue, useSetAtom } from 'jotai';
-import { useQueryClient } from '@tanstack/react-query';
+import type { SwiperClass } from 'swiper/react';
 import { useState } from 'react';
 import * as S from './AlbumDetail.styled';
 
-import type { Album } from '../../types/album';
-import { MAIN_ALBUM_KEY } from '../../api/album';
+import { Album } from '../../types/album';
+import { accessTokenStore } from '../../stores/accessToken';
 import { activeSliderStore } from '../../stores/activeSliderStore';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { messageStore } from '../../stores/messageStore';
+import useInfinityAlbum from '../../hooks/useInfinityAlbum';
+import useIntersectionObserver from '../../hooks/useInfinityObserver';
 
 const AlbumDeatilImage = () => {
-  const queryClient = useQueryClient();
-  const albumDatas = queryClient.getQueryData<any>(MAIN_ALBUM_KEY);
-  const [thumsSwiper, setThumbsSwiper] = useState<any>(null);
+  const accessToken = useAtomValue(accessTokenStore);
+  const [thumsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const activeSlider = useAtomValue(activeSliderStore);
   const setAlbumDetails = useSetAtom(albumDetailStore);
   const setIsActive = useSetAtom(messageStore);
+  const { data: albumDetailData, fetchNextPage, hasNextPage } = useInfinityAlbum(accessToken!);
+  const { setTarget } = useIntersectionObserver({
+    hasNextPage,
+    fetchNextPage,
+  });
 
-  const handleActiveAlbumSave = (swiper: any) => {
-    const currentImage = albumDatas?.pages
-      .flatMap((page: any) => page.data.content)
-      .filter((_: any, index: number) => index === swiper.activeIndex);
+  const handleActiveAlbumSave = (swiper: SwiperClass) => {
+    const currentImage = albumDetailData?.pages.filter(
+      (_: any, index: number) => index === swiper.activeIndex,
+    )[0] as any as Album;
 
-    setAlbumDetails({ ...currentImage[0], activeIndex: swiper.activeIndex });
+    setAlbumDetails({ ...currentImage, activeIndex: swiper.activeIndex });
     setIsActive((prev) => ({
       ...prev,
-      isMessageOpen: currentImage[0]?.contentCheck,
+      isMessageOpen: currentImage?.contentCheck,
       isSwiperCheck: prev.isSwiperCheck + 1,
     }));
   };
@@ -46,14 +52,13 @@ const AlbumDeatilImage = () => {
         className="mySwiper"
         initialSlide={activeSlider}
         onSlideChange={handleActiveAlbumSave}
+        onSlidesLengthChange={handleActiveAlbumSave}
       >
-        {albumDatas?.pages
-          ?.flatMap((page: any) => page.data.content)
-          .map((album: Album) => (
-            <SwiperSlide key={album.image_Id}>
-              <img src={album.accessUrl} alt={album.originName} />
-            </SwiperSlide>
-          ))}
+        {albumDetailData?.pages.map((album: any) => (
+          <SwiperSlide key={album.imageId}>
+            <img src={album.accessUrl} alt={album.originName} loading="lazy" />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -68,13 +73,12 @@ const AlbumDeatilImage = () => {
         className="mySwiper2"
         initialSlide={activeSlider}
       >
-        {albumDatas?.pages
-          ?.flatMap((page: any) => page.data.content)
-          .map((album: Album) => (
-            <SwiperSlide key={album.image_Id}>
-              <img src={album.resizeUrl} alt={album.originName} />
-            </SwiperSlide>
-          ))}
+        {albumDetailData?.pages.map((album: any, index: number) => (
+          <SwiperSlide key={album.imageId}>
+            <img src={album.resizeUrl} alt={album.originName} />
+            {albumDetailData.pages.length - 3 === index && <div ref={setTarget} />}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </S.Container>
   );

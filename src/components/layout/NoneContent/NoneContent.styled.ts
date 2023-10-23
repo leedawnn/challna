@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const Layout = styled.section`
-  padding-top: 2.4rem;
+  height: 100%;
+  min-height: calc(var(--vh, 1vh) * 100 - 168px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   box-sizing: border-box;
 `;

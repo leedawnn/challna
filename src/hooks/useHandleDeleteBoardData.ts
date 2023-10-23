@@ -20,14 +20,13 @@ const useHandleDeleteBoardData = () => {
   const { handleCloseModal } = useModal();
 
   const handleDeleteBoardData = useCallback(async () => {
-    if (!accessToken || !albumDetailInfo?.image_Id) return;
+    if (!accessToken || !albumDetailInfo?.imageId) return;
 
     try {
-      const url = getDeleteUrl(pathname, albumDetailInfo.image_Id);
+      const url = getDeleteUrl(pathname, albumDetailInfo.imageId);
       const response = await deleteBoardData(accessToken, url);
 
       if (response.status === HTTP_STATUS.OK) {
-        handleCloseModal();
         queryClient.setQueryData(MAIN_ALBUM_KEY, (old: any) => {
           return {
             ...old,
@@ -35,7 +34,7 @@ const useHandleDeleteBoardData = () => {
               ...page,
               data: {
                 ...page.data,
-                content: page.data.content.filter((album: any) => album.image_Id !== albumDetailInfo.image_Id),
+                content: page.data.content.filter((album: any) => album.imageId !== albumDetailInfo.imageId),
               },
             })),
           };
@@ -45,6 +44,8 @@ const useHandleDeleteBoardData = () => {
           const changeIndex = albumDetailInfo.activeIndex + 1;
           setActiveSlider(changeIndex);
         }
+
+        handleCloseModal();
       }
     } catch {
       //  추후 에러 처리 추가

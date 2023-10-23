@@ -2,16 +2,16 @@ import { useAtomValue } from 'jotai';
 import HomeAlbum from '../../components/home/HomeAlbum';
 import NoneContent from '../../components/layout/NoneContent';
 import useInfinityAlbum from '../../hooks/useInfinityAlbum';
-import useIntersectionObserver from '../../hooks/useInfinityObserver';
+import useInfinityObserver from '../../hooks/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 import { getMessageBaord } from './../../api/album';
 
 const HomePage = () => {
-  const users = useAtomValue(userStore);
+  const users = useAtomValue(userStore)!;
 
-  const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users?.accessToken ?? '');
+  const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users.accessToken);
 
-  const { setTarget } = useIntersectionObserver({
+  const { setTarget } = useInfinityObserver({
     hasNextPage,
     fetchNextPage,
   });
