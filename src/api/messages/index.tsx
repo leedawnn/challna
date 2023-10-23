@@ -5,9 +5,9 @@ export const MAIN_ALBUM_KEY = ['albums'];
 export const ALBUM_MESSAGE_KEY = ['albums', 'message'];
 export const MAIN_MESSAGE_KEY = ['message'];
 
-export const getBaordList = (accessToken: string) => {
+export const getBoardList = (accessToken: string, queryString: string) => {
   return instance({
-    url: `/board`,
+    url: `/board?${queryString}`,
     method: HTTP_METHOD.GET,
     headers: {
       'X-AUTH-TOKEN': accessToken,
@@ -15,7 +15,7 @@ export const getBaordList = (accessToken: string) => {
   });
 };
 
-export const getBaordImage = (accessToken: string, boardId: number) => {
+export const getBoardImage = (accessToken: string, boardId: number) => {
   return instance({
     url: `/board/image/${boardId}`,
     method: HTTP_METHOD.GET,

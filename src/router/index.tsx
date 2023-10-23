@@ -34,10 +34,6 @@ const router = createBrowserRouter([
         path: '/test',
         element: <TestPage />,
       },
-      {
-        path: '/messages',
-        element: <Messages />,
-      },
     ],
   },
   {
