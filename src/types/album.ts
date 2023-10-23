@@ -8,4 +8,5 @@ export type Album = {
   contentCheck: boolean;
   originName: string;
   activeIndex?: number;
+  [key: string]: any;
 };

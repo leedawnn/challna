@@ -6,7 +6,6 @@ import useKakaoLogin from '../../hooks/useKakaoLogin';
 
 const LoginPage = () => {
   const { handleKakaoLogin } = useKakaoLogin();
-
   return (
     <Layout>
       <Container>

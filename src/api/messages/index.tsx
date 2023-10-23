@@ -5,9 +5,9 @@ export const MAIN_ALBUM_KEY = ['albums'];
 export const ALBUM_MESSAGE_KEY = ['albums', 'message'];
 export const MAIN_MESSAGE_KEY = ['message'];
 
-export const getAlbumLists = (accessToken: string, queryString: string) => {
+export const getBaordList = (accessToken: string) => {
   return instance({
-    url: `/album/imageview?${queryString}`,
+    url: `/board`,
     method: HTTP_METHOD.GET,
     headers: {
       'X-AUTH-TOKEN': accessToken,
@@ -15,29 +15,19 @@ export const getAlbumLists = (accessToken: string, queryString: string) => {
   });
 };
 
-export const getAlbumMessage = (accessToken: string, boardId: number) => {
+export const getBaordImage = (accessToken: string, boardId: number) => {
+  return instance({
+    url: `/board/image/${boardId}`,
+    method: HTTP_METHOD.GET,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+    },
+  });
+};
+
+export const deleteBoardData = (accessToken: string, boardId: number) => {
   return instance({
     url: `/board/${boardId}`,
-    method: HTTP_METHOD.GET,
-    headers: {
-      'X-AUTH-TOKEN': accessToken,
-    },
-  });
-};
-
-export const getMessageBaord = (accessToken: string, queryString: string) => {
-  return instance({
-    url: `/board?${queryString}`,
-    method: HTTP_METHOD.GET,
-    headers: {
-      'X-AUTH-TOKEN': accessToken,
-    },
-  });
-};
-
-export const deleteBoardData = (accessToken: string, url: string) => {
-  return instance({
-    url,
     method: HTTP_METHOD.DELETE,
     headers: {
       'X-AUTH-TOKEN': accessToken,
