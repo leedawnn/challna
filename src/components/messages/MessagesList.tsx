@@ -1,26 +1,43 @@
-import { useQueryClient, useQuery } from '@tanstack/react-query';
-import { MAIN_MESSAGE_KEY, MAIN_ALBUM_KEY, getBaordList } from './../../api/messages';
-import axios from 'axios';
+import { useQueryClient, useQuery, useInfiniteQuery } from '@tanstack/react-query';
+import { AxiosError, AxiosResponse, Axios } from 'axios';
+import { MAIN_MESSAGE_KEY } from './../../api/messages';
+import { fetchQuery } from './../../../src/utils/fetchQuery';
+import { message } from '.././../types/message';
+import instance from '../../api/axios';
+import { useAtomValue } from 'jotai';
+import { userStore } from '../../stores/userStore';
+import { HTTP_METHOD } from '../../constants/api';
 
-export type message = {
-  id: any;
-  dateTime: string;
-  content: string;
+export const getBaordList = (accessToken: string) => {
+  return instance({
+    url: `/board`,
+    method: HTTP_METHOD.GET,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+    },
+  });
 };
+export interface messagess {
+  id?: any;
+  dateTime?: string;
+  content?: string;
+}
 
 export type Props = {
-  data: message[];
+  data?: message[];
 };
 
-export const Messagelist = () => {
-  const queryClient = useQueryClient();
-
-  const fetchPosts = async () => await axios.get(`https://momentpic.store/board`).then((res) => res.data);
-  const { data } = useQuery(['fetchPosts'], fetchPosts);
-  console.log(data);
-  //   {
-  //     data?.map((message: message, index: number) => <div key={message.id || index}>{message.content}</div>);
-  //   }
+export const Messagelist = ({ data }: Props) => {
+  return (
+    <div>
+      {data?.map((message: message) => (
+        <div key={message.id}>
+          <li>{message.content}</li>
+          <li>{message.dateTime}</li>
+        </div>
+      ))}
+    </div>
+  );
 };
 
 export default Messagelist;
