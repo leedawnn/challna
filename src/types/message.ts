@@ -1,5 +1,9 @@
 export type message = {
-  id: any;
+  board_id: any;
   dateTime: string | null;
   content: string | null;
+};
+
+export type messageFront = {
+  messageFront: message;
 };

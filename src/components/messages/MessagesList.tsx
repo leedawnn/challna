@@ -1,47 +1,58 @@
 import { useQueryClient, useQuery, useInfiniteQuery } from '@tanstack/react-query';
 import { AxiosError, AxiosResponse, Axios } from 'axios';
-import { MAIN_MESSAGE_KEY } from './../../api/messages';
+import { MAIN_MESSAGE_KEY, getBoardList } from './../../api/messages';
 import { fetchQuery } from './../../../src/utils/fetchQuery';
-import { message } from '.././../types/message';
+import { message, messageFront } from '.././../types/message';
 import instance from '../../api/axios';
 import { useAtomValue } from 'jotai';
 import { userStore } from '../../stores/userStore';
 import { HTTP_METHOD } from '../../constants/api';
-
-export const getBaordList = (accessToken: string) => {
-  return instance({
-    url: `/board`,
-    method: HTTP_METHOD.GET,
-    headers: {
-      'X-AUTH-TOKEN': accessToken,
-    },
-  });
-};
-export interface messagess {
-  id?: any;
-  dateTime?: string;
-  content?: string;
-}
+import { useMessageLists } from '../../hooks/useMessageList';
 
 export type Props = {
-  data?: message[];
+  data: message[];
 };
 
 export const Messagelist = ({ data }: Props) => {
+  const users = useAtomValue(userStore);
+  const { data: message } = useMessageLists(users?.accessToken as string);
   return (
-    <div>
-      {data?.map((message: message) => (
-        <div key={message.id}>
-          <li>{message.content}</li>
-          <li>{message.dateTime}</li>
-        </div>
-      ))}
-    </div>
+    <article>
+      {data &&
+        data.map((data) => {
+          const message: message = {
+            board_id: data.board_id,
+            dateTime: data.dateTime,
+            content: data.content,
+          };
+
+          return (
+            <div key={message.board_id}>
+              <li>{message.content}</li>
+              <li>{message.dateTime}</li>
+            </div>
+          );
+        })}
+    </article>
   );
 };
 
+// export const Messagelist = ({ data }: Props) => {
+//   // const users = useAtomValue(userStore);
+//   // const { data: message, isLoading } = useMessageLists(users?.accessToken as string);
+//   // if (isLoading) return <div>loading</div>;
+//   return (
+//     <div>
+//       {data &&
+//         data?.map((message: message) => (
+//           <div>
+//             {/* <li>{message?.pages}</li> */}
+//             <li>{message.pages.content}</li>
+//             <li>{message.pages.dateTime}</li>
+//           </div>
+//         ))}
+//       jammanbo
+//     </div>
+//   );
+// };
 export default Messagelist;
-
-//   const { data } = useQuery(MAIN_MESSAGE_KEY, getMessageBaord)
-
-// const albumDatas = queryClient.getQueryData<any>(MAIN_ALBUM_KEY);
