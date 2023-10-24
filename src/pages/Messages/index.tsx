@@ -5,7 +5,6 @@ import { useAtomValue } from 'jotai';
 import { useQuery } from '@tanstack/react-query';
 import { userStore } from '../../stores/userStore';
 import { HTTP_METHOD } from '../../constants/api';
-import { Props } from '../../components/messages/MessagesList';
 import { useMessageLists } from '../../hooks/useMessageList';
 import { message } from '../../types/message';
 
@@ -13,19 +12,38 @@ const Messages = () => {
   const users = useAtomValue(userStore);
   const { data: message, isLoading } = useMessageLists(users?.accessToken as string);
   if (isLoading) return <div>loading</div>;
-  console.log(message);
+  // const d = message?.pages.map((content) => content);
+  // console.log(message?.pages.map((item) => item));
+  // console.log(message?.pages.map(content));
+  // console.log(message?.pages.map(content));
+  // return (
+  // <div>
+  //   <div>jammanno</div>
+  // </div>
+  // <>
+  //   {/* {JSON.stringify({ message })} */}
+  //   {/* <Messagelist data={message} /> */}
+  // <Messagelist data={[]} />
+  // </>
+  // );
   return (
-    <div>jammanbo!!</div>
-    // <>
-    //   {/* {message?.map((data:message) => (
-    //     <div key={data.content}>
-    //       <li>{data.dateTime}</li>
-    //       <li>{data.id}</li>
-    //     </div>
-    //   ))} */}
-    //   {/* <Messagelist data={message} /> */}
-    //   {/* <Messagelist /> */}
-    // </>
+    <article>
+      {message &&
+        message.pages.map((data: any) => {
+          const message: message = {
+            board_id: data.board_id,
+            dateTime: data.dateTime,
+            content: data.content,
+          };
+
+          return (
+            <div key={message.board_id}>
+              <li>{message.content}</li>
+              <li>{message.dateTime}</li>
+            </div>
+          );
+        })}
+    </article>
   );
 };
 

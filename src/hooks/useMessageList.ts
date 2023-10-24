@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/rules-of-hooks */
 import { AxiosError, AxiosResponse } from 'axios';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { MAIN_MESSAGE_KEY, getBoardList } from '../api/messages/index';
@@ -15,9 +13,10 @@ export const useMessageLists = (accessToken: string) => {
         return lastPage.data.last ? null : lastPage.data.pageNumber + 1;
       },
       select: (data) => ({
-        pages: data?.pages.map((page) => page.data.content),
+        pages: data?.pages.flatMap((page) => page.data.board),
         pageParams: data.pageParams,
-        dateTime: data?.pages.map((page) => page.data.dateTime),
+        content: data?.pages.map((content) => content.data),
+        board_id: data?.pages.map((dateTime) => dateTime.data),
       }),
     },
   );
