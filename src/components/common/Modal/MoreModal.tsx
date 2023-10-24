@@ -1,13 +1,18 @@
 import * as S from './Modal.styled';
 
+import DeleteConfirmModal from './DeleteConfirmModal';
 import DeleteIcon from '../../../assets/icons/DeleteIcon';
-import useHandleDeleteBoardData from '../../../hooks/useHandleDeleteBoardData';
+import { useModal } from '../../../provider/ModalProvider';
 
 const MoreModal = () => {
-  const handleDeleteBoardData = useHandleDeleteBoardData();
+  const { handleOpenModal } = useModal();
+
+  const handleOpenDeleteModal = () => {
+    handleOpenModal(<DeleteConfirmModal />);
+  };
 
   return (
-    <S.MoreDeleteWrapper onClick={handleDeleteBoardData}>
+    <S.MoreDeleteWrapper onClick={handleOpenDeleteModal}>
       <DeleteIcon active />
       <S.MoreDeleteText>삭제</S.MoreDeleteText>
     </S.MoreDeleteWrapper>
