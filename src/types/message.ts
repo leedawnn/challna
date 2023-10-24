@@ -7,3 +7,5 @@ export type message = {
 export type messageFront = {
   messageFront: message;
 };
+
+export type ListProps = { data: message[] };
