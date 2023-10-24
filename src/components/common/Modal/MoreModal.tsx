@@ -5,10 +5,10 @@ import DeleteIcon from '../../../assets/icons/DeleteIcon';
 import { useModal } from '../../../provider/ModalProvider';
 
 const MoreModal = () => {
-  const { handleOpenModal } = useModal();
+  const { openModal } = useModal();
 
   const handleOpenDeleteModal = () => {
-    handleOpenModal(<DeleteConfirmModal />);
+    openModal(<DeleteConfirmModal />);
   };
 
   return (
