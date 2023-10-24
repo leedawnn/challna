@@ -1,14 +1,14 @@
 import { useQueryClient, useQuery, useInfiniteQuery } from '@tanstack/react-query';
 import { AxiosError, AxiosResponse, Axios } from 'axios';
-import { MAIN_MESSAGE_KEY, getBoardList } from './../../api/messages';
-import { fetchQuery } from './../../../src/utils/fetchQuery';
-import { message, messageFront, ListProps } from '.././../types/message';
-import instance from '../../api/axios';
 import { useAtomValue } from 'jotai';
+import { MAIN_MESSAGE_KEY, getBoardList } from '../../api/messages';
+import { fetchQuery } from '../../utils/fetchQuery';
+import { message, messageFront, ListProps } from '../../types/message';
+import instance from '../../api/axios';
 import { userStore } from '../../stores/userStore';
 import { HTTP_METHOD } from '../../constants/api';
 import { useMessageLists } from '../../hooks/useMessageList';
-import { MessageContainer, Content, DateTime, ContentWrapper } from '../../components/messages/Message.styled';
+import { MessageContainer, Content, DateTime, ContentWrapper } from './Message.styled';
 import { RightIcon } from '../../assets/icons/RightIcon';
 import { Eclipse } from '../../assets/icons/Eclipse';
 
