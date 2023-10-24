@@ -17,7 +17,7 @@ const useHandleDeleteBoardData = () => {
   const setActiveSlider = useSetAtom(activeSliderStore);
   const { pathname } = useLocation();
   const queryClient = useQueryClient();
-  const { handleCloseModal } = useModal();
+  const { closeModal } = useModal();
 
   const handleDeleteBoardData = useCallback(async () => {
     if (!accessToken || !albumDetailInfo?.imageId) return;
@@ -45,7 +45,7 @@ const useHandleDeleteBoardData = () => {
           setActiveSlider(changeIndex);
         }
 
-        handleCloseModal();
+        closeModal();
       }
     } catch {
       //  추후 에러 처리 추가

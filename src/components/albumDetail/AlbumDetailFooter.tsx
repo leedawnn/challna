@@ -5,21 +5,17 @@ import * as S from './AlbumDetail.styled';
 
 import { ALBUM_MESSAGE_KEY, getAlbumMessage } from '../../api/album';
 
-import DeleteConfirmModal from '../common/Modal/DeleteConfirmModal';
-import DeleteIcon from '../../assets/icons/DeleteIcon';
 import MessageDetailIcon from '../../assets/icons/MessageDetailIcon';
 import { accessTokenStore } from '../../stores/accessToken';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { formatDate } from '../../utils';
 import { messageStore } from '../../stores/messageStore';
-import { useModal } from '../../provider/ModalProvider';
 
 const AlbumDetailFooter = () => {
   const [shouldFetch, setShouldFetch] = useState<boolean>(false);
   const [messageCheck, setMessageCheck] = useAtom(messageStore);
   const accessToken = useAtomValue(accessTokenStore);
   const albumDetail = useAtomValue(albumDetailStore);
-  const { handleOpenModal } = useModal();
   const {
     data: messageData,
     refetch,
@@ -53,10 +49,6 @@ const AlbumDetailFooter = () => {
     });
   };
 
-  const handleOpenDeleteModal = () => {
-    handleOpenModal(<DeleteConfirmModal />);
-  };
-
   useEffect(() => {
     if (messageCheck.isIconCheck && albumDetail?.contentCheck) {
       refetch();
@@ -78,7 +70,6 @@ const AlbumDetailFooter = () => {
           {albumDetail?.contentCheck && (
             <MessageDetailIcon active={messageCheck.isIconCheck} onClick={handleOpenMessage} />
           )}
-          <DeleteIcon active={false} onClick={handleOpenDeleteModal} />
         </S.IconWrapper>
       </S.FooterContainer>
       {messageCheck.isIconCheck && messageCheck.isMessageOpen && messageData?.data.content && (
