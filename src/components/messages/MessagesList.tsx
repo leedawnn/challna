@@ -8,6 +8,7 @@ import { useAtomValue } from 'jotai';
 import { userStore } from '../../stores/userStore';
 import { HTTP_METHOD } from '../../constants/api';
 import { useMessageLists } from '../../hooks/useMessageList';
+import { MessageContainer, Content, DateTime } from './Message.styled';
 
 export type Props = {
   data: message[];
@@ -27,10 +28,10 @@ export const Messagelist = ({ data }: Props) => {
           };
 
           return (
-            <div key={message.board_id}>
-              <li>{message.content}</li>
-              <li>{message.dateTime}</li>
-            </div>
+            <MessageContainer key={message.board_id}>
+              <Content>{message.content}</Content>
+              <DateTime>{message.dateTime}</DateTime>
+            </MessageContainer>
           );
         })}
     </article>
