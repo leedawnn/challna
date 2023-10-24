@@ -8,6 +8,7 @@ import { ROUTES_PATH } from '../constants/routes';
 import TestPage from '../pages/Test';
 import { withAuth } from '../hoc/withAuth';
 import Messages from '../pages/Messages';
+import MessageDetail from '../pages/MessageDetail';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES_PATH.message,
         Component: withAuth(Messages),
+      },
+      {
+        path: ROUTES_PATH.messageDetail,
+        Component: withAuth(MessageDetail),
       },
       {
         path: ROUTES_PATH.login,

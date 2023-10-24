@@ -4,14 +4,14 @@ import { userStore } from '../../stores/userStore';
 import { HTTP_METHOD } from '../../constants/api';
 // import { Props } from './MessagesList';
 import { useMessageLists } from '../../hooks/useMessageList';
-import { message, messageFront } from '.././../types/message';
+import { message, messageFront } from '../../types/message';
 
-export type Props = {
-  data: message[];
+const MessageDetail = () => {
+  return (
+    <>
+      <div>메세지상세 페이지!</div>
+    </>
+  );
 };
 
-const MessageListItem = ({ data }: Props) => {
-  <div>hello</div>;
-};
-
-export default MessageListItem;
+export default MessageDetail;
