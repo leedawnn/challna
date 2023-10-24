@@ -7,7 +7,9 @@ import { userStore } from '../../stores/userStore';
 import { HTTP_METHOD } from '../../constants/api';
 import { useMessageLists } from '../../hooks/useMessageList';
 import { message } from '../../types/message';
-
+import { MessageContainer, Content, DateTime, ContentWrapper } from '../../components/messages/Message.styled';
+import { RightIcon } from '../../assets/icons/RightIcon';
+import { Eclipse } from '../../assets/icons/Eclipse';
 const Messages = () => {
   const users = useAtomValue(userStore);
   const { data: message, isLoading } = useMessageLists(users?.accessToken as string);
@@ -37,10 +39,18 @@ const Messages = () => {
           };
 
           return (
-            <div key={message.board_id}>
-              <li>{message.content}</li>
-              <li>{message.dateTime}</li>
-            </div>
+            <MessageContainer key={message.board_id}>
+              <ContentWrapper>
+                <Content>
+                  <Eclipse />
+                </Content>
+                <Content>{message.content}</Content>
+                <Content>
+                  <RightIcon />
+                </Content>
+              </ContentWrapper>
+              <DateTime>{message.dateTime}</DateTime>
+            </MessageContainer>
           );
         })}
     </article>
