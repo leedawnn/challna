@@ -6,6 +6,12 @@ export const MessageContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
+  a:link,
+  a:visited,
+  a:active {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -18,11 +24,14 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  font-size: 24px;
+  /* font-size: 24px; */
+  font-size: ${({ theme }) => theme.typography.body3.fontSize};
+  font-family: ${({ theme }) => theme.typography.body3.fontFamily};
   align-content: space-between;
 `;
 export const DateTime = styled.div`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.gray1};
   padding: 20px;
+  margin: 10px;
 `;
