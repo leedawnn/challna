@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/layout/Footer';
@@ -20,7 +21,7 @@ const LayoutProvider = ({ children }: Props) => {
         ) : (
           <MomentBody>
             <Header />
-            {children}
+            <Suspense fallback="...Loading">{children}</Suspense>
             <Footer />
           </MomentBody>
         )}
