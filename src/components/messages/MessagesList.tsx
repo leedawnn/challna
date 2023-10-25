@@ -14,7 +14,7 @@ export type Props = {
 
 export const Messagelist = ({ data }: ListProps) => {
   const users = useAtomValue(userStore);
-  const { data: message } = useMessageLists(users?.accessToken as string);
+  useMessageLists(users?.accessToken as string);
   return (
     <article>
       {data &&
