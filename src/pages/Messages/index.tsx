@@ -14,8 +14,8 @@ const Messages = () => {
   if (isLoading) return <div>loading</div>;
   return (
     <>
+      <Messagelist ContentList={message?.pages as any[]} />;
       <div ref={setTarget} />
-      <Messagelist data={message?.pages as any[]} />;
     </>
   );
 };
