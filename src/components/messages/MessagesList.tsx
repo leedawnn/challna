@@ -1,10 +1,7 @@
-import { useQueryClient, useQuery, useInfiniteQuery } from '@tanstack/react-query';
-import { AxiosError, AxiosResponse, Axios } from 'axios';
 import { useAtomValue } from 'jotai';
 import { message, ListProps } from '../../types/message';
 import { userStore } from '../../stores/userStore';
 import { useMessageLists } from '../../hooks/useMessageList';
-import { useInfinityObserver } from '../../hooks/useInfinityObserver';
 import { MessageContainer, Content, DateTime, ContentWrapper } from './Message.styled';
 import { RightIcon } from '../../assets/icons/RightIcon';
 import { Eclipse } from '../../assets/icons/Eclipse';
