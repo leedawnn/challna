@@ -44,9 +44,9 @@ export const DateTime = styled.div`
 `;
 
 export const RightContent = styled.div`
-  align-items: right;
+  align-items: end;
   display: flex;
-  padding-left: 20px;
+  padding-left: 15px;
   padding-bottom: 40px;
   margin: auto 0 0 auto;
 `;
