@@ -14,20 +14,20 @@ const Messagelist = ({ ContentList }: Props) => {
   return (
     <div>
       {ContentList &&
-        ContentList.map((List) => {
+        ContentList.map((ContentList) => {
           return (
-            <MessageContainer key={List.board_id}>
+            <MessageContainer key={ContentList.board_id}>
               <Link to={ROUTES_PATH.messageDetail}>
                 <ContentWrapper>
                   <Content>
                     <Eclipse />
                   </Content>
-                  <Content>{List.content}</Content>
+                  <Content>{ContentList.content}</Content>
                   <Content>
                     <RightIcon />
                   </Content>
                 </ContentWrapper>
-                <DateTime>{List.dateTime}</DateTime>
+                <DateTime>{ContentList.dateTime}</DateTime>
               </Link>
             </MessageContainer>
           );
