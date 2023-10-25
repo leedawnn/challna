@@ -36,7 +36,7 @@ const Header = () => {
       ) : (
         <UserWrapper to={ROUTES_PATH.mypage}>
           <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
-          <RightButton />
+          <RightButton $type="userInfo" />
         </UserWrapper>
       )}
     </Layout>
