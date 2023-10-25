@@ -3,6 +3,7 @@ export const ROUTES_PATH = {
   login: '/login',
   redirect: '/login/oauth2/callback/kakao',
   message: '/message',
+  messageDetail: '/message/details',
   mypage: '/mypage',
   albumDetail: '/album/details',
 } as const;

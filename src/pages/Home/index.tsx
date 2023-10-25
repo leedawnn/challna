@@ -14,7 +14,6 @@ const HomePage = () => {
     hasNextPage,
     fetchNextPage,
   });
-
   return albumData ? (
     <>
       <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
