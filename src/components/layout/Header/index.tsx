@@ -16,14 +16,14 @@ const Header = () => {
   const { pathname } = useLocation();
   const naviagte = useNavigate();
   const userInfo = useAtomValue(userStore);
-  const { handleOpenModal } = useModal();
+  const { openModal } = useModal();
 
   const handleBackUrl = () => {
     naviagte(-1);
   };
 
   const handleOpenMoreModal = () => {
-    handleOpenModal(<MoreModal />);
+    openModal(<MoreModal />);
   };
 
   return (
