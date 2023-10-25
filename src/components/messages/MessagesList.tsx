@@ -8,9 +8,9 @@ import RightIcon from '../../assets/icons/RightIcon';
 import Eclipse from '../../assets/icons/Eclipse';
 import { ROUTES_PATH } from '../../constants/routes';
 
-type ListProps = { data: message[] };
+type Props = { data: message[] };
 
-const Messagelist = ({ data }: ListProps) => {
+const Messagelist = ({ data }: Props) => {
   const users = useAtomValue(userStore);
   useMessageLists(users?.accessToken as string);
   return (
