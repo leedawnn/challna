@@ -1,9 +1,9 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { StrictMode, Suspense } from 'react';
 
 import { Provider } from 'jotai';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { RouterProvider } from 'react-router-dom';
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import router from './router';
 import { worker } from './mocks/browser';
@@ -29,7 +29,9 @@ root.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <Provider>
-        <RouterProvider router={router} />
+        <Suspense fallback="...loading">
+          <RouterProvider router={router} />
+        </Suspense>
         <ReactQueryDevtools initialIsOpen />
       </Provider>
     </QueryClientProvider>
