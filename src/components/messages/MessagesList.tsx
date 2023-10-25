@@ -5,30 +5,29 @@ import RightIcon from '../../assets/icons/RightIcon';
 import Eclipse from '../../assets/icons/Eclipse';
 import { ROUTES_PATH } from '../../constants/routes';
 
-type Props = { ContentList: message[] };
+type Props = { contentList: message[] };
 
-const Messagelist = ({ ContentList }: Props) => {
+const Messagelist = ({ contentList }: Props) => {
   return (
     <div>
-      {ContentList &&
-        ContentList.map((ContentList) => {
-          return (
-            <MessageContainer key={ContentList.board_id}>
-              <Link to={ROUTES_PATH.messageDetail}>
-                <ContentWrapper>
-                  <Content>
-                    <Eclipse />
-                  </Content>
-                  <Content>{ContentList.content}</Content>
-                  <Content>
-                    <RightIcon />
-                  </Content>
-                </ContentWrapper>
-                <DateTime>{ContentList.dateTime}</DateTime>
-              </Link>
-            </MessageContainer>
-          );
-        })}
+      {contentList.map((contentList) => {
+        return (
+          <MessageContainer key={contentList.board_id}>
+            <Link to={ROUTES_PATH.messageDetail}>
+              <ContentWrapper>
+                <Content>
+                  <Eclipse />
+                </Content>
+                <Content>{contentList.content}</Content>
+                <Content>
+                  <RightIcon />
+                </Content>
+              </ContentWrapper>
+              <DateTime>{contentList.dateTime}</DateTime>
+            </Link>
+          </MessageContainer>
+        );
+      })}
     </div>
   );
 };

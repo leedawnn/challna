@@ -7,5 +7,3 @@ export type message = {
 export type messageDetail = {
   messageDetail: message;
 };
-
-// export type ListProps = { data: message[] };
