@@ -19,19 +19,31 @@ export const ContentWrapper = styled.div`
   flex-direction: row;
   margin: 10px;
   padding: 20px;
-  justify-content: space-between;
+  justify-content: left;
   /* align-content: center; */
 `;
 
 export const Content = styled.div`
-  /* font-size: 24px; */
+  /* text-align: left; */
+  justify-content: center;
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
   font-family: ${({ theme }) => theme.typography.body3.fontFamily};
-  align-content: space-between;
+  max-width: calc(100% - 40px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
+
 export const DateTime = styled.div`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.gray1};
-  padding: 20px;
-  margin: 10px;
+  margin-right: auto;
+`;
+
+export const RightContent = styled.div`
+  align-items: right;
+  display: flex;
+  padding-right: 0.5em;
+  padding-bottom: 0.5em;
+  margin: auto 0 0 auto;
 `;
