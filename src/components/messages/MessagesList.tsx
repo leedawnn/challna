@@ -1,46 +1,38 @@
-import { useAtomValue } from 'jotai';
+// import { useAtomValue } from 'jotai';
 import { Link } from 'react-router-dom';
 import { message } from '../../types/message';
-import { userStore } from '../../stores/userStore';
-import { useMessageLists } from '../../hooks/useMessageList';
+// import { userStore } from '../../stores/userStore';
+// import { useMessageLists } from '../../hooks/useMessageList';
 import { MessageContainer, Content, DateTime, ContentWrapper } from './Message.styled';
 import RightIcon from '../../assets/icons/RightIcon';
 import Eclipse from '../../assets/icons/Eclipse';
 import { ROUTES_PATH } from '../../constants/routes';
 
-type Props = { data: message[] };
+type Props = { ContentList: message[] };
 
-const Messagelist = ({ data }: Props) => {
-  const users = useAtomValue(userStore);
-  useMessageLists(users?.accessToken as string);
+const Messagelist = ({ ContentList }: Props) => {
   return (
-    <article>
-      {data &&
-        data.map((data) => {
-          const message: message = {
-            board_id: data.board_id,
-            dateTime: data.dateTime,
-            content: data.content,
-          };
-
+    <div>
+      {ContentList &&
+        ContentList.map((List) => {
           return (
-            <MessageContainer key={message.board_id}>
+            <MessageContainer key={List.board_id}>
               <Link to={ROUTES_PATH.messageDetail}>
                 <ContentWrapper>
                   <Content>
                     <Eclipse />
                   </Content>
-                  <Content>{message.content}</Content>
+                  <Content>{List.content}</Content>
                   <Content>
                     <RightIcon />
                   </Content>
                 </ContentWrapper>
-                <DateTime>{message.dateTime}</DateTime>
+                <DateTime>{List.dateTime}</DateTime>
               </Link>
             </MessageContainer>
           );
         })}
-    </article>
+    </div>
   );
 };
 

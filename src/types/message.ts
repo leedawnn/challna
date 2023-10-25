@@ -4,8 +4,8 @@ export type message = {
   content: string | null;
 };
 
-export type messageFront = {
-  messageFront: message;
+export type messageDetail = {
+  messageDetail: message;
 };
 
 // export type ListProps = { data: message[] };

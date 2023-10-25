@@ -1,11 +1,7 @@
 import MessageDetail from '../../components/messages/MessageDetail';
 
 const MessageDetailPage = () => {
-  return (
-    <>
-      <MessageDetail />
-    </>
-  );
+  return <MessageDetail />;
 };
 
 export default MessageDetailPage;
