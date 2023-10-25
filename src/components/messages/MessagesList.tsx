@@ -3,8 +3,8 @@ import { message, ListProps } from '../../types/message';
 import { userStore } from '../../stores/userStore';
 import { useMessageLists } from '../../hooks/useMessageList';
 import { MessageContainer, Content, DateTime, ContentWrapper } from './Message.styled';
-import { RightIcon } from '../../assets/icons/RightIcon';
-import { Eclipse } from '../../assets/icons/Eclipse';
+import RightIcon from '../../assets/icons/RightIcon';
+import Eclipse from '../../assets/icons/Eclipse';
 import { Link } from 'react-router-dom';
 import { ROUTES_PATH } from '../../constants/routes';
 

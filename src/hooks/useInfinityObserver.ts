@@ -8,7 +8,7 @@ type Props = {
   fetchNextPage: () => Promise<InfiniteQueryObserverResult>;
 };
 
-export const useInfinityObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }: Props) => {
+const useInfinityObserver = ({ threshold = 0.1, hasNextPage, fetchNextPage }: Props) => {
   const [target, setTarget] = useState<HTMLDivElement | null>(null);
 
   // 추후 fetchNextPage에 대한 에러 핸들링 부분 추가
