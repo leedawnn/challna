@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { message } from '../../types/message';
 import { MessageContainer, Content, DateTime, ContentWrapper, RightContent } from './Message.styled';
-import RightIcon from '../../assets/icons/RightIcon';
+import MessageRightIcon from '../../assets/icons/MessageRightIcon';
 import Eclipse from '../../assets/icons/Eclipse';
 import { ROUTES_PATH } from '../../constants/routes';
 
@@ -24,7 +24,7 @@ const Messagelist = ({ contentList }: Props) => {
                 </Content>
                 {/* <Content> */}
                 <RightContent>
-                  <RightIcon />
+                  <MessageRightIcon />
                 </RightContent>
                 {/* </Content> */}
               </ContentWrapper>
