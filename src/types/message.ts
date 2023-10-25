@@ -8,4 +8,4 @@ export type messageFront = {
   messageFront: message;
 };
 
-export type ListProps = { data: message[] };
+// export type ListProps = { data: message[] };

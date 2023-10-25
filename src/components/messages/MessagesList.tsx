@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai';
-import { message, ListProps } from '../../types/message';
+import { message } from '../../types/message';
 import { userStore } from '../../stores/userStore';
 import { useMessageLists } from '../../hooks/useMessageList';
 import { MessageContainer, Content, DateTime, ContentWrapper } from './Message.styled';
@@ -8,11 +8,9 @@ import Eclipse from '../../assets/icons/Eclipse';
 import { Link } from 'react-router-dom';
 import { ROUTES_PATH } from '../../constants/routes';
 
-export type Props = {
-  data: message[];
-};
+type ListProps = { data: message[] };
 
-export const Messagelist = ({ data }: ListProps) => {
+const Messagelist = ({ data }: ListProps) => {
   const users = useAtomValue(userStore);
   useMessageLists(users?.accessToken as string);
   return (
