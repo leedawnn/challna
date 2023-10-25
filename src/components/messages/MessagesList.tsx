@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { message } from '../../types/message';
-import { MessageContainer, Content, DateTime, ContentWrapper } from './Message.styled';
+import { MessageContainer, Content, DateTime, ContentWrapper, RightContent } from './Message.styled';
 import RightIcon from '../../assets/icons/RightIcon';
 import Eclipse from '../../assets/icons/Eclipse';
 import { ROUTES_PATH } from '../../constants/routes';
@@ -18,12 +18,16 @@ const Messagelist = ({ contentList }: Props) => {
                 <Content>
                   <Eclipse />
                 </Content>
-                <Content>{contentList.content}</Content>
                 <Content>
-                  <RightIcon />
+                  {contentList.content}
+                  <DateTime>{contentList.dateTime}</DateTime>
                 </Content>
+                {/* <Content> */}
+                <RightContent>
+                  <RightIcon />
+                </RightContent>
+                {/* </Content> */}
               </ContentWrapper>
-              <DateTime>{contentList.dateTime}</DateTime>
             </Link>
           </MessageContainer>
         );
