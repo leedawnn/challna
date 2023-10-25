@@ -32,18 +32,21 @@ export const Content = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-bottom: 0.6em;
 `;
 
 export const DateTime = styled.div`
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.gray1};
+  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  color: ${({ theme }) => theme.colors.lightGray4};
+  font-weight: ${({ theme }) => theme.fonts.bold};
   margin-right: auto;
+  padding-top: 10px;
 `;
 
 export const RightContent = styled.div`
   align-items: right;
   display: flex;
-  padding-right: 0.5em;
-  padding-bottom: 0.5em;
+  padding-left: 10px;
+  padding-bottom: 40px;
   margin: auto 0 0 auto;
 `;
