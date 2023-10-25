@@ -1,4 +1,3 @@
-import { AxiosRequestConfig } from 'axios';
 import { HTTP_METHOD } from '../../constants/api';
 import instance from '../axios';
 
@@ -14,6 +13,6 @@ export const getKaKaoUser = (queryString: string) => {
  * @returns refreshToken과 토큰 정보(만료일, 에러 메시지 등)
  */
 
-export const restoreAcccessToken = (config: AxiosRequestConfig) => {
-  return instance({ url: `/reissue`, method: HTTP_METHOD.POST, ...config });
+export const getReissueAccessToken = () => {
+  return instance({ url: `/reissue`, method: HTTP_METHOD.GET });
 };

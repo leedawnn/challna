@@ -5,14 +5,14 @@ import { useQueryClient } from '@tanstack/react-query';
 import { MAIN_ALBUM_KEY, deleteBoardData } from '../api/album';
 
 import { HTTP_STATUS } from '../constants/api';
-import { accessTokenStore } from '../stores/accessToken';
 import { activeSliderStore } from '../stores/activeSliderStore';
 import { albumDetailStore } from '../stores/albumDetailStore';
 import { getDeleteUrl } from '../utils';
 import { useModal } from '../provider/ModalProvider';
+import { userStore } from '../stores/userStore';
 
 const useHandleDeleteBoardData = () => {
-  const accessToken = useAtomValue(accessTokenStore);
+  const users = useAtomValue(userStore)!;
   const albumDetailInfo = useAtomValue(albumDetailStore);
   const setActiveSlider = useSetAtom(activeSliderStore);
   const { pathname } = useLocation();
@@ -20,11 +20,11 @@ const useHandleDeleteBoardData = () => {
   const { closeModal } = useModal();
 
   const handleDeleteBoardData = useCallback(async () => {
-    if (!accessToken || !albumDetailInfo?.imageId) return;
+    if (!users?.accessToken || !albumDetailInfo?.imageId) return;
 
     try {
       const url = getDeleteUrl(pathname, albumDetailInfo.imageId);
-      const response = await deleteBoardData(accessToken, url);
+      const response = await deleteBoardData(users?.accessToken, url);
 
       if (response.status === HTTP_STATUS.OK) {
         queryClient.setQueryData(MAIN_ALBUM_KEY, (old: any) => {
@@ -51,7 +51,7 @@ const useHandleDeleteBoardData = () => {
       //  추후 에러 처리 추가
       throw new Error('삭제 관련 에러 발생');
     }
-  }, [accessToken, albumDetailInfo]);
+  }, [users?.accessToken, albumDetailInfo]);
 
   return handleDeleteBoardData;
 };

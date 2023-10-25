@@ -6,15 +6,15 @@ import * as S from './AlbumDetail.styled';
 import { ALBUM_MESSAGE_KEY, getAlbumMessage } from '../../api/album';
 
 import MessageDetailIcon from '../../assets/icons/MessageDetailIcon';
-import { accessTokenStore } from '../../stores/accessToken';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { formatDate } from '../../utils';
 import { messageStore } from '../../stores/messageStore';
+import { userStore } from '../../stores/userStore';
 
 const AlbumDetailFooter = () => {
   const [shouldFetch, setShouldFetch] = useState<boolean>(false);
   const [messageCheck, setMessageCheck] = useAtom(messageStore);
-  const accessToken = useAtomValue(accessTokenStore);
+  const users = useAtomValue(userStore);
   const albumDetail = useAtomValue(albumDetailStore);
   const {
     data: messageData,
@@ -23,7 +23,7 @@ const AlbumDetailFooter = () => {
   } = useQuery(
     ALBUM_MESSAGE_KEY,
     () => {
-      return getAlbumMessage(accessToken as string, albumDetail?.boardId as number);
+      return getAlbumMessage(users?.accessToken as string, albumDetail?.boardId as number);
     },
     {
       enabled: shouldFetch,
