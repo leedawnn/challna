@@ -46,7 +46,7 @@ export const DateTime = styled.div`
 export const RightContent = styled.div`
   align-items: right;
   display: flex;
-  padding-left: 10px;
+  padding-left: 20px;
   padding-bottom: 40px;
   margin: auto 0 0 auto;
 `;
