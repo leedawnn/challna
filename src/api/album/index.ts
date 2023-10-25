@@ -25,16 +25,6 @@ export const getAlbumMessage = (accessToken: string, boardId: number) => {
   });
 };
 
-export const getMessageBaord = (accessToken: string, queryString: string) => {
-  return instance({
-    url: `/board?${queryString}`,
-    method: HTTP_METHOD.GET,
-    headers: {
-      'X-AUTH-TOKEN': accessToken,
-    },
-  });
-};
-
 export const deleteBoardData = (accessToken: string, url: string) => {
   return instance({
     url,
