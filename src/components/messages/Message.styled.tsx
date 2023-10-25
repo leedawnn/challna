@@ -19,19 +19,34 @@ export const ContentWrapper = styled.div`
   flex-direction: row;
   margin: 10px;
   padding: 20px;
-  justify-content: space-between;
+  justify-content: left;
   /* align-content: center; */
 `;
 
 export const Content = styled.div`
-  /* font-size: 24px; */
+  /* text-align: left; */
+  justify-content: center;
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
   font-family: ${({ theme }) => theme.typography.body3.fontFamily};
-  align-content: space-between;
+  max-width: calc(100% - 40px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 0.6em;
 `;
+
 export const DateTime = styled.div`
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.gray1};
-  padding: 20px;
-  margin: 10px;
+  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  color: ${({ theme }) => theme.colors.lightGray4};
+  font-weight: ${({ theme }) => theme.fonts.bold};
+  margin-right: auto;
+  padding-top: 10px;
+`;
+
+export const RightContent = styled.div`
+  align-items: end;
+  display: flex;
+  padding-left: 15px;
+  padding-bottom: 40px;
+  margin: auto 0 0 auto;
 `;
