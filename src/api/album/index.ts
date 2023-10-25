@@ -3,7 +3,6 @@ import instance from '../axios';
 
 export const MAIN_ALBUM_KEY = ['albums'];
 export const ALBUM_MESSAGE_KEY = ['albums', 'message'];
-export const MAIN_MESSAGE_KEY = ['message'];
 
 export const getAlbumLists = (accessToken: string, queryString: string) => {
   return instance({

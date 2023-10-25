@@ -10,20 +10,20 @@ import { useState } from 'react';
 import * as S from './AlbumDetail.styled';
 
 import { Album } from '../../types/album';
-import { accessTokenStore } from '../../stores/accessToken';
 import { activeSliderStore } from '../../stores/activeSliderStore';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { messageStore } from '../../stores/messageStore';
 import useInfinityAlbum from '../../hooks/useInfinityAlbum';
 import useIntersectionObserver from '../../hooks/useInfinityObserver';
+import { userStore } from '../../stores/userStore';
 
 const AlbumDeatilImage = () => {
-  const accessToken = useAtomValue(accessTokenStore);
+  const users = useAtomValue(userStore)!;
   const [thumsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const activeSlider = useAtomValue(activeSliderStore);
   const setAlbumDetails = useSetAtom(albumDetailStore);
   const setIsActive = useSetAtom(messageStore);
-  const { data: albumDetailData, fetchNextPage, hasNextPage } = useInfinityAlbum(accessToken!);
+  const { data: albumDetailData, fetchNextPage, hasNextPage } = useInfinityAlbum(users?.accessToken);
   const { setTarget } = useIntersectionObserver({
     hasNextPage,
     fetchNextPage,
