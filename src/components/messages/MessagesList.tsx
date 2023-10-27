@@ -11,7 +11,7 @@ type Props = { contentList: message[] };
 const Messagelist = ({ contentList }: Props) => {
   return (
     <div>
-      {contentList.map((contentList) => {
+      {contentList?.map((contentList) => {
         return (
           <MessageContainer key={contentList.board_id}>
             <Link to={ROUTES_PATH.messageDetail}>
@@ -23,11 +23,9 @@ const Messagelist = ({ contentList }: Props) => {
                   {contentList.content}
                   <DateTime>{contentList.dateTime}</DateTime>
                 </Content>
-                {/* <Content> */}
                 <RightContent>
                   <RightIcon $type="message" />
                 </RightContent>
-                {/* </Content> */}
               </ContentWrapper>
             </Link>
           </MessageContainer>
