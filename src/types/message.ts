@@ -1,5 +1,6 @@
 export type message = {
-  board_id: any;
+  [x: string]: any;
+  board_id: string | undefined;
   dateTime: string | null;
   content: string | null;
   boardImageViewDtoList: boardImageViewDtoList;
@@ -13,7 +14,7 @@ export type boardImageViewDtoList = {
   dateTime: string | null;
   accessUrl: any;
   originName: any;
-  board_id: number | null;
+  board_id: number;
   metaDateTime: string;
   resizeUrl: string;
   [key: string]: any;

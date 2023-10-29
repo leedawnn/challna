@@ -5,9 +5,9 @@ import { useMessageLists } from '../../hooks/useMessageList';
 
 const MessageDetailPage = () => {
   const users = useAtomValue(userStore);
-  const { data: message } = useMessageLists(users?.accessToken as string);
+  useMessageLists(users?.accessToken as string);
 
-  return <MessageDetail contentList={message?.pages as any[]} boardImageViewDtoList={message?.pages as any[]} />;
+  return <MessageDetail />;
 };
 
 export default MessageDetailPage;

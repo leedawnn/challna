@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom';
 import { Content, ContentWrapper, DateTime, MessageContainer, RightContent } from './Message.styled';
-
 import Eclipse from '../../assets/icons/Eclipse';
-import { ROUTES_PATH } from '../../constants/routes';
 import RightIcon from '../../assets/icons/RightIcon';
 import { message } from '../../types/message';
 
 type Props = { contentList: message[] };
 
 const Messagelist = ({ contentList }: Props) => {
+  // console.log(contentList);
   return (
     <div>
       {contentList?.map((contentList) => {
         return (
           <MessageContainer key={contentList.board_id}>
-            <Link to={ROUTES_PATH.messageDetail}>
+            <Link to={`/message/${contentList.board_id}`} key={contentList.board_id} state={contentList}>
               <ContentWrapper>
                 <Content>
                   <Eclipse />
