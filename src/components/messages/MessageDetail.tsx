@@ -1,37 +1,55 @@
-import { Link } from 'react-router-dom';
-import { ROUTES_PATH } from '../../constants/routes';
-import { message, boardImageViewDtoList } from '../../types/message';
+import { useLocation } from 'react-router-dom';
 
-type Props = {
-  contentList: message[];
-  boardImageViewDtoList: boardImageViewDtoList[];
-};
-const MessageDetail = ({ contentList }: Props) => {
+const MessageDetail = () => {
+  const location = useLocation();
+  // const { boardId } = useParams() as any;
+  // const data = (accesstoken: string) => useMessageDetail(boardId, accesstoken);
+  const ImageItem = location.state.boardImageViewDtoList;
   return (
     <div>
-      {contentList?.map((contentList) => {
-        return (
-          <div key={contentList.board_id}>
-            <Link to={ROUTES_PATH.messageDetail}>
-              <div>
-                {contentList.boardImageViewDtoList?.map((boardImageViewDtoList: any) => {
-                  return (
-                    <div key={boardImageViewDtoList.imageId}>
-                      <li>{boardImageViewDtoList.imageId}</li>
-                      <img
-                        src={boardImageViewDtoList.accessUrl}
-                        alt={boardImageViewDtoList.originName}
-                        style={{ width: '300px', height: '200px' }}
-                      />
-                      <li>{boardImageViewDtoList.resizeUrl}</li>
-                    </div>
-                  );
-                })}
-              </div>
-            </Link>
-          </div>
-        );
-      })}
+      <div>{location.state.board_id}</div>
+      <div>{location.state.content}</div>
+      <div>{location.state.dateTime}</div>
+      <div>
+        {ImageItem?.map((List: any) => {
+          return (
+            <div key={List.ImageId}>
+              <img src={List.accessUrl} alt={List.originName} style={{ width: '500px', height: '375px' }} />
+            </div>
+          );
+        })}
+      </div>
+      {/* {contentList?.map((contentList: any) => {
+
+
+        console.log(contentList.boardImageViewDtoList[2]);
+        if (id == contentList.board_id) {
+          return (
+            <div>
+              <li>{contentList.board_id}</li>
+              {contentList.boardImageViewDtoList?.map((List: any, Index: any) => {
+                return (
+                  <div key={contentList.board_id}>
+                    <img src={List.accessUrl} alt={List.originName} style={{ width: '300px', height: '200px' }} />
+                  </div>
+                );
+              })}
+            </div>
+          );
+        } */}
+
+      {/* // return (
+        //   <div key={id}>
+        //     {contentList.boardImageViewDtoList?.map((List: any, Index: any) => {
+        //       return (
+        //         <div key={contentList.board_id}>
+        //           <img src={List.accessUrl} alt={List.originName} style={{ width: '300px', height: '200px' }} />
+        //         </div>
+        //       );
+        //     })}
+        //   </div>
+        // ); */}
+      {/* })} */}
     </div>
   );
 };
