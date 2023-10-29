@@ -33,12 +33,13 @@ export const MessageContent = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  padding-top: 50px;
+  padding-bottom: 80px;
   padding: 24px 20px;
   box-sizing: border-box;
 `;
 
 export const ContentText = styled.span`
+  padding-bottom: 100px;
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   color: ${({ theme }) => theme.colors.black};
