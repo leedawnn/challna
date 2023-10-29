@@ -1,7 +1,15 @@
 import { useLocation } from 'react-router-dom';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Container } from './Messagedetail.styled';
+import {
+  Container,
+  MessageFooter,
+  MessageFooterContainer,
+  FooterText,
+  MessageContentsContainer,
+  MessageContent,
+  ContentText,
+} from './Messagedetail.styled';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import './MessageSwiper.css';
@@ -33,8 +41,16 @@ const MessageDetail = () => {
         })}
       </Swiper>
       <div className="swiper-pagination" />
-      <div>{location.state.content}</div>
-      <div>{location.state.dateTime}</div>
+      <MessageContentsContainer>
+        <MessageContent>
+          <ContentText>{location.state.content}</ContentText>
+        </MessageContent>
+      </MessageContentsContainer>
+      <MessageFooterContainer>
+        <MessageFooter>
+          <FooterText> {location.state.dateTime}</FooterText>
+        </MessageFooter>
+      </MessageFooterContainer>
     </Container>
   );
 };
