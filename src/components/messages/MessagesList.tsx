@@ -12,7 +12,7 @@ const Messagelist = ({ contentList }: Props) => {
       {contentList?.map((contentList) => {
         return (
           <MessageContainer key={contentList.board_id}>
-            <Link to={`/message/${contentList.board_id}`} key={contentList.board_id} state={contentList}>
+            <Link to={`/message/details/${contentList.board_id}`} key={contentList.board_id} state={contentList}>
               <ContentWrapper>
                 <Content>
                   <Eclipse />
