@@ -7,30 +7,26 @@ import { message } from '../../types/message';
 type Props = { contentList: message[] };
 
 const Messagelist = ({ contentList }: Props) => {
-  return (
-    <div>
-      {contentList?.map((contentList) => {
-        return (
-          <MessageContainer key={contentList.board_id}>
-            <Link to={`/message/details/${contentList.board_id}`} key={contentList.board_id} state={contentList}>
-              <ContentWrapper>
-                <Content>
-                  <Eclipse />
-                </Content>
-                <Content>
-                  {contentList.content}
-                  <DateTime>{contentList.dateTime}</DateTime>
-                </Content>
-                <RightContent>
-                  <RightIcon $type="message" />
-                </RightContent>
-              </ContentWrapper>
-            </Link>
-          </MessageContainer>
-        );
-      })}
-    </div>
-  );
+  return contentList?.map((Contents) => {
+    return (
+      <MessageContainer key={Contents.board_id}>
+        <Link to={`/message/details/${Contents.board_id}`} key={Contents.board_id} state={Contents}>
+          <ContentWrapper>
+            <Content>
+              <Eclipse />
+            </Content>
+            <Content>
+              {Contents.content}
+              <DateTime>{Contents.dateTime}</DateTime>
+            </Content>
+            <RightContent>
+              <RightIcon $type="message" />
+            </RightContent>
+          </ContentWrapper>
+        </Link>
+      </MessageContainer>
+    );
+  });
 };
 
 export default Messagelist;
