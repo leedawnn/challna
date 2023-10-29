@@ -7,7 +7,6 @@ import { message } from '../../types/message';
 type Props = { contentList: message[] };
 
 const Messagelist = ({ contentList }: Props) => {
-  // console.log(contentList);
   return (
     <div>
       {contentList?.map((contentList) => {
