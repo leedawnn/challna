@@ -1,0 +1,14 @@
+.mainSwiper {
+  width: 100%;
+  height: 100%;
+
+  padding-top: 28px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination {
+  /* padding-top: 10px; */
+  padding-bottom: 270px;
+}

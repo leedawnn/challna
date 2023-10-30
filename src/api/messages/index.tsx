@@ -2,6 +2,7 @@ import { HTTP_METHOD } from '../../constants/api';
 import instance from '../axios';
 
 export const MAIN_MESSAGE_KEY = ['message'];
+export const DETAIL_KEY = ['board_id'];
 
 export const getBoardList = (accessToken: string, queryString: string) => {
   return instance({
@@ -13,9 +14,9 @@ export const getBoardList = (accessToken: string, queryString: string) => {
   });
 };
 
-export const getBoardImage = (accessToken: string, boardId: number) => {
+export const getBoardImage = (accessToken: string, queryString: number) => {
   return instance({
-    url: `/board/image/${boardId}`,
+    url: `/board/image/${queryString}`,
     method: HTTP_METHOD.GET,
     headers: {
       'X-AUTH-TOKEN': accessToken,

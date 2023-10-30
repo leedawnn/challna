@@ -17,6 +17,7 @@ export const useMessageLists = (accessToken: string) => {
         pageParams: data.pageParams,
         content: data?.pages.map((content) => content.data),
         board_id: data?.pages.map((dateTime) => dateTime.data),
+        boardImageViewDtoList: data?.pages.flatMap((boardImageViewDtoList) => boardImageViewDtoList.data),
       }),
     },
   );
