@@ -21,7 +21,7 @@ const MessageDetail = () => {
   return (
     <Container>
       <Swiper
-        spaceBetween={10}
+        spaceBetween={30}
         pagination={{ clickable: true, el: '.swiper-pagination' }}
         modules={[Pagination]}
         className="mainSwiper"
@@ -33,10 +33,9 @@ const MessageDetail = () => {
                 <img
                   src={List.accessUrl}
                   alt={List.originName}
-                  style={{ width: '500px', height: '375px', alignItems: 'center' }}
+                  style={{ width: '100%', height: '375px', alignItems: 'center' }}
                 />
               </SwiperSlide>
-              {/* <div className="swiper-pagination"></div> */}
             </div>
           );
         })}
