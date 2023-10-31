@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MEDIA_QUERY } from '../../constants/styles';
 
 export const Container = styled.div`
   width: 100%;
@@ -36,12 +37,52 @@ export const ContnetCounterWrapper = styled.div`
 `;
 
 export const CountText = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.point};
   font-family: ${({ theme }) => theme.fonts.bold};
+
+  ${MEDIA_QUERY.sm} {
+    font-size: 12px;
+  }
 `;
 
 export const CountTitleText = styled.span`
-  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  font-size: 14px;
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
+
+  ${MEDIA_QUERY.sm} {
+    font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  gap: 15px;
+`;
+
+export const ProfileButton = styled.button`
+  all: unset;
+
+  width: 50%;
+  height: 50px;
+
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.typography.subHead.fontFamily};
+  text-align: center;
+  line-height: 40px;
+
+  background-color: ${({ theme }) => theme.colors.point};
+  color: ${({ theme }) => theme.colors.white};
+
+  border-radius: 5px;
+  cursor: pointer;
+
+  ${MEDIA_QUERY.sm} {
+    width: 156px;
+    height: 40px;
+
+    font-size: ${({ theme }) => theme.typography.subHead.fontSize};
+  }
 `;
