@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   return (
-    <Layout>
+    <Layout $current={validateCheckDetail(pathname)}>
       {validateCheckDetail(pathname) ? (
         <MoreWrapper>
           <BackButton onClick={handleBackUrl} />
@@ -36,7 +36,7 @@ const Header = () => {
       ) : (
         <UserWrapper to={ROUTES_PATH.mypage}>
           <UserTitle> {userInfo?.kakaoName ?? '김태웅'} 님 </UserTitle>
-          <RightButton $type="userInfo" />
+          {pathname !== ROUTES_PATH.mypage && <RightButton $type="userInfo" />}
         </UserWrapper>
       )}
     </Layout>
@@ -45,7 +45,7 @@ const Header = () => {
 
 export default Header;
 
-const Layout = styled.header`
+const Layout = styled.header<{ $current: boolean }>`
   position: sticky;
   top: 0;
   z-index: 10;
@@ -57,7 +57,7 @@ const Layout = styled.header`
   box-sizing: border-box;
   margin: 0 auto;
 
-  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray2};
+  border-bottom: 1px solid ${({ theme, $current }) => ($current ? theme.colors.lightGray2 : 'transparent')};
 `;
 
 const UserWrapper = styled(Link)`

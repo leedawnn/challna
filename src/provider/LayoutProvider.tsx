@@ -37,10 +37,14 @@ const Layout = styled.section`
   flex-direction: column;
 
   background-color: rgb(245, 245, 245);
+
+  box-sizing: border-box;
 `;
 
 const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  box-sizing: border-box;
 `;
