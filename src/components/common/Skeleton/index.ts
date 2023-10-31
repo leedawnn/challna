@@ -1,3 +1,4 @@
 import AlbumImage from './AlbumImage';
+import ProfileCount from './ProfileCount';
 
-export { AlbumImage };
+export { AlbumImage, ProfileCount };
