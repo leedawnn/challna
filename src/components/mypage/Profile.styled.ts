@@ -75,6 +75,7 @@ export const ProfileButton = styled.button`
 
   background-color: ${({ theme }) => theme.colors.point};
   color: ${({ theme }) => theme.colors.white};
+  box-shadow: 0px 4px 12px 0px rgba(146, 181, 217, 0.5);
 
   border-radius: 5px;
   cursor: pointer;
@@ -84,5 +85,39 @@ export const ProfileButton = styled.button`
     height: 40px;
 
     font-size: ${({ theme }) => theme.typography.subHead.fontSize};
+  }
+`;
+
+export const Menu = styled.ul`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  padding: 0;
+  padding-top: 60px;
+
+  box-sizing: border-box;
+`;
+
+export const MenuList = styled.li`
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 18px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray2};
+
+  cursor: pointer;
+`;
+
+export const ListContentText = styled.span`
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.typography.body1.fontFamily};
+
+  ${MEDIA_QUERY.sm} {
+    font-size: ${({ theme }) => theme.typography.body1.fontSize};
   }
 `;
