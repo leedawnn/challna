@@ -4,11 +4,12 @@ import App from '../App';
 import AuthRedirection from '../pages/AuthRedirection';
 import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
+import MessageDetail from '../pages/MessageDetail';
+import Messages from '../pages/Messages';
+import MyPage from '../pages/MyPage';
 import { ROUTES_PATH } from '../constants/routes';
 import TestPage from '../pages/Test';
 import { withAuth } from '../hoc/withAuth';
-import Messages from '../pages/Messages';
-import MessageDetail from '../pages/MessageDetail';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES_PATH.messageDetail,
         Component: withAuth(MessageDetail),
+      },
+      {
+        path: ROUTES_PATH.mypage,
+        Component: withAuth(MyPage),
       },
       {
         path: ROUTES_PATH.login,
