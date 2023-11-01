@@ -15,12 +15,12 @@ const MoreModal = () => {
   };
 
   return (
-    <S.DeleteModalContainer>
+    <S.ModalContainer>
       <MoreDeleteWrapper onClick={handleOpenDeleteModal}>
         <DeleteIcon active />
         <MoreDeleteText>삭제</MoreDeleteText>
       </MoreDeleteWrapper>
-    </S.DeleteModalContainer>
+    </S.ModalContainer>
   );
 };
 

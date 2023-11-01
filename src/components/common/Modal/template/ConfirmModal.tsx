@@ -25,7 +25,7 @@ const ConfirmModal = ({ $type, onClick }: Props) => {
   const { title, confirm, bgColor } = MODAL_TYPE[$type];
 
   return (
-    <S.DeleteModalContainer>
+    <S.ModalContainer>
       <S.ConfirmModalWrapper>
         <S.ConfirmTitle>{title}</S.ConfirmTitle>
         <S.ConfirmButton onClick={onClick} bgColor={bgColor}>
@@ -33,7 +33,7 @@ const ConfirmModal = ({ $type, onClick }: Props) => {
         </S.ConfirmButton>
         <S.ConfirmCancelButton onClick={closeModal}>취소</S.ConfirmCancelButton>
       </S.ConfirmModalWrapper>
-    </S.DeleteModalContainer>
+    </S.ModalContainer>
   );
 };
 

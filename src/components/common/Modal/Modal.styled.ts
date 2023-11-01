@@ -20,7 +20,7 @@ export const BackdropLayout = styled.div`
 
 export const ModalLayout = styled.div``;
 
-export const DeleteModalContainer = styled.div`
+export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
