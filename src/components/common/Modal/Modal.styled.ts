@@ -58,7 +58,7 @@ export const ConfirmTitle = styled.span`
   padding: 3rem 0;
 `;
 
-export const ConfirmButton = styled.button<{ bgColor: string }>`
+export const ConfirmButton = styled.button<{ $bgcolor: string }>`
   all: unset;
 
   width: 32.7rem;
@@ -69,7 +69,7 @@ export const ConfirmButton = styled.button<{ bgColor: string }>`
   border-style: none;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(244, 89, 89, 0.5);
-  background-color: ${({ bgColor }) => bgColor};
+  background-color: ${({ $bgcolor }) => $bgcolor};
 
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.typography.subHead2.fontFamily};

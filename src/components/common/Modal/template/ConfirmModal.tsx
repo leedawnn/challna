@@ -6,12 +6,12 @@ const MODAL_TYPE = {
   delete: {
     title: '정말 삭제 하시겠습니까?',
     confirm: '삭제',
-    bgColor: '#F45959',
+    $bgcolor: '#F45959',
   },
   logout: {
     title: '정말 로그아웃 하시겠습니까?',
     confirm: '로그아웃',
-    bgColor: '#92B5D9',
+    $bgcolor: '#92B5D9',
   },
 } as const;
 
@@ -22,13 +22,13 @@ type Props = {
 
 const ConfirmModal = ({ $type, onClick }: Props) => {
   const { closeModal } = useModal();
-  const { title, confirm, bgColor } = MODAL_TYPE[$type];
+  const { title, confirm, $bgcolor } = MODAL_TYPE[$type];
 
   return (
     <S.ModalContainer>
       <S.ConfirmModalWrapper>
         <S.ConfirmTitle>{title}</S.ConfirmTitle>
-        <S.ConfirmButton onClick={onClick} bgColor={bgColor}>
+        <S.ConfirmButton onClick={onClick} $bgcolor={$bgcolor}>
           {confirm}
         </S.ConfirmButton>
         <S.ConfirmCancelButton onClick={closeModal}>취소</S.ConfirmCancelButton>
