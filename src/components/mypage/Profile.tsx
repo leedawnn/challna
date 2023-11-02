@@ -4,15 +4,25 @@ import * as S from './Profile.styled';
 
 import ContentCount from './CountCount';
 import { ProfileCount } from '../common/Skeleton';
+import { useModal } from '../../provider/ModalProvider';
 import { userStore } from '../../stores/userStore';
 
 const Profile = () => {
   const user = useAtomValue(userStore)!;
+  const { openModal } = useModal();
+
+  const handleOpenProfileImage = () => {
+    openModal(<S.UserImage src={user.profile_image} alt={`${user.kakaoName} 님의 프로필 이미지`} />);
+  };
 
   return (
     <S.Container>
       <S.ProfileWrapper>
-        <S.ProfileImage src={user.profile_image} alt={`${user.kakaoName}_profile_image`} />
+        <S.ProfileImage
+          src={user.profile_image}
+          alt={`${user.kakaoName}_profile_image`}
+          onClick={handleOpenProfileImage}
+        />
         <Suspense fallback={<ProfileCount />}>
           <ContentCount />
         </Suspense>
