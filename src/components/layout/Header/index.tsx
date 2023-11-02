@@ -5,7 +5,7 @@ import { useAtomValue } from 'jotai';
 import BackButton from '../../../assets/icons/BackIcon';
 import { MEDIA_QUERY } from '../../../constants/styles';
 import MoreIcon from '../../../assets/icons/MoreIcon';
-import MoreModal from '../../common/Modal/MoreModal';
+import MoreModal from '../../common/Modal/template/MoreModal';
 import { ROUTES_PATH } from '../../../constants/routes';
 import RightButton from '../../../assets/icons/RightIcon';
 import { useModal } from '../../../provider/ModalProvider';
