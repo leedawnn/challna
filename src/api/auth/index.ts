@@ -16,3 +16,13 @@ export const getKaKaoUser = (queryString: string) => {
 export const getReissueAccessToken = () => {
   return instance({ url: `/reissue`, method: HTTP_METHOD.GET });
 };
+
+export const postUserLogout = (accessToken: string) => {
+  return instance({
+    url: `/mypage/logout`,
+    method: HTTP_METHOD.POST,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+    },
+  });
+};
