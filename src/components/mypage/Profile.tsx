@@ -4,6 +4,7 @@ import * as S from './Profile.styled';
 
 import ContentCount from './CountCount';
 import { ProfileCount } from '../common/Skeleton';
+import UpdateProfileModal from '../common/Modal/template/UpdateProfileModal';
 import { useModal } from '../../provider/ModalProvider';
 import { userStore } from '../../stores/userStore';
 
@@ -13,6 +14,10 @@ const Profile = () => {
 
   const handleOpenProfileImage = () => {
     openModal(<S.UserImage src={user.profile_image} alt={`${user.kakaoName} 님의 프로필 이미지`} />);
+  };
+
+  const handleOpenUpdateProfile = () => {
+    openModal(<UpdateProfileModal />);
   };
 
   return (
@@ -28,7 +33,9 @@ const Profile = () => {
         </Suspense>
       </S.ProfileWrapper>
       <S.ButtonWrapper>
-        <S.ProfileButton type="button"> 프로필 편집 </S.ProfileButton>
+        <S.ProfileButton type="button" onClick={handleOpenUpdateProfile}>
+          프로필 편집
+        </S.ProfileButton>
         <S.ProfileButton type="button"> 앨범 공유 </S.ProfileButton>
       </S.ButtonWrapper>
     </S.Container>

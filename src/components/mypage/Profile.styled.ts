@@ -35,7 +35,7 @@ export const UserImage = styled.img`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  max-width: 576px;
+  max-width: 57.6rem;
   width: 100%;
 
   object-fit: contain;
