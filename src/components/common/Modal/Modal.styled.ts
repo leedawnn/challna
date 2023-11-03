@@ -18,6 +18,8 @@ export const BackdropLayout = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
+export const ModalLayout = styled.div``;
+
 export const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,29 +42,14 @@ export const ModalContainer = styled.div`
   overflow-y: hidden;
 `;
 
-// 더보기 모달 영역
-export const MoreDeleteWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  padding: 0 3rem;
-  margin: 4rem 0;
-`;
-
-export const MoreDeleteText = styled.span`
-  color: ${({ theme }) => theme.colors.red};
-  margin-left: 1.2rem;
-`;
-
-// 삭제 및 취소 확인 모달 영역
-export const DeleteConfirmWrapper = styled.div`
+// 하단 모달 영역
+export const ConfirmModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const DeleteConfirmTitle = styled.span`
+export const ConfirmTitle = styled.span`
   color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.typography.body2.fontFamily};
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
@@ -71,7 +58,7 @@ export const DeleteConfirmTitle = styled.span`
   padding: 3rem 0;
 `;
 
-export const DeleteConfirmButton = styled.button`
+export const ConfirmButton = styled.button<{ $bgcolor: string }>`
   all: unset;
 
   width: 32.7rem;
@@ -82,7 +69,7 @@ export const DeleteConfirmButton = styled.button`
   border-style: none;
   border-radius: 5px;
   box-shadow: 0px 4px 12px 0px rgba(244, 89, 89, 0.5);
-  background-color: ${({ theme }) => theme.colors.red};
+  background-color: ${({ $bgcolor }) => $bgcolor};
 
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.typography.subHead2.fontFamily};
@@ -92,7 +79,7 @@ export const DeleteConfirmButton = styled.button`
   cursor: pointer;
 `;
 
-export const DeleteCancelButton = styled.button`
+export const ConfirmCancelButton = styled.button`
   all: unset;
 
   width: 32.7rem;

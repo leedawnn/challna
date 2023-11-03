@@ -1,3 +1,4 @@
+import { ROUTES_PATH } from './routes';
 import albumIcon from '../assets/icons/AlbumIcon';
 import messageIcon from '../assets/icons/MessageIcon';
 import myPageIcon from '../assets/icons/MyPageIcon';
@@ -38,19 +39,19 @@ export const FOOTER_MENUS = [
   {
     id: 1,
     name: '앨범',
-    path: '/',
+    path: ROUTES_PATH.main,
     icon: albumIcon,
   },
   {
     id: 2,
     name: '메시지',
-    path: '/message',
+    path: ROUTES_PATH.message,
     icon: messageIcon,
   },
   {
     id: 3,
     name: '마이',
-    path: '/mypage',
+    path: ROUTES_PATH.mypage,
     icon: myPageIcon,
   },
 ] as const;

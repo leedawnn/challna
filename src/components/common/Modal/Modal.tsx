@@ -14,7 +14,7 @@ const Modal = ({ children, closeModal }: PropsWithChildren<Props>) => {
 
   return createPortal(
     <S.BackdropLayout onClick={closeModal}>
-      <S.ModalContainer onClick={handlePreventCloseModal}>{children}</S.ModalContainer>
+      <S.ModalLayout onClick={handlePreventCloseModal}>{children}</S.ModalLayout>
     </S.BackdropLayout>,
     document.getElementById('modal-root') as HTMLElement,
   );
