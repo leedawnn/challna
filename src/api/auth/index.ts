@@ -17,6 +17,18 @@ export const getReissueAccessToken = () => {
   return instance({ url: `/reissue`, method: HTTP_METHOD.GET });
 };
 
+export const putUpdateUserProfile = (accessToken: string, data: any) => {
+  return instance({
+    url: `/mypage`,
+    method: HTTP_METHOD.PUT,
+    data,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+      'Content-Type': 'mutipart/form-data',
+    },
+  });
+};
+
 export const postUserLogout = (accessToken: string) => {
   return instance({
     url: `/mypage/logout`,
