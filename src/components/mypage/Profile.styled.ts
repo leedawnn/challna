@@ -25,6 +25,20 @@ export const ProfileImage = styled.img`
 
   border-radius: 50%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+`;
+
+export const UserImage = styled.img`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 57.6rem;
+  width: 100%;
+
+  object-fit: contain;
 `;
 
 export const ContnetCounterWrapper = styled.div`
