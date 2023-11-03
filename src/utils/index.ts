@@ -35,7 +35,13 @@ export const getDeleteUrl = (pathname: string, id: number) => {
   return pathname === ROUTES_PATH.albumDetail ? `/album/${id}` : `/board/${id}`;
 };
 
-export const convertBase64 = (file: any) => {
+/**
+ * 🌁 미리보기를 위한 이미지 파일 변환 함수
+ * @param file 이미지 파일
+ * @returns 성공시, 미리보기 이미지 URL, 실패시, 에러 반환
+ */
+
+export const convertBase64 = (file: File) => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
