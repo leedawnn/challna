@@ -1,4 +1,4 @@
-import MessageDetail from '../../components/messages/MessageDetail';
+import MessageDetail from '../../components/MessadeDetail/MessageDetail';
 
 const MessageDetailPage = () => {
   return <MessageDetail />;

@@ -19,7 +19,7 @@ export const MessageContentsContainer = styled.div`
 
   position: fixed;
   left: 50%;
-  bottom: 80px;
+  bottom: 90px;
   transform: translateX(-50%);
   z-index: 1;
   background-color: ${({ theme }) => theme.colors.white};
@@ -31,7 +31,7 @@ export const MessageContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 35px;
   padding: 24px 20px;
   box-sizing: border-box;
 `;

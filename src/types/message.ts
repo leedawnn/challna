@@ -1,6 +1,6 @@
 export type message = {
   [x: string]: any;
-  board_id: string | undefined;
+  board_id: string | undefined | number;
   dateTime: string | null;
   content: string | null;
   boardImageViewDtoList: boardImageViewDtoList;

@@ -14,7 +14,7 @@ export const MessageContainer = styled.div`
   }
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.section`
   display: flex;
   flex-direction: row;
   margin: 10px;
@@ -22,7 +22,7 @@ export const ContentWrapper = styled.div`
   justify-content: left;
 `;
 
-export const Content = styled.div`
+export const Content = styled.span`
   /* text-align: left; */
   justify-content: center;
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
@@ -39,7 +39,7 @@ export const Content = styled.div`
   padding-left: 20px;
 `;
 
-export const DateTime = styled.div`
+export const DateTime = styled.section`
   font-size: ${({ theme }) => theme.typography.body1.fontSize};
   color: ${({ theme }) => theme.colors.lightGray4};
   font-weight: ${({ theme }) => theme.fonts.bold};
@@ -47,7 +47,7 @@ export const DateTime = styled.div`
   padding-top: 5px;
 `;
 
-export const RightContent = styled.div`
+export const RightContent = styled.section`
   align-items: end;
   display: flex;
   padding-left: 20px;

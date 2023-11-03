@@ -13,7 +13,7 @@ const Messages = () => {
   });
   return (
     <>
-      <Messagelist contentList={message?.pages as any[]} />;
+      <Messagelist contentList={message?.pages as any[]} />
       <div ref={setTarget} />
     </>
   );

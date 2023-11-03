@@ -28,15 +28,13 @@ const MessageDetail = () => {
       >
         {ImageItem?.map((List: any) => {
           return (
-            <div>
-              <SwiperSlide>
-                <img
-                  src={List.accessUrl}
-                  alt={List.originName}
-                  style={{ width: '100%', height: '375px', alignItems: 'center' }}
-                />
-              </SwiperSlide>
-            </div>
+            <SwiperSlide>
+              <img
+                src={List.accessUrl}
+                alt={List.originName}
+                style={{ width: '100%', height: '375px', alignItems: 'center' }}
+              />
+            </SwiperSlide>
           );
         })}
       </Swiper>
