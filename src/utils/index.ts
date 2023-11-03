@@ -34,3 +34,12 @@ export const formatDate = (dateString?: string): string => {
 export const getDeleteUrl = (pathname: string, id: number) => {
   return pathname === ROUTES_PATH.albumDetail ? `/album/${id}` : `/board/${id}`;
 };
+
+export const convertBase64 = (file: any) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = (error) => reject(error);
+  });
+};

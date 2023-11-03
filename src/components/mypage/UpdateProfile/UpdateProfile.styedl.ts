@@ -52,7 +52,7 @@ export const ProfileImage = styled.img`
 
   border-radius: 50%;
 
-  object-fit: contain;
+  object-fit: cover;
 
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
 `;
