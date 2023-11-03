@@ -7,17 +7,17 @@ import { message } from '../../types/message';
 export type Props = { contentList: message[] };
 
 const Messagelist = ({ contentList }: Props) => {
-  return contentList?.map((Contents) => {
+  return contentList?.map((contentsItem) => {
     return (
-      <MessageContainer key={Contents.board_id}>
-        <Link to={`/message/details/${Contents.board_id}`} key={Contents.board_id} state={Contents}>
+      <MessageContainer key={contentsItem.board_id}>
+        <Link to={`/message/details/${contentsItem.board_id}`} key={contentsItem.board_id} state={contentsItem}>
           <ContentWrapper>
             <Content>
               <Eclipse />
             </Content>
             <Content>
-              {Contents.content}
-              <DateTime>{Contents.dateTime}</DateTime>
+              {contentsItem.content}
+              <DateTime>{contentsItem.dateTime}</DateTime>
             </Content>
             <RightContent>
               <RightIcon $type="message" />
