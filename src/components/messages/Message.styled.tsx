@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MessageContainer = styled.div`
   width: 100%;
-  height: 180px;
+  height: 100%;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
@@ -12,7 +12,6 @@ export const MessageContainer = styled.div`
     text-decoration: none;
     color: black;
   }
-  gap: 39px;
 `;
 
 export const ContentWrapper = styled.section`
@@ -36,7 +35,7 @@ export const Content = styled.span`
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-bottom: auto;
-  /* row-gap: 20px; */
+  margin-bottom: 10px;
   padding-left: 20px;
 `;
 
