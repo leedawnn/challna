@@ -16,8 +16,8 @@ import './MessageSwiper.css';
 
 const MessageDetail = () => {
   const location = useLocation();
-  const MessageItem = location.state;
-  const ImageItem = MessageItem.boardImageViewDtoList;
+  const messageItem = location.state;
+  const imageItem = messageItem.boardImageViewDtoList;
   return (
     <Container>
       <Swiper
@@ -26,7 +26,7 @@ const MessageDetail = () => {
         modules={[Pagination]}
         className="mainSwiper"
       >
-        {ImageItem?.map((List: any) => {
+        {imageItem?.map((List: any) => {
           return (
             <SwiperSlide>
               <img
@@ -41,12 +41,12 @@ const MessageDetail = () => {
       <div className="swiper-pagination" />
       <MessageContentsContainer>
         <MessageContent>
-          <ContentText>{MessageItem.content}</ContentText>
+          <ContentText>{messageItem.content}</ContentText>
         </MessageContent>
       </MessageContentsContainer>
       <MessageFooterContainer>
         <MessageFooter>
-          <FooterText> {MessageItem.dateTime}</FooterText>
+          <FooterText> {messageItem.dateTime}</FooterText>
         </MessageFooter>
       </MessageFooterContainer>
     </Container>
