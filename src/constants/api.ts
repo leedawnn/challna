@@ -3,6 +3,7 @@ export const HTTP_METHOD = {
   POST: 'POST',
   DELETE: 'DELETE',
   PATCH: 'PATCH',
+  PUT: 'PUT',
 } as const;
 
 export const HTTP_STATUS = {
