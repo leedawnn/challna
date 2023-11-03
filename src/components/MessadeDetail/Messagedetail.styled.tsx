@@ -11,15 +11,16 @@ export const Container = styled.div`
 export const MessageContentsContainer = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   max-width: 576px;
-  height: 170px;
+  height: 200px;
   width: inherit;
+  /* margin-top: 100px; */
   padding-bottom: 20px;
   display: fixed;
   flex-direction: column;
 
   position: fixed;
   left: 50%;
-  bottom: 90px;
+  bottom: 50px;
   transform: translateX(-50%);
   z-index: 1;
   background-color: ${({ theme }) => theme.colors.white};
