@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const MessageContainer = styled.div`
   width: 100%;
-  height: 150px;
+  height: 180px;
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
@@ -20,7 +20,6 @@ export const ContentWrapper = styled.div`
   margin: 10px;
   padding: 20px;
   justify-content: left;
-  /* align-content: center; */
 `;
 
 export const Content = styled.div`
@@ -28,11 +27,16 @@ export const Content = styled.div`
   justify-content: center;
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
   font-family: ${({ theme }) => theme.typography.body3.fontFamily};
-  max-width: calc(100% - 40px);
+  /* max-width: calc(100% - 45px); */
+  max-width: 277px;
+  height: 43px;
+  /* width: 277px; */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding-bottom: 0.6em;
+  padding-bottom: auto;
+  row-gap: 20px;
+  padding-left: 20px;
 `;
 
 export const DateTime = styled.div`
@@ -40,13 +44,13 @@ export const DateTime = styled.div`
   color: ${({ theme }) => theme.colors.lightGray4};
   font-weight: ${({ theme }) => theme.fonts.bold};
   margin-right: auto;
-  padding-top: 10px;
+  padding-top: 5px;
 `;
 
 export const RightContent = styled.div`
   align-items: end;
   display: flex;
-  padding-left: 15px;
-  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-bottom: 50px;
   margin: auto 0 0 auto;
 `;

@@ -11,35 +11,34 @@ export const Container = styled.div`
 export const MessageContentsContainer = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   max-width: 576px;
+  height: 170px;
   width: inherit;
-
-  display: flex;
+  padding-bottom: 20px;
+  display: fixed;
   flex-direction: column;
 
   position: fixed;
   left: 50%;
-  bottom: 10%;
+  bottom: 80px;
   transform: translateX(-50%);
-  z-index: 20;
-
+  z-index: 1;
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const MessageContent = styled.div`
   width: 100%;
   height: 170px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   padding: 24px 20px;
   box-sizing: border-box;
 `;
 
 export const ContentText = styled.span`
-  padding-bottom: 100px;
+  margin-top: 20px;
+  padding-bottom: 2.5rem;
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   color: ${({ theme }) => theme.colors.black};
