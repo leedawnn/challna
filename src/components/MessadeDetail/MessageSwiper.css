@@ -16,6 +16,9 @@
 
 .swiper-slide img {
   width: 100%;
+  object-position: 50% 50%;
+  height: 375px;
+  align-content: 'center';
 }
 .swiper-pagination {
   width: 77px;

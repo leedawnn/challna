@@ -32,7 +32,7 @@ const MessageDetail = () => {
               <img
                 src={List.accessUrl}
                 alt={List.originName}
-                style={{ width: '100%', height: '375px', alignItems: 'center' }}
+                // style={{ width: '100%', height: '375px', alignItems: 'center' }}
               />
             </SwiperSlide>
           );
