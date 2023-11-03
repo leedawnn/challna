@@ -23,3 +23,13 @@ export const getBoardImage = (accessToken: string, queryString: number) => {
     },
   });
 };
+
+export const deleteMessageDetail = (accessToken: string, queryString: number) => {
+  return instance({
+    url: `/board/${queryString}`,
+    method: HTTP_METHOD.DELETE,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+    },
+  });
+};

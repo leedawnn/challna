@@ -15,9 +15,6 @@ export const useMessageLists = (accessToken: string) => {
       select: (data) => ({
         pages: data?.pages.flatMap((page) => page.data.board),
         pageParams: data.pageParams,
-        content: data?.pages.map((content) => content.data),
-        board_id: data?.pages.map((dateTime) => dateTime.data),
-        boardImageViewDtoList: data?.pages.flatMap((boardImageViewDtoList) => boardImageViewDtoList.data),
       }),
     },
   );
