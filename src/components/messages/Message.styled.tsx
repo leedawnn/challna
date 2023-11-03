@@ -12,6 +12,7 @@ export const MessageContainer = styled.div`
     text-decoration: none;
     color: black;
   }
+  gap: 39px;
 `;
 
 export const ContentWrapper = styled.section`
@@ -35,7 +36,7 @@ export const Content = styled.span`
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-bottom: auto;
-  row-gap: 20px;
+  /* row-gap: 20px; */
   padding-left: 20px;
 `;
 
