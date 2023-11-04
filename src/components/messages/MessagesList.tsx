@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Content, ContentWrapper, DateTime, MessageContainer, RightContent } from './Message.styled';
+import { Content, ContentWrapper, DateTime, MessageContainer, RightContent, IconContent } from './Message.styled';
 import Eclipse from '../../assets/icons/Eclipse';
 import RightIcon from '../../assets/icons/RightIcon';
 import { message } from '../../types/message';
@@ -12,9 +12,11 @@ const Messagelist = ({ contentList }: Props) => {
       <MessageContainer key={contentsItem.board_id}>
         <Link to={`/message/details/${contentsItem.board_id}`} key={contentsItem.board_id} state={contentsItem}>
           <ContentWrapper>
-            <Content>
+            {/* <Content> */}
+            <IconContent>
               <Eclipse />
-            </Content>
+            </IconContent>
+            {/* </Content> */}
             <Content>
               {contentsItem.content}
               <DateTime>{contentsItem.dateTime}</DateTime>

@@ -10,12 +10,10 @@ export const Container = styled.div`
 
 export const MessageContentsContainer = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
-  max-width: 576px;
-  height: 200px;
+  max-width: 375px;
+  max-height: 130px;
   width: inherit;
-  /* margin-top: 100px; */
   padding-bottom: 20px;
-  display: fixed;
   flex-direction: column;
 
   position: fixed;
@@ -28,18 +26,20 @@ export const MessageContentsContainer = styled.div`
 
 export const MessageContent = styled.div`
   width: 100%;
-  height: 170px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 35px;
+  padding-bottom: 50px;
   padding: 24px 20px;
   box-sizing: border-box;
+  /* overflow: auto; */
 `;
 
 export const ContentText = styled.span`
-  margin-top: 20px;
-  padding-bottom: 2.5rem;
+  /* margin-top: 20px; */
+  padding-bottom: 70px;
+  margin-bottom: 100px;
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   color: ${({ theme }) => theme.colors.black};
@@ -50,7 +50,7 @@ export const MessageFooterContainer = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   max-width: 576px;
   width: inherit;
-
+  height: 67px;
   display: flex;
   flex-direction: column;
 
@@ -65,7 +65,7 @@ export const MessageFooterContainer = styled.div`
 
 export const MessageFooter = styled.div`
   width: 100%;
-  height: 80px;
+  height: 67px;
 
   display: flex;
   justify-content: space-between;

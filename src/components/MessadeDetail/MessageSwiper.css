@@ -3,7 +3,7 @@
   height: 100%;
 
   padding-top: 0;
-  padding-bottom: 10px;
+  padding-bottom: 120px;
 
   display: flex;
   justify-content: center;
@@ -11,12 +11,12 @@
 
 .swiper-pagination {
   /* padding-top: 10px; */
-  padding-bottom: 350px;
+  padding-bottom: 225px;
 }
 
 .swiper-slide img {
   width: 100%;
-  object-position: 50% 50%;
+  /* object-position: 50% 50%; */
   min-height: 375px;
   max-height: 500px;
   align-content: 'center';
