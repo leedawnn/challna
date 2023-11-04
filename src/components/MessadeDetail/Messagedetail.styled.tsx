@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 // 페이지 최상위 컨테이너
-export const Container = styled.div`
+export const Container = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 // Middle
 
-export const MessageContentsContainer = styled.div`
+export const MessageContentsContainer = styled.section`
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   max-width: 375px;
   max-height: 130px;
@@ -24,7 +24,7 @@ export const MessageContentsContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const MessageContent = styled.div`
+export const MessageContent = styled.article`
   width: 100%;
   height: 100%;
   display: flex;
@@ -33,11 +33,9 @@ export const MessageContent = styled.div`
   padding-bottom: 50px;
   padding: 24px 20px;
   box-sizing: border-box;
-  /* overflow: auto; */
 `;
 
-export const ContentText = styled.span`
-  /* margin-top: 20px; */
+export const ContentText = styled.article`
   padding-bottom: 70px;
   margin-bottom: 100px;
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
@@ -46,7 +44,7 @@ export const ContentText = styled.span`
 `;
 
 //  Footer
-export const MessageFooterContainer = styled.div`
+export const MessageFooterContainer = styled.footer`
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   max-width: 576px;
   width: inherit;
@@ -63,7 +61,7 @@ export const MessageFooterContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const MessageFooter = styled.div`
+export const MessageFooter = styled.section`
   width: 100%;
   height: 67px;
 
@@ -75,7 +73,7 @@ export const MessageFooter = styled.div`
   box-sizing: border-box;
 `;
 
-export const FooterText = styled.span`
+export const FooterText = styled.p`
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   color: ${({ theme }) => theme.colors.lightGray4};

@@ -6,14 +6,14 @@ import useInfinityObserver from '../../hooks/useInfinityObserver';
 
 const Messages = () => {
   const users = useAtomValue(userStore);
-  const { data: message, fetchNextPage, hasNextPage } = useMessageLists(users?.accessToken as string);
+  const { data: messageData, fetchNextPage, hasNextPage } = useMessageLists(users?.accessToken as string);
   const { setTarget } = useInfinityObserver({
     hasNextPage,
     fetchNextPage,
   });
   return (
     <>
-      <Messagelist contentList={message?.pages as any[]} />
+      <Messagelist contentList={messageData?.pages as any[]} />
       <div ref={setTarget} />
     </>
   );

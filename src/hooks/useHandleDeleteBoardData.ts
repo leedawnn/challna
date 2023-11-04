@@ -10,25 +10,20 @@ import { albumDetailStore } from '../stores/albumDetailStore';
 import { getDeleteUrl } from '../utils';
 import { useModal } from '../provider/ModalProvider';
 import { userStore } from '../stores/userStore';
-import { Props } from '../components/messages/MessagesList';
 
 const useHandleDeleteBoardData = () => {
   const users = useAtomValue(userStore);
   const albumDetailInfo = useAtomValue(albumDetailStore);
-  const MessageId = ({ contentList }: Props) => {
-    contentList.map((Contents) => Contents.board_id);
-  };
-  const Id = MessageId as unknown as number;
   const setActiveSlider = useSetAtom(activeSliderStore);
   const { pathname } = useLocation();
   const queryClient = useQueryClient();
   const { closeModal } = useModal();
 
   const handleDeleteBoardData = useCallback(async () => {
-    if (!users?.accessToken || !albumDetailInfo?.imageId || Id) return;
+    if (!users?.accessToken || !albumDetailInfo?.imageId) return;
 
     try {
-      const url = getDeleteUrl(pathname, albumDetailInfo.imageId || Id);
+      const url = getDeleteUrl(pathname, albumDetailInfo.imageId);
       const response = await deleteBoardData(users?.accessToken, url);
 
       if (response.status === HTTP_STATUS.OK) {

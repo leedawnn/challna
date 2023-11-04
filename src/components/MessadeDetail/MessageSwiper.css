@@ -10,13 +10,11 @@
 }
 
 .swiper-pagination {
-  /* padding-top: 10px; */
   padding-bottom: 225px;
 }
 
 .swiper-slide img {
   width: 100%;
-  /* object-position: 50% 50%; */
   min-height: 375px;
   max-height: 500px;
   align-content: 'center';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const MessageContainer = styled.div`
+export const MessageContainer = styled.main`
   width: 100%;
   height: 100%;
   background-color: ${({ theme }) => theme.colors.white};
@@ -26,11 +26,11 @@ export const ContentWrapper = styled.section`
   justify-content: left;
 `;
 
-export const IconContent = styled.span`
+export const IconContent = styled.article`
   padding-top: 5px;
 `;
 
-export const Content = styled.span`
+export const Content = styled.section`
   justify-content: center;
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
   font-family: ${({ theme }) => theme.typography.body3.fontFamily};
@@ -43,7 +43,7 @@ export const Content = styled.span`
   margin-bottom: 10px;
 `;
 
-export const DateTime = styled.section`
+export const DateTime = styled.article`
   font-size: ${({ theme }) => theme.typography.body1.fontSize};
   color: ${({ theme }) => theme.colors.lightGray4};
   font-weight: ${({ theme }) => theme.fonts.bold};
@@ -51,7 +51,7 @@ export const DateTime = styled.section`
   padding-top: 5px;
 `;
 
-export const RightContent = styled.section`
+export const RightContent = styled.article`
   align-items: end;
   display: flex;
   padding-left: 20px;
