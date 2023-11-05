@@ -1,5 +1,6 @@
 import { QRCodeCanvas } from 'qrcode.react';
 import { useAtomValue } from 'jotai';
+import { useCallback } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import * as S from './QRCode.styled';
 
@@ -15,6 +16,17 @@ const QRCode = () => {
     staleTime: Infinity,
   });
 
+  const handleDownloadQRCode = useCallback(() => {
+    const canvas = document.querySelector('canvas');
+    const url = canvas ? canvas.toDataURL('image/png') : '';
+    const link = document.createElement('a');
+
+    link.href = url;
+    link.download = `qr-${user.kakaoName}.png`;
+
+    link.click();
+  }, []);
+
   const handleCopyClipBoard = (text: string) => async () => {
     try {
       await navigator.clipboard.writeText(text);
@@ -28,7 +40,7 @@ const QRCode = () => {
       <S.QRCodeWrapper>
         <QRCodeCanvas value={qrCodeLink?.data || ''} style={{ width: '100%', height: '100%' }} />
       </S.QRCodeWrapper>
-      <S.ButtonWrapper type="button">
+      <S.ButtonWrapper type="button" onClick={handleDownloadQRCode}>
         <S.ButtonText> QR코드 다운로드 </S.ButtonText>
         <DownloadIcon style={{ paddingRight: '8px' }} />
       </S.ButtonWrapper>
