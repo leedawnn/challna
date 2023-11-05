@@ -1,20 +1,38 @@
 import { QRCodeCanvas } from 'qrcode.react';
+import { useAtomValue } from 'jotai';
+import { useQuery } from '@tanstack/react-query';
 import * as S from './QRCode.styled';
+
+import { USER_QRCODE_SHARE, getQRCodeValue } from '../../../api/mypage';
 
 import CopyIcon from '../../../assets/icons/CopyIcon';
 import DownloadIcon from '../../../assets/icons/DownloadIcon';
+import { userStore } from '../../../stores/userStore';
 
 const QRCode = () => {
+  const user = useAtomValue(userStore)!;
+  const { data: qrCodeLink } = useQuery(USER_QRCODE_SHARE, () => getQRCodeValue(user.accessToken), {
+    staleTime: Infinity,
+  });
+
+  const handleCopyClipBoard = (text: string) => async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch {
+      console.error('복사 실패!');
+    }
+  };
+
   return (
     <S.Container>
       <S.QRCodeWrapper>
-        <QRCodeCanvas value="http://localhost:3000/test" style={{ width: '100%', height: '100%' }} />
+        <QRCodeCanvas value={qrCodeLink?.data || ''} style={{ width: '100%', height: '100%' }} />
       </S.QRCodeWrapper>
       <S.ButtonWrapper type="button">
         <S.ButtonText> QR코드 다운로드 </S.ButtonText>
         <DownloadIcon style={{ paddingRight: '8px' }} />
       </S.ButtonWrapper>
-      <S.ButtonWrapper type="button">
+      <S.ButtonWrapper type="button" onClick={handleCopyClipBoard(qrCodeLink?.data || '')}>
         <S.ButtonText> 링크 복사 </S.ButtonText>
         <CopyIcon style={{ paddingRight: '12px' }} />
       </S.ButtonWrapper>
