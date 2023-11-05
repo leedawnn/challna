@@ -10,7 +10,7 @@ const QRCodeModal = () => {
   return (
     <S.MyPageModalContainer>
       <S.MyPageModalHeader>
-        <S.MyPageModalHeader> 공유하기 </S.MyPageModalHeader>
+        <S.MyPageModalTitle style={{ paddingRight: '8px' }}> 공유하기 </S.MyPageModalTitle>
         <CloseIcon onClick={closeModal} />
       </S.MyPageModalHeader>
       <QRCode />

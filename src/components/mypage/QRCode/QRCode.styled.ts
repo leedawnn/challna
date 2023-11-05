@@ -4,6 +4,8 @@ export const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  margin-top: 30px;
 `;
 
 export const QRCodeWrapper = styled.div`
@@ -14,14 +16,20 @@ export const QRCodeWrapper = styled.div`
 export const ButtonWrapper = styled.button`
   all: unset;
 
+  width: 100%;
+  height: 40px;
+
   display: flex;
   justify-content: space-between;
-  padding: 11px 12px;
-
-  box-sizing: border-box;
+  align-items: center;
+  padding: 11px 0 11px 12px;
 
   background-color: ${({ theme }) => theme.colors.lightGray};
   border: 1px solid ${({ theme }) => theme.colors.lightGray3};
+  border-radius: 5px;
+
+  cursor: pointer;
+  box-sizing: border-box;
 `;
 
 export const ButtonText = styled.span`

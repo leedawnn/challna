@@ -119,6 +119,8 @@ export const MyPageModalHeader = styled.div`
   gap: 65px;
 
   width: 100%;
+
+  box-sizing: border-box;
 `;
 
 export const MyPageModalTitle = styled.p`
