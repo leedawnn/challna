@@ -4,6 +4,7 @@ import * as S from './Profile.styled';
 
 import ContentCount from './CountCount';
 import { ProfileCount } from '../common/Skeleton';
+import QRCodeModal from '../common/Modal/template/QRCodeModal';
 import UpdateProfileModal from '../common/Modal/template/UpdateProfileModal';
 import { useModal } from '../../provider/ModalProvider';
 import { userStore } from '../../stores/userStore';
@@ -18,6 +19,10 @@ const Profile = () => {
 
   const handleOpenUpdateProfile = () => {
     openModal(<UpdateProfileModal />);
+  };
+
+  const handleOpenQRCode = () => {
+    openModal(<QRCodeModal />);
   };
 
   return (
@@ -36,7 +41,9 @@ const Profile = () => {
         <S.ProfileButton type="button" onClick={handleOpenUpdateProfile}>
           프로필 편집
         </S.ProfileButton>
-        <S.ProfileButton type="button"> 앨범 공유 </S.ProfileButton>
+        <S.ProfileButton type="button" onClick={handleOpenQRCode}>
+          앨범 공유
+        </S.ProfileButton>
       </S.ButtonWrapper>
     </S.Container>
   );
