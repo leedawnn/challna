@@ -1,21 +1,8 @@
-export type message = {
-  [x: string]: any;
-  board_id: string | undefined;
-  dateTime: string | null;
-  content: string | null;
-  boardImageViewDtoList: boardImageViewDtoList;
-  accessUrl: any;
-  originName: any;
-};
+import { Album } from './album';
 
-// // 디테일 페이지 이메일 타입들
-export type boardImageViewDtoList = {
-  imageId: number | null;
-  dateTime: string | null;
-  accessUrl: any;
-  originName: any;
+export type message = {
   board_id: number;
-  metaDateTime: string;
-  resizeUrl: string;
-  [key: string]: any;
+  dateTime: string;
+  content: string;
+  boardImageViewDtoList: Pick<Album, 'accessUrl' | 'imageId' | 'metaDateTime' | 'originName'>[];
 };

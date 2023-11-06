@@ -1,52 +1,53 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const MessageContainer = styled.div`
+export const Layout = styled.section`
   width: 100%;
-  height: 150px;
-  background-color: ${({ theme }) => theme.colors.white};
+
+  padding: 0 24px;
+  box-sizing: border-box;
+`;
+
+export const Container = styled.ul`
+  width: 100%;
+
   display: flex;
   flex-direction: column;
-  a:link,
-  a:visited,
-  a:active {
-    text-decoration: none;
-    color: black;
-  }
+  gap: 40px;
+
+  padding: 0;
 `;
 
-export const ContentWrapper = styled.div`
+export const MessageListWrapper = styled.li`
+  width: 100%;
+
+  list-style: none;
+`;
+
+export const MessageDetailLink = styled(Link)`
   display: flex;
-  flex-direction: row;
-  margin: 10px;
-  padding: 20px;
-  justify-content: left;
-  /* align-content: center; */
+  justify-content: space-between;
+  gap: 20px;
+
+  text-decoration: none;
 `;
 
-export const Content = styled.div`
-  /* text-align: left; */
-  justify-content: center;
+export const MessageBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  width: 85%;
+`;
+
+export const MessageText = styled.span`
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
   font-family: ${({ theme }) => theme.typography.body3.fontFamily};
-  max-width: calc(100% - 40px);
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-bottom: 0.6em;
+  color: ${({ theme }) => theme.colors.black};
 `;
 
-export const DateTime = styled.div`
-  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+export const MessageDateText = styled.span`
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.lightGray4};
-  font-weight: ${({ theme }) => theme.fonts.bold};
-  margin-right: auto;
-  padding-top: 10px;
-`;
-
-export const RightContent = styled.div`
-  align-items: end;
-  display: flex;
-  padding-left: 15px;
-  padding-bottom: 40px;
-  margin: auto 0 0 auto;
 `;
