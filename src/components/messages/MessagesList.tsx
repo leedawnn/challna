@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Content, ContentWrapper, DateTime, MessageContainer, RightContent } from './Message.styled';
+
 import Eclipse from '../../assets/icons/Eclipse';
 import RightIcon from '../../assets/icons/RightIcon';
 import { message } from '../../types/message';
 
-type Props = { contentList: message[] };
+type Props = {
+  contentList: message[];
+};
 
 const Messagelist = ({ contentList }: Props) => {
   return contentList?.map((Contents) => {
