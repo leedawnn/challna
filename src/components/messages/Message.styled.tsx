@@ -37,13 +37,17 @@ export const MessageBox = styled.div`
   flex-direction: column;
   gap: 5px;
 
-  width: 85%;
+  width: 80%;
 `;
 
 export const MessageText = styled.span`
   font-size: ${({ theme }) => theme.typography.body3.fontSize};
   font-family: ${({ theme }) => theme.typography.body3.fontFamily};
   color: ${({ theme }) => theme.colors.black};
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  overflow: hidden;
 `;
 
 export const MessageDateText = styled.span`
