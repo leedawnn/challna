@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         Component: withAuth(Messages),
       },
       {
-        path: ROUTES_PATH.messageDetail,
+        path: `${ROUTES_PATH.messageDetail}/:id`,
         Component: withAuth(MessageDetail),
       },
       {

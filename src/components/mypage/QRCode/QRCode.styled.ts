@@ -22,7 +22,7 @@ export const ButtonWrapper = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 11px 0 11px 12px;
+  padding: 11px 12px;
 
   background-color: ${({ theme }) => theme.colors.lightGray};
   border: 1px solid ${({ theme }) => theme.colors.lightGray3};
