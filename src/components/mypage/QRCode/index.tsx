@@ -42,11 +42,11 @@ const QRCode = () => {
       </S.QRCodeWrapper>
       <S.ButtonWrapper type="button" onClick={handleDownloadQRCode}>
         <S.ButtonText> QR코드 다운로드 </S.ButtonText>
-        <DownloadIcon style={{ paddingRight: '8px' }} />
+        <DownloadIcon />
       </S.ButtonWrapper>
       <S.ButtonWrapper type="button" onClick={handleCopyClipBoard(qrCodeLink?.data || '')}>
         <S.ButtonText> 링크 복사 </S.ButtonText>
-        <CopyIcon style={{ paddingRight: '12px' }} />
+        <CopyIcon />
       </S.ButtonWrapper>
     </S.Container>
   );

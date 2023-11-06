@@ -1,10 +1,9 @@
 import { HTTP_METHOD } from '../../constants/api';
 import instance from '../axios';
 
-export const MAIN_MESSAGE_KEY = ['message'];
-export const DETAIL_KEY = ['board_id'];
+export const MAIN_MESSAGES_KEY = ['messagees'];
 
-export const getBoardList = (accessToken: string, queryString: string) => {
+export const getMessageLists = (accessToken: string, queryString: string) => {
   return instance({
     url: `/board?${queryString}`,
     method: HTTP_METHOD.GET,
