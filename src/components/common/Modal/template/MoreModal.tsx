@@ -1,17 +1,21 @@
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import * as S from '../Modal.styled';
 
 import ConfirmModal from './ConfirmModal';
 import DeleteIcon from '../../../../assets/icons/DeleteIcon';
-import useHandleDeleteBoardData from '../../../../hooks/useHandleDeleteBoardData';
+import useBoardDelete from '../../../../hooks/useBoardDelete';
+import useImageDelete from '../../../../hooks/useImageDelete';
 import { useModal } from '../../../../provider/ModalProvider';
 
 const MoreModal = () => {
   const { openModal } = useModal();
-  const handleDeleteBoardData = useHandleDeleteBoardData();
+  const { state } = useLocation();
+  const handleImageDelete = useImageDelete();
+  const handleBoardDelete = useBoardDelete(state && state.board_id);
 
   const handleOpenDeleteModal = () => {
-    openModal(<ConfirmModal $type="delete" onClick={handleDeleteBoardData} />);
+    openModal(<ConfirmModal $type="delete" onClick={state ? handleBoardDelete : handleImageDelete} />);
   };
 
   return (

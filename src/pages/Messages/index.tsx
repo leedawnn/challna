@@ -3,7 +3,7 @@ import { useAtomValue } from 'jotai';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { MAIN_MESSAGES_KEY, getMessageLists } from '../../api/messages';
 
-import Messagelist from '../../components/messages/MessagesList';
+import MessageList from '../../components/messages/MessagesList';
 import { fetchQuery } from '../../utils/fetchQuery';
 import useInfinityObserver from '../../hooks/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
@@ -34,7 +34,7 @@ const Messages = () => {
   });
   return (
     <>
-      <Messagelist messageLists={messageData?.pages as any[]} />
+      <MessageList messageLists={messageData?.pages as any[]} />
       <div ref={setTarget} />
     </>
   );
