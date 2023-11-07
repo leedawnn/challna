@@ -1,0 +1,30 @@
+.messageSwiper {
+  width: 100%;
+  max-height: 568px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.messageSwiper .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.messageSwiper .swiper-slide img {
+  width: 100%;
+  max-height: 568px;
+  height: 100%;
+
+  object-fit: contain;
+  box-sizing: border-box;
+
+  padding-bottom: 30px;
+}
+
+.messageSwiper .swiper-pagination {
+  bottom: 0;
+}
