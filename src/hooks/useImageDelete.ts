@@ -11,7 +11,7 @@ import { getDeleteUrl } from '../utils';
 import { useModal } from '../provider/ModalProvider';
 import { userStore } from '../stores/userStore';
 
-const useHandleDeleteBoardData = () => {
+const useImageDelete = () => {
   const users = useAtomValue(userStore)!;
   const albumDetailInfo = useAtomValue(albumDetailStore);
   const setActiveSlider = useSetAtom(activeSliderStore);
@@ -19,7 +19,7 @@ const useHandleDeleteBoardData = () => {
   const queryClient = useQueryClient();
   const { closeModal } = useModal();
 
-  const handleDeleteBoardData = useCallback(async () => {
+  const handleImageDelete = useCallback(async () => {
     if (!users?.accessToken || !albumDetailInfo?.imageId) return;
 
     try {
@@ -53,7 +53,7 @@ const useHandleDeleteBoardData = () => {
     }
   }, [users?.accessToken, albumDetailInfo]);
 
-  return handleDeleteBoardData;
+  return handleImageDelete;
 };
 
-export default useHandleDeleteBoardData;
+export default useImageDelete;

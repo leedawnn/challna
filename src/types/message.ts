@@ -1,6 +1,6 @@
 import { Album } from './album';
 
-export type message = {
+export type Message = {
   board_id: number;
   dateTime: string;
   content: string;
