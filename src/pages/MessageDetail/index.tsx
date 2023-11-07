@@ -8,6 +8,8 @@ const MessageDetailPage = () => {
   return (
     <Layout>
       <MessageImage messageDetailImages={messageData.boardImageViewDtoList} />
+      <MessageText> {messageData.content} </MessageText>
+      <MessageDataText> {messageData.dateTime} </MessageDataText>
     </Layout>
   );
 };
@@ -18,4 +20,27 @@ const Layout = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
+`;
+
+const MessageText = styled.p`
+  width: calc(100% - 48px);
+
+  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  font-family: ${({ theme }) => theme.typography.body1.fontFamily};
+
+  padding: 20px 0;
+  margin: 0 auto;
+
+  border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray2};
+
+  box-sizing: border-box;
+`;
+
+const MessageDataText = styled.span`
+  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  font-family: ${({ theme }) => theme.typography.body1.fontFamily};
+  color: ${({ theme }) => theme.colors.gray1};
+
+  padding: 0 24px;
 `;
