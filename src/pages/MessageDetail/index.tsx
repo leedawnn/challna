@@ -19,7 +19,8 @@ export default MessageDetailPage;
 const Layout = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+
+  height: 100%;
 `;
 
 const MessageText = styled.p`
@@ -27,9 +28,11 @@ const MessageText = styled.p`
 
   font-size: ${({ theme }) => theme.typography.body1.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
+  line-height: ${({ theme }) => theme.typography.body1.lineHeight};
 
   padding: 20px 0;
   margin: 0 auto;
+  margin-top: 20px;
 
   border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray2};
@@ -38,9 +41,12 @@ const MessageText = styled.p`
 `;
 
 const MessageDataText = styled.span`
+  height: 40px;
+
   font-size: ${({ theme }) => theme.typography.body1.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};
   color: ${({ theme }) => theme.colors.gray1};
 
   padding: 0 24px;
+  margin-top: 20px;
 `;
