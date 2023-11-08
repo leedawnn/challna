@@ -8,7 +8,7 @@ import { fetchQuery } from '../../utils/fetchQuery';
 import useInfinityObserver from '../../hooks/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 
-const Messages = () => {
+const MessagesPage = () => {
   const user = useAtomValue(userStore)!;
   const {
     data: messageData,
@@ -40,4 +40,4 @@ const Messages = () => {
   );
 };
 
-export default Messages;
+export default MessagesPage;

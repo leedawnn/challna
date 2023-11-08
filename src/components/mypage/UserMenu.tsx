@@ -11,8 +11,8 @@ import { useModal } from '../../provider/ModalProvider';
 import { userStore } from '../../stores/userStore';
 
 const UserMenu = () => {
-  const navigate = useNavigate();
   const user = useAtomValue(userStore)!;
+  const navigate = useNavigate();
   const { openModal, closeModal } = useModal();
   const handleLogout = async () => {
     try {
@@ -30,9 +30,13 @@ const UserMenu = () => {
     openModal(<ConfirmModal $type="logout" onClick={handleLogout} />);
   };
 
+  const handleMoveEventPage = () => {
+    navigate(ROUTES_PATH.event);
+  };
+
   return (
     <S.Menu>
-      <S.MenuList>
+      <S.MenuList onClick={handleMoveEventPage}>
         <S.ListContentText> moment 이벤트 </S.ListContentText>
         <RightIcon $type="message" />
       </S.MenuList>
