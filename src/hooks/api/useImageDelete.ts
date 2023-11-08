@@ -2,14 +2,14 @@ import { useAtomValue, useSetAtom } from 'jotai';
 import { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useQueryClient } from '@tanstack/react-query';
-import { MAIN_ALBUM_KEY, deleteBoardData } from '../api/album';
+import { MAIN_ALBUM_KEY, deleteBoardData } from '../../api/album';
 
-import { HTTP_STATUS } from '../constants/api';
-import { activeSliderStore } from '../stores/activeSliderStore';
-import { albumDetailStore } from '../stores/albumDetailStore';
-import { getDeleteUrl } from '../utils';
-import { useModal } from '../provider/ModalProvider';
-import { userStore } from '../stores/userStore';
+import { HTTP_STATUS } from '../../constants/api';
+import { activeSliderStore } from '../../stores/activeSliderStore';
+import { albumDetailStore } from '../../stores/albumDetailStore';
+import { getDeleteUrl } from '../../utils';
+import { useModal } from '../../provider/ModalProvider';
+import { userStore } from '../../stores/userStore';
 
 const useImageDelete = () => {
   const users = useAtomValue(userStore)!;

@@ -2,10 +2,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAtomValue } from 'jotai';
 import { useCallback } from 'react';
-import { HTTP_STATUS } from '../constants/api';
-import { deleteBoardData } from '../api/album';
-import { getDeleteUrl } from '../utils';
-import { userStore } from '../stores/userStore';
+import { HTTP_STATUS } from '../../constants/api';
+import { deleteBoardData } from '../../api/album';
+import { getDeleteUrl } from '../../utils';
+import { userStore } from '../../stores/userStore';
 
 const useBoardDelete = (boardId: number) => {
   const user = useAtomValue(userStore)!;

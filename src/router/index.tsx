@@ -9,7 +9,6 @@ import MessageDetailPage from '../pages/MessageDetail';
 import MessagesPage from '../pages/Messages';
 import MyPage from '../pages/MyPage';
 import { ROUTES_PATH } from '../constants/routes';
-import TestPage from '../pages/Test';
 import { withAuth } from '../hoc/withAuth';
 
 const router = createBrowserRouter([
@@ -44,10 +43,6 @@ const router = createBrowserRouter([
       {
         path: ROUTES_PATH.login,
         element: <LoginPage />,
-      },
-      {
-        path: '/test',
-        element: <TestPage />,
       },
     ],
   },

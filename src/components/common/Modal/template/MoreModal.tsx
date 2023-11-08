@@ -4,8 +4,8 @@ import * as S from '../Modal.styled';
 
 import ConfirmModal from './ConfirmModal';
 import DeleteIcon from '../../../../assets/icons/DeleteIcon';
-import useBoardDelete from '../../../../hooks/useBoardDelete';
-import useImageDelete from '../../../../hooks/useImageDelete';
+import useBoardDelete from '../../../../hooks/api/useBoardDelete';
+import useImageDelete from '../../../../hooks/api/useImageDelete';
 import { useModal } from '../../../../provider/ModalProvider';
 
 const MoreModal = () => {
