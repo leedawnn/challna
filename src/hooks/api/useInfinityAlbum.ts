@@ -1,8 +1,8 @@
 import { AxiosError, AxiosResponse } from 'axios';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { MAIN_ALBUM_KEY, getAlbumLists } from '../api/album';
+import { MAIN_ALBUM_KEY, getAlbumLists } from '../../api/album';
 
-import { fetchQuery } from '../utils/fetchQuery';
+import { fetchQuery } from '../../utils/fetchQuery';
 
 const useInfinityAlbum = (accessToken: string) => {
   return useInfiniteQuery<AxiosResponse, AxiosError>(

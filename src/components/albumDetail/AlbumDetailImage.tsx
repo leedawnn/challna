@@ -13,8 +13,8 @@ import { Album } from '../../types/album';
 import { activeSliderStore } from '../../stores/activeSliderStore';
 import { albumDetailStore } from '../../stores/albumDetailStore';
 import { messageStore } from '../../stores/messageStore';
-import useInfinityAlbum from '../../hooks/useInfinityAlbum';
-import useIntersectionObserver from '../../hooks/useInfinityObserver';
+import useInfinityAlbum from '../../hooks/api/useInfinityAlbum';
+import useIntersectionObserver from '../../hooks/common/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 
 const AlbumDeatilImage = () => {

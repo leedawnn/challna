@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import styled from 'styled-components';
 import * as Skeleton from '../Skeleton';
-import useLazyImageObserver from '../../../hooks/useLazyImageObserver';
+import useLazyImageObserver from '../../../hooks/common/useLazyImageObserver';
 
 type Props = {
   src: string;

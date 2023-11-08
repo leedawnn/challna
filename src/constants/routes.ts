@@ -6,4 +6,5 @@ export const ROUTES_PATH = {
   messageDetail: '/message/details',
   mypage: '/mypage',
   albumDetail: '/album/details',
+  event: '/event',
 } as const;

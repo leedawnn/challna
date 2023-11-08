@@ -3,21 +3,10 @@ import { ROUTES_PATH } from '../../constants/routes';
 import instance from '../axios';
 
 export const USER_BOARD_COUNT = ['users', 'board-count'];
-export const USER_QRCODE_SHARE = ['users', 'qrcode'];
 
 export const getUserBoardCount = (accessToken: string) => {
   return instance({
     url: ROUTES_PATH.mypage,
-    method: HTTP_METHOD.GET,
-    headers: {
-      'X-AUTH-TOKEN': accessToken,
-    },
-  });
-};
-
-export const getQRCodeValue = (accessToken: string) => {
-  return instance({
-    url: `/mypage/share`,
     method: HTTP_METHOD.GET,
     headers: {
       'X-AUTH-TOKEN': accessToken,
