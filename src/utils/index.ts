@@ -49,3 +49,5 @@ export const convertBase64 = (file: File) => {
     reader.onerror = (error) => reject(error);
   });
 };
+
+export const convertQRCodeLink = (id: number) => `https://www.moment.r-e.kr/guest?host=${id}`;
