@@ -1,5 +1,6 @@
-export const validateCheckDetail = (pathname: string): boolean => {
-  const pattern = /\/details/;
+export const validateCheckHeader = (pathname: string): boolean => {
+  const isDetails = /\/details/;
+  const isEvent = /\/event/;
 
-  return pattern.test(pathname);
+  return isDetails.test(pathname) || isEvent.test(pathname);
 };

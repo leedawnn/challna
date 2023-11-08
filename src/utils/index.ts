@@ -49,3 +49,11 @@ export const convertBase64 = (file: File) => {
     reader.onerror = (error) => reject(error);
   });
 };
+
+/**
+ * 🔗 QRCode 링크 생성 함수
+ * @param id 호스트측 카카오 ID
+ * @returns QRCode Link
+ */
+
+export const convertQRCodeLink = (id: number) => `https://www.moment.r-e.kr/guest?host=${id}`;

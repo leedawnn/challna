@@ -2,14 +2,14 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { styled } from 'styled-components';
 import { FOOTER_MENUS, MEDIA_QUERY } from '../../../constants/styles';
-import { validateCheckDetail } from '../../../utils/validate';
+import { validateCheckHeader } from '../../../utils/validate';
 
 const Footer = () => {
   const { pathname } = useLocation();
 
   return (
     <>
-      {!validateCheckDetail(pathname) && (
+      {!validateCheckHeader(pathname) && (
         <Layout>
           <Container>
             <MenuWrapper>

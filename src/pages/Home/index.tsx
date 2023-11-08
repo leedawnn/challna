@@ -1,8 +1,8 @@
 import { useAtomValue } from 'jotai';
 import HomeAlbum from '../../components/home/HomeAlbum';
 import NoneContent from '../../components/layout/NoneContent';
-import useInfinityAlbum from '../../hooks/useInfinityAlbum';
-import useInfinityObserver from '../../hooks/useInfinityObserver';
+import useInfinityAlbum from '../../hooks/api/useInfinityAlbum';
+import useInfinityObserver from '../../hooks/common/useInfinityObserver';
 import { userStore } from '../../stores/userStore';
 
 const HomePage = () => {
