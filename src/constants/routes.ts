@@ -7,4 +7,5 @@ export const ROUTES_PATH = {
   mypage: '/mypage',
   albumDetail: '/album/details',
   event: '/event',
+  guest: '/guest',
 } as const;
