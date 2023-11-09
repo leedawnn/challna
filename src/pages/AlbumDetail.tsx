@@ -1,11 +1,11 @@
 import AlbumDeatilImage from '../components/albumDetail/AlbumDetailImage';
-import AlbumDetailFooter from '../components/albumDetail/AlbumDetailFooter';
+import AlbumDetailContent from '../components/albumDetail/AlbumDetailContent';
 
 const AlbumDetailPage = () => {
   return (
     <>
       <AlbumDeatilImage />
-      <AlbumDetailFooter />
+      <AlbumDetailContent />
     </>
   );
 };

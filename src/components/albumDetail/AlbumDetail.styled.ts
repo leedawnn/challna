@@ -9,7 +9,7 @@ export const Container = styled.section`
   box-sizing: border-box;
 `;
 
-export const FooterLayout = styled.div`
+export const ContentContainer = styled.div`
   max-width: 576px;
   width: inherit;
 
@@ -25,7 +25,7 @@ export const FooterLayout = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const FooterContainer = styled.div`
+export const ContentWrapper = styled.div`
   width: 100%;
   height: 80px;
 
@@ -47,7 +47,7 @@ export const AlbumDataText = styled.span`
   }
 `;
 
-export const IconWrapper = styled.div`
+export const IconBox = styled.div`
   display: flex;
   align-items: center;
   gap: 30px;
@@ -59,7 +59,7 @@ export const IconWrapper = styled.div`
   }
 `;
 
-export const MessageContainer = styled.div`
+export const MessageWrapper = styled.div`
   padding: 0 27px 30px 27px;
 
   box-sizing: border-box;

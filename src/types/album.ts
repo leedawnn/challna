@@ -1,7 +1,7 @@
 export type Album = {
   accessUrl: string;
-  boardId: number | null;
-  imageId: number | null;
+  boardId: number;
+  imageId: number;
   metaDateTime: string;
   resizeUrl: string;
   contentCheck: boolean;
