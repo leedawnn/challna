@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
-import { HTTP_STATUS } from '../../constants/api';
-import { fetchQuery } from '../../utils/fetchQuery';
-import { getKaKaoUser } from '../../api/auth';
-import { userStore } from '../../stores/userStore';
+import { HTTP_STATUS } from '../constants/api';
+import { fetchQuery } from '../utils/fetchQuery';
+import { getKaKaoUser } from '../api/auth';
+import { userStore } from '../stores/userStore';
 
-const AuthRedirection = () => {
+const Auth = () => {
   const navigate = useNavigate();
   const setUser = useSetAtom(userStore);
 
@@ -25,4 +25,4 @@ const AuthRedirection = () => {
   return null;
 };
 
-export default AuthRedirection;
+export default Auth;

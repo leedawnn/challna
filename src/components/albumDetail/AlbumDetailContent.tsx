@@ -11,7 +11,7 @@ import { formatDate } from '../../utils';
 import { messageStore } from '../../stores/messageStore';
 import { userStore } from '../../stores/userStore';
 
-const AlbumDetailFooter = () => {
+const AlbumDetailContent = () => {
   const [shouldFetch, setShouldFetch] = useState<boolean>(false);
   const [messageCheck, setMessageCheck] = useAtom(messageStore);
   const users = useAtomValue(userStore);
@@ -63,22 +63,22 @@ const AlbumDetailFooter = () => {
   }, [messageCheck]);
 
   return (
-    <S.FooterLayout>
-      <S.FooterContainer>
+    <S.ContentContainer>
+      <S.ContentWrapper>
         <S.AlbumDataText> {formatDate(albumDetail?.metaDateTime)} </S.AlbumDataText>
-        <S.IconWrapper>
+        <S.IconBox>
           {albumDetail?.contentCheck && (
             <MessageDetailIcon active={messageCheck.isIconCheck} onClick={handleOpenMessage} />
           )}
-        </S.IconWrapper>
-      </S.FooterContainer>
+        </S.IconBox>
+      </S.ContentWrapper>
       {messageCheck.isIconCheck && messageCheck.isMessageOpen && messageData?.data.content && (
-        <S.MessageContainer>
+        <S.MessageWrapper>
           <S.MessageText> {messageData?.data.content} </S.MessageText>
-        </S.MessageContainer>
+        </S.MessageWrapper>
       )}
-    </S.FooterLayout>
+    </S.ContentContainer>
   );
 };
 
-export default AlbumDetailFooter;
+export default AlbumDetailContent;

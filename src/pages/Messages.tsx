@@ -1,12 +1,12 @@
 import type { AxiosError, AxiosResponse } from 'axios';
 import { useAtomValue } from 'jotai';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { MAIN_MESSAGES_KEY, getMessageLists } from '../../api/messages';
+import { MAIN_MESSAGES_KEY, getMessageLists } from '../api/messages';
 
-import MessageList from '../../components/messages/MessagesList';
-import { fetchQuery } from '../../utils/fetchQuery';
-import useInfinityObserver from '../../hooks/common/useInfinityObserver';
-import { userStore } from '../../stores/userStore';
+import MessageList from '../components/messages/MessagesList';
+import { fetchQuery } from '../utils/fetchQuery';
+import useInfinityObserver from '../hooks/common/useInfinityObserver';
+import { userStore } from '../stores/userStore';
 
 const MessagesPage = () => {
   const user = useAtomValue(userStore)!;
