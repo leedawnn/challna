@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
-import Logo from '../../components/login/Logo';
-import { MEDIA_QUERY } from '../../constants/styles';
-import SocialButton from '../../components/login/SocialButton';
-import useKakaoLogin from '../../hooks/api/useKakaoLogin';
+import Logo from '../components/login/Logo';
+import { MEDIA_QUERY } from '../constants/styles';
+import SocialButton from '../components/login/SocialButton';
+import useKakaoLogin from '../hooks/api/useKakaoLogin';
 
 const LoginPage = () => {
   const { handleKakaoLogin } = useKakaoLogin();

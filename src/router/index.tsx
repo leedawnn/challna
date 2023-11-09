@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AlbumDetailPage from '../pages/AlbumDetail';
+import AlbumPage from '../pages/Album';
 import App from '../App';
-import AuthRedirection from '../pages/AuthRedirection';
+import Auth from '../pages/Auth';
 import EventPage from '../pages/Event';
-import HomePage from '../pages/Home';
 import LoginPage from '../pages/Login';
 import MessageDetailPage from '../pages/MessageDetail';
 import MessagesPage from '../pages/Messages';
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: withAuth(HomePage),
+        Component: withAuth(AlbumPage),
       },
       {
         path: ROUTES_PATH.albumDetail,
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: ROUTES_PATH.redirect,
-    element: <AuthRedirection />,
+    element: <Auth />,
   },
 ]);
 
