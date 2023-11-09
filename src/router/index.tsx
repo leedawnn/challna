@@ -4,6 +4,7 @@ import AlbumPage from '../pages/Album';
 import App from '../App';
 import Auth from '../pages/Auth';
 import EventPage from '../pages/Event';
+import GuestPage from '../pages/Guest';
 import LoginPage from '../pages/Login';
 import MessageDetailPage from '../pages/MessageDetail';
 import MessagesPage from '../pages/Messages';
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES_PATH.login,
         element: <LoginPage />,
+      },
+      {
+        path: ROUTES_PATH.guest,
+        element: <GuestPage />,
       },
     ],
   },

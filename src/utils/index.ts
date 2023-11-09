@@ -56,4 +56,4 @@ export const convertBase64 = (file: File) => {
  * @returns QRCode Link
  */
 
-export const convertQRCodeLink = (id: number) => `https://www.moment.r-e.kr/guest?host=${id}`;
+export const convertQRCodeLink = (id: number) => `${import.meta.env.VITE_BASE_URL}/guest?host=${id}`;
