@@ -1,6 +1,6 @@
 import 'swiper/css';
 import 'swiper/css/pagination';
-import './swiperCustom.css';
+import './albumSwiper.css';
 
 import { Navigation, Thumbs } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -49,7 +49,7 @@ const AlbumDeatilImage = () => {
         navigation
         thumbs={{ swiper: thumsSwiper && !thumsSwiper.destroyed ? thumsSwiper : null }}
         modules={[Thumbs, Navigation]}
-        className="mySwiper"
+        className="mainSwiper"
         initialSlide={activeSlider}
         onSlideChange={handleActiveAlbumSave}
         onSlidesLengthChange={handleActiveAlbumSave}
@@ -70,7 +70,7 @@ const AlbumDeatilImage = () => {
         pagination={{
           clickable: true,
         }}
-        className="mySwiper2"
+        className="thumbSwiper"
         initialSlide={activeSlider}
       >
         {albumDetailData?.pages.map((album: any, index: number) => (

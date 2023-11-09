@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
-import MessageImage from '../../components/messageDetail/MessageImage';
+import MessageImage from '../components/messageDetail/MessageImage';
 
 const MessageDetailPage = () => {
   const { state: messageData } = useLocation();

@@ -5,6 +5,8 @@ export const Layout = styled.section`
   width: 100%;
 
   padding: 0 24px;
+  padding-bottom: 8.6rem;
+
   box-sizing: border-box;
 `;
 

@@ -1,11 +1,11 @@
 import { useAtomValue } from 'jotai';
-import HomeAlbum from '../../components/home/HomeAlbum';
-import NoneContent from '../../components/layout/NoneContent';
-import useInfinityAlbum from '../../hooks/api/useInfinityAlbum';
-import useInfinityObserver from '../../hooks/common/useInfinityObserver';
-import { userStore } from '../../stores/userStore';
+import HomeAlbum from '../components/home/HomeAlbum';
+import NoneContent from '../components/layout/NoneContent';
+import useInfinityAlbum from '../hooks/api/useInfinityAlbum';
+import useInfinityObserver from '../hooks/common/useInfinityObserver';
+import { userStore } from '../stores/userStore';
 
-const HomePage = () => {
+const AlbumPage = () => {
   const users = useAtomValue(userStore)!;
 
   const { data: albumData, fetchNextPage, hasNextPage } = useInfinityAlbum(users.accessToken);
@@ -24,4 +24,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default AlbumPage;
