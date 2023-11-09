@@ -17,9 +17,9 @@
   align-items: center;
 }
 
-.mainSwiper .swiper-slide {
+/* .mainSwiper .swiper-slide {
   height: calc(100vh - 209px);
-}
+} */
 
 .swiper-slide img {
   width: 100%;
