@@ -84,6 +84,8 @@ module.exports = {
     'consistent-return': 0,
     // --noImplicitAny 옵션을 false로
     '@typescript-eslint/no-explicit-any': 'off',
+    // alert 옵션 설정
+    'no-alert': 'off',
     'react-refresh/only-export-components': 0,
   },
   settings: {
