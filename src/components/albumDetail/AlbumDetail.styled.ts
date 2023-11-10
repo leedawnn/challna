@@ -3,35 +3,28 @@ import { MEDIA_QUERY } from '../../constants/styles';
 
 export const Container = styled.section`
   width: 100%;
+  height: calc(100% - 150px);
 
   box-sizing: border-box;
 `;
 
 export const ContentContainer = styled.div`
   max-width: 576px;
-  width: inherit;
+  width: 100%;
+  height: 80px;
 
   display: flex;
   flex-direction: column;
-
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  z-index: 20;
 
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ContentWrapper = styled.div`
-  width: 100%;
-  height: 80px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 24px 20px;
+  padding: 30px 20px;
   box-sizing: border-box;
 `;
 
