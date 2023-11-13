@@ -1,11 +1,19 @@
 import styled from 'styled-components';
+import { useSetAtom } from 'jotai';
+import { guestFileStore } from '../../stores/guestFileStore';
 
 const GuestFileUpload = () => {
+  const setGuestFileList = useSetAtom(guestFileStore);
+
   const handleUploadImageFiles = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = evt.target;
 
     if (files && files?.length > 5) {
       alert('최대 5개의 이미지만 업로드 할 수 있습니다. 다시 한 번 확인해주세요. ');
+    }
+
+    if (files) {
+      setGuestFileList(files);
     }
   };
 
