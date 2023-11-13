@@ -4,6 +4,7 @@ import AlbumPage from '../pages/Album';
 import App from '../App';
 import Auth from '../pages/Auth';
 import EventPage from '../pages/Event';
+import GuestEditPage from '../pages/GuestEdit';
 import GuestPage from '../pages/Guest';
 import LocalErrorBoundary from '../components/common/Errors/LocalErrorBoundary';
 import LoginPage from '../pages/Login';
@@ -48,11 +49,20 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES_PATH.guest,
-        element: (
-          <LocalErrorBoundary>
-            <GuestPage />
-          </LocalErrorBoundary>
-        ),
+        children: [
+          {
+            index: true,
+            element: (
+              <LocalErrorBoundary>
+                <GuestPage />
+              </LocalErrorBoundary>
+            ),
+          },
+          {
+            path: ROUTES_PATH.guestEdit,
+            element: <GuestEditPage />,
+          },
+        ],
       },
     ],
   },

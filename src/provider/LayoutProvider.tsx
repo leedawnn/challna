@@ -16,7 +16,7 @@ const LayoutProvider = ({ children }: Props) => {
   return (
     <Layout>
       <Container>
-        {pathname === ROUTES_PATH.login || pathname === ROUTES_PATH.guest ? (
+        {pathname === ROUTES_PATH.login || pathname.includes(ROUTES_PATH.guest) ? (
           children
         ) : (
           <MomentBody>
