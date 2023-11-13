@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
 import { guestFileStore } from '../../stores/guestFileStore';
+import { ROUTES_PATH } from '../../constants/routes';
 
 const GuestFileUpload = () => {
+  const navigate = useNavigate();
   const setGuestFileList = useSetAtom(guestFileStore);
 
   const handleUploadImageFiles = async (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,6 +17,7 @@ const GuestFileUpload = () => {
 
     if (files) {
       setGuestFileList(files);
+      navigate(ROUTES_PATH.guestEdit);
     }
   };
 
