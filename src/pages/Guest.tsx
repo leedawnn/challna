@@ -1,15 +1,22 @@
 import styled from 'styled-components';
 import { useQuery } from '@tanstack/react-query';
+import { useSetAtom } from 'jotai';
 import { HOST_USER_KEY, getHostInformation } from '../api/guest';
 
 import GuestFileUpload from '../components/guest/GuestFileUpload';
 import GuestLogo from '../assets/images/guestMoment.png';
+import { guestAuthStore } from '../stores/guestStore';
 
 const GuestPage = () => {
+  const setGuestAuth = useSetAtom(guestAuthStore);
   const params = new URL(document.location.toString()).searchParams;
   const code = params.get('host');
 
-  const { data: hostInformation } = useQuery(HOST_USER_KEY, () => getHostInformation(code!));
+  const { data: hostInformation } = useQuery(HOST_USER_KEY, () => getHostInformation(code!), {
+    onSuccess: (res) => {
+      setGuestAuth(res.data);
+    },
+  });
 
   return (
     <Layout>
