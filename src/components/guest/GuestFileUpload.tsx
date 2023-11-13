@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
-import { guestFileStore } from '../../stores/guestFileStore';
+import { guestFileStore } from '../../stores/guestStore';
 import { ROUTES_PATH } from '../../constants/routes';
 
 const GuestFileUpload = () => {

@@ -15,3 +15,5 @@ export type User = AuthToken & {
   kakaoName: string;
   profile_image: string;
 };
+
+export type Guest = Pick<User, 'accessToken' | 'accessTokenExpireDate' | 'issuedAt' | 'kakaoName' | 'profile_image'>;
