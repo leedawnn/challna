@@ -1,12 +1,6 @@
 import { atom } from 'jotai';
 import type { Guest } from '../types/user';
-
-type GuestAlbum = {
-  id: number;
-  name: string;
-  previewUrl: string;
-  file: File;
-};
+import type { GuestAlbum } from '../types/album';
 
 export const guestFileStore = atom<GuestAlbum[] | null>(null);
 

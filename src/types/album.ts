@@ -8,3 +8,10 @@ export type Album = {
   originName: string;
   activeIndex?: number;
 };
+
+export type GuestAlbum = {
+  id: number;
+  name: string;
+  previewUrl: string;
+  file: File;
+};
