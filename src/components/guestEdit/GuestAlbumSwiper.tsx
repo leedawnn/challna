@@ -26,6 +26,9 @@ const GuestAlbumSwiper = () => {
 export default GuestAlbumSwiper;
 
 const Container = styled.div`
+  width: 100%;
+  height: calc(100vh - 257px);
+
   padding: 20px 20px 30px 20px;
 
   box-sizing: border-box;
