@@ -4,17 +4,29 @@ import './guestAlbumSwiper.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import styled from 'styled-components';
-import { useAtomValue } from 'jotai';
+import { useAtom } from 'jotai';
+import CircleDeleteIcon from '../../assets/icons/CircleDeleteIcon';
 import { guestFileStore } from '../../stores/guestStore';
 
 const GuestAlbumSwiper = () => {
-  const guestAlbum = useAtomValue(guestFileStore);
+  const [guestAlbum, setGuestAlbum] = useAtom(guestFileStore);
+
+  const handleAlbumDelete = (evt: React.MouseEvent<SVGElement>) => {
+    const deleteTarget = evt.currentTarget;
+
+    setGuestAlbum((prev: any) => prev?.filter((file: any) => file.id !== +deleteTarget.id));
+  };
 
   return (
     <Container>
       <Swiper slidesPerView="auto" centeredSlides spaceBetween={20} className="guestSwiper">
         {guestAlbum?.map((album) => (
           <SwiperSlide key={album.id}>
+            <CircleDeleteIcon
+              onClick={handleAlbumDelete}
+              style={{ position: 'absolute', top: '8px', right: '10px', cursor: 'pointer' }}
+              id={`${album.id}`}
+            />
             <img src={album.previewUrl} alt={album.name} />
           </SwiperSlide>
         ))}
