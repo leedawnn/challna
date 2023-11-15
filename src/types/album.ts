@@ -9,9 +9,14 @@ export type Album = {
   activeIndex?: number;
 };
 
-export type GuestAlbum = {
+export type GuestFile = {
   id: number;
   name: string;
   previewUrl: string;
   file: File;
+};
+
+export type GuestAlbum = {
+  images: GuestFile[] | null;
+  message: string;
 };
