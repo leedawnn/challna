@@ -19,4 +19,5 @@ export type GuestFile = {
 export type GuestAlbum = {
   images: GuestFile[] | null;
   message: string;
+  createdAt: string;
 };

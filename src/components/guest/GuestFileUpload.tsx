@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
-import { guestAlbumStore } from '../../stores/guestStore';
-import { convertBase64 } from '../../utils';
 import { ROUTES_PATH } from '../../constants/routes';
+import { guestAlbumStore } from '../../stores/guestStore';
+import { convertBase64, formatDate } from '../../utils';
 
 const GuestFileUpload = () => {
   const navigate = useNavigate();
@@ -33,6 +33,7 @@ const GuestFileUpload = () => {
       setGuestFileList((prev) => ({
         ...prev,
         images: newFiles,
+        createdAt: formatDate(newFiles[0].file.lastModified),
       }));
       navigate(ROUTES_PATH.guestEdit);
     }
