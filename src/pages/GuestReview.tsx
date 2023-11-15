@@ -1,40 +1,26 @@
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
-import { useSetAtom } from 'jotai';
-import GuestAlbumSwiper from '../components/guestEdit/GuestAlbumSwiper';
+import { useAtomValue } from 'jotai';
 import GuestHeader from '../components/layout/Header/GuestHeader';
-import { ROUTES_PATH } from '../constants/routes';
+import GuestReviewSwiper from '../components/guestReview/GuestReviewSwiper';
 import { guestAlbumStore } from '../stores/guestStore';
 
-const GuestEditPage = () => {
-  const messageText = useRef<HTMLTextAreaElement | null>(null);
-  const setGuestAlbum = useSetAtom(guestAlbumStore);
-  const navigate = useNavigate();
-
-  const handleGuestMessageSubmit = () => {
-    setGuestAlbum((prev) => ({
-      ...prev,
-      message: messageText.current ? messageText.current.value : prev.message,
-    }));
-    navigate(ROUTES_PATH.guestReview);
-  };
+const GuestReviewPage = () => {
+  const guestAlbum = useAtomValue(guestAlbumStore);
 
   return (
     <Layout>
       <Container>
         <GuestHeader />
-        <MessageTextArea placeholder="메시지 입력..." ref={messageText} />
-        <GuestAlbumSwiper />
-        <FinishButton type="button" onClick={handleGuestMessageSubmit}>
-          완료
-        </FinishButton>
+        <GuestReviewSwiper />
+        <MessageText> {guestAlbum.message.length ? guestAlbum.message : '입력하신 메세지가 없습니다.'} </MessageText>
+        <DateText> {guestAlbum.createdAt} </DateText>
+        <FinishButton type="button"> 등록 </FinishButton>
       </Container>
     </Layout>
   );
 };
 
-export default GuestEditPage;
+export default GuestReviewPage;
 
 const Layout = styled.div`
   width: 57.6rem;
@@ -57,15 +43,29 @@ const Container = styled.section`
   position: relative;
 `;
 
-const MessageTextArea = styled.textarea`
-  all: unset;
-
+const MessageText = styled.span`
   width: calc(100% - 40px);
-  height: 66px;
 
-  padding: 30px 0 20px 0;
+  font-size: ${({ theme }) => theme.typography.body1.fontSize};
+  font-family: ${({ theme }) => theme.typography.body1.fontFamily};
 
+  border-top: 1px solid ${({ theme }) => theme.colors.lightGray2};
   border-bottom: 1px solid ${({ theme }) => theme.colors.lightGray2};
+
+  padding: 20px 0;
+
+  box-sizing: border-box;
+`;
+
+const DateText = styled.span`
+  width: calc(100% - 40px);
+
+  font-size: 10px;
+  color: ${({ theme }) => theme.colors.lightGray5};
+
+  padding-top: 10px;
+
+  box-sizing: border-box;
 `;
 
 const FinishButton = styled.button`
@@ -73,6 +73,10 @@ const FinishButton = styled.button`
 
   width: calc(100% - 40px);
   height: 50px;
+
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
 
   text-align: center;
   line-height: 50px;
