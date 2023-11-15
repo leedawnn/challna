@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSetAtom } from 'jotai';
-import { guestFileStore } from '../../stores/guestStore';
+import { guestAlbumStore } from '../../stores/guestStore';
 import { convertBase64 } from '../../utils';
 import { ROUTES_PATH } from '../../constants/routes';
 
 const GuestFileUpload = () => {
   const navigate = useNavigate();
-  const setGuestFileList = useSetAtom(guestFileStore);
+  const setGuestFileList = useSetAtom(guestAlbumStore);
 
   const handleUploadImageFiles = useCallback(async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = evt.target;
@@ -30,7 +30,10 @@ const GuestFileUpload = () => {
         }),
       );
 
-      setGuestFileList(newFiles);
+      setGuestFileList((prev) => ({
+        ...prev,
+        images: newFiles,
+      }));
       navigate(ROUTES_PATH.guestEdit);
     }
   }, []);
