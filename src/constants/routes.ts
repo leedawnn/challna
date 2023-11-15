@@ -9,4 +9,5 @@ export const ROUTES_PATH = {
   event: '/event',
   guest: '/guest',
   guestEdit: '/guest/edit',
+  guestReview: '/guest/review',
 } as const;

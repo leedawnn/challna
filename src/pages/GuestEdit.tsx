@@ -1,19 +1,23 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useSetAtom } from 'jotai';
 import GuestAlbumSwiper from '../components/guestEdit/GuestAlbumSwiper';
 import GuestHeader from '../components/layout/Header/GuestHeader';
+import { ROUTES_PATH } from '../constants/routes';
 import { guestAlbumStore } from '../stores/guestStore';
 
 const GuestEditPage = () => {
   const messageText = useRef<HTMLTextAreaElement | null>(null);
   const setGuestAlbum = useSetAtom(guestAlbumStore);
+  const navigate = useNavigate();
 
   const handleGuestMessageSubmit = () => {
     setGuestAlbum((prev) => ({
       ...prev,
       message: messageText.current ? messageText.current.value : prev.message,
     }));
+    navigate(ROUTES_PATH.guestReview);
   };
 
   return (
