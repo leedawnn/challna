@@ -5,6 +5,7 @@ import type { GuestAlbum } from '../types/album';
 export const initialAlbumStore = {
   images: null,
   message: '',
+  createdAt: `${new Date()}`,
 };
 
 export const guestAlbumStore = atom<GuestAlbum>(initialAlbumStore);

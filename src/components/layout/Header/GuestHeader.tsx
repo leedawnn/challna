@@ -17,7 +17,7 @@ const GuestHeader = () => {
     <Container>
       <BackIcon onClick={handleBackToUrl} style={{ cursor: 'pointer' }} />
       <Title> 새 게시물 </Title>
-      <MoreIcon style={{ visibility: pathname === ROUTES_PATH.guestEdit ? 'hidden' : 'visible' }} />
+      <MoreIcon style={{ visibility: pathname === ROUTES_PATH.guestEdit ? 'hidden' : 'visible', cursor: 'pointer' }} />
     </Container>
   );
 };

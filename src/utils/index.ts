@@ -7,8 +7,8 @@ import { ROUTES_PATH } from '../constants/routes';
  * @returns YYYY-MM-DD HH-MM-SS 형태의 변환된 날짜
  */
 
-export const formatDate = (dateString?: string): string => {
-  if (typeof dateString !== 'string') return '';
+export const formatDate = (dateString?: string | number): string => {
+  if (typeof dateString !== 'string' && typeof dateString !== 'number') return '';
 
   const date = new Date(dateString);
 

@@ -6,6 +6,7 @@ import Auth from '../pages/Auth';
 import EventPage from '../pages/Event';
 import GuestEditPage from '../pages/GuestEdit';
 import GuestPage from '../pages/Guest';
+import GuestReviewPage from '../pages/GuestReview';
 import LocalErrorBoundary from '../components/common/Errors/LocalErrorBoundary';
 import LoginPage from '../pages/Login';
 import MessageDetailPage from '../pages/MessageDetail';
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
           {
             path: ROUTES_PATH.guestEdit,
             element: <GuestEditPage />,
+          },
+          {
+            path: ROUTES_PATH.guestReview,
+            element: <GuestReviewPage />,
           },
         ],
       },
