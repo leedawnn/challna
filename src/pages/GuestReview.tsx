@@ -45,6 +45,7 @@ const Container = styled.section`
 
 const MessageText = styled.span`
   width: calc(100% - 40px);
+  height: 126px;
 
   font-size: ${({ theme }) => theme.typography.body1.fontSize};
   font-family: ${({ theme }) => theme.typography.body1.fontFamily};

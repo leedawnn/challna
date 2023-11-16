@@ -29,8 +29,7 @@ export default GuestReviewSwiper;
 
 const Container = styled.div`
   width: 100%;
-  height: calc(100vh - 290px);
+  height: calc(100vh - 326px);
 
-  padding: 10px 20px 0 20px;
   box-sizing: border-box;
 `;
