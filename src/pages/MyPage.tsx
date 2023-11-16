@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Profile from '../components/mypage/Profile';
-import UserMenu from '../components/mypage/UserMenu';
+import Profile from '../components/mypage/Profile/Profile';
+import UserMenu from '../components/mypage/UserMenu/UserMenu';
 
 const MyPage = () => {
   return (

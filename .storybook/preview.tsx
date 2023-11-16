@@ -1,8 +1,9 @@
-import React from 'react';
-import { themeDefault } from '../src/styles/theme';
-import { ThemeProvider } from 'styled-components';
+import { Container, Layout } from '../src/pages/layout/MainLayout';
+
 import GlobalStyle from '../src/styles/GlobalStyles';
-import { Layout, Container } from '../src/components/layout/MomentBody/index';
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { themeDefault } from '../src/styles/theme';
 
 const preview = {
   decorators: [

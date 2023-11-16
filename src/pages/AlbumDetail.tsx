@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import AlbumDeatilImage from '../components/albumDetail/AlbumDetailImage';
-import AlbumDetailContent from '../components/albumDetail/AlbumDetailContent';
+import AlbumDetailContent from '../components/home/Album/AlbumDetail/AlbumDetailContent';
+import AlbumDetailSwiper from '../components/home/Album/AlbumDetail/AlbumDetailSwiper';
 
 const AlbumDetailPage = () => {
   return (
     <Layout>
-      <AlbumDeatilImage />
+      <AlbumDetailSwiper />
       <AlbumDetailContent />
     </Layout>
   );
