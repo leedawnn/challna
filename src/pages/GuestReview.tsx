@@ -1,11 +1,35 @@
 import styled from 'styled-components';
 import { useAtomValue } from 'jotai';
+import { guestAlbumStore, guestAuthStore } from '../stores/guestStore';
+
 import GuestHeader from '../components/layout/Header/GuestHeader';
 import GuestReviewSwiper from '../components/guestReview/GuestReviewSwiper';
-import { guestAlbumStore } from '../stores/guestStore';
+import { HTTP_STATUS } from '../constants/api';
+import { putGuestAlbum } from '../api/guest';
 
 const GuestReviewPage = () => {
   const guestAlbum = useAtomValue(guestAlbumStore);
+  const guest = useAtomValue(guestAuthStore)!;
+
+  const handleGuestAlbumSend = async () => {
+    try {
+      const formData = new FormData();
+
+      guestAlbum?.images?.forEach((image, index) => {
+        formData.append(`image${index}`, image.file);
+      });
+
+      formData.append('content', guestAlbum.message);
+
+      const response = await putGuestAlbum(guest?.accessToken, formData);
+
+      if (response.status === HTTP_STATUS.OK) {
+        alert('등록이 완료되었습니다.');
+      }
+    } catch {
+      console.error('ERROR');
+    }
+  };
 
   return (
     <Layout>
@@ -14,7 +38,9 @@ const GuestReviewPage = () => {
         <GuestReviewSwiper />
         <MessageText> {guestAlbum.message.length ? guestAlbum.message : '입력하신 메세지가 없습니다.'} </MessageText>
         <DateText> {guestAlbum.createdAt} </DateText>
-        <FinishButton type="button"> 등록 </FinishButton>
+        <FinishButton type="button" onClick={handleGuestAlbumSend}>
+          등록
+        </FinishButton>
       </Container>
     </Layout>
   );
