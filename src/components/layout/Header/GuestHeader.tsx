@@ -3,9 +3,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import BackIcon from '../../../assets/icons/BackIcon';
 import MoreIcon from '../../../assets/icons/MoreIcon';
+import MoreModal from '../../common/Modal/template/MoreModal';
 import { ROUTES_PATH } from '../../../constants/routes';
+import { useModal } from '../../../provider/ModalProvider';
 
 const GuestHeader = () => {
+  const { openModal } = useModal();
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -13,11 +16,18 @@ const GuestHeader = () => {
     navigate(-1);
   };
 
+  const handleMoreMenuOpen = () => {
+    openModal(<MoreModal />);
+  };
+
   return (
     <Container>
       <BackIcon onClick={handleBackToUrl} style={{ cursor: 'pointer' }} />
       <Title> 새 게시물 </Title>
-      <MoreIcon style={{ visibility: pathname === ROUTES_PATH.guestEdit ? 'hidden' : 'visible', cursor: 'pointer' }} />
+      <MoreIcon
+        onClick={handleMoreMenuOpen}
+        style={{ visibility: pathname === ROUTES_PATH.guestEdit ? 'hidden' : 'visible', cursor: 'pointer' }}
+      />
     </Container>
   );
 };
