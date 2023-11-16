@@ -10,3 +10,15 @@ export const getHostInformation = (id: string) => {
     method: HTTP_METHOD.GET,
   });
 };
+
+export const putGuestAlbum = (accessToken: string, data: any) => {
+  return instance({
+    url: `${ROUTES_PATH.guest}/image`,
+    method: HTTP_METHOD.PUT,
+    data,
+    headers: {
+      'X-AUTH-TOKEN': accessToken,
+      'Content-Type': 'mutipart/form-data',
+    },
+  });
+};
