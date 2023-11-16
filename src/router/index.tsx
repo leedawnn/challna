@@ -7,7 +7,7 @@ import EventPage from '../pages/Event';
 import GuestEditPage from '../pages/GuestEdit';
 import GuestPage from '../pages/Guest';
 import GuestReviewPage from '../pages/GuestReview';
-import LocalErrorBoundary from '../components/common/Errors/LocalErrorBoundary';
+import LocalErrorBoundary from '../components/common/ErrorBoundary/LocalErrorBoundary';
 import LoginPage from '../pages/Login';
 import MessageDetailPage from '../pages/MessageDetail';
 import MessagesPage from '../pages/Messages';

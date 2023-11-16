@@ -1,7 +1,7 @@
 import { useAtomValue } from 'jotai';
 import { useEffect } from 'react';
-import HomeAlbum from '../components/home/HomeAlbum';
-import NoneContent from '../components/layout/NoneContent';
+import AlbumContents from '../components/home/Album/AlbumContents/AlbumContents';
+import EmptyContent from './layout/EmptyContent';
 import useInfinityAlbum from '../hooks/api/useInfinityAlbum';
 import useInfinityObserver from '../hooks/common/useInfinityObserver';
 import { useModal } from '../provider/ModalProvider';
@@ -24,11 +24,11 @@ const AlbumPage = () => {
 
   return albumData ? (
     <>
-      <HomeAlbum data={(albumData?.pages as any[]) ?? []} />
+      <AlbumContents data={(albumData?.pages as any[]) ?? []} />
       <div ref={setTarget} />
     </>
   ) : (
-    <NoneContent contentType="main" />
+    <EmptyContent contentType="main" />
   );
 };
 

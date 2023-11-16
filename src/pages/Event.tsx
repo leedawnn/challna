@@ -1,7 +1,7 @@
-import NoneContent from '../components/layout/NoneContent';
+import EmptyContent from './layout/EmptyContent';
 
 const EventPage = () => {
-  return <NoneContent contentType="event" />;
+  return <EmptyContent contentType="event" />;
 };
 
 export default EventPage;

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { useAtomValue } from 'jotai';
 import { guestAlbumStore, guestAuthStore } from '../stores/guestStore';
 
-import GuestHeader from '../components/layout/Header/GuestHeader';
-import GuestReviewSwiper from '../components/guestReview/GuestReviewSwiper';
+import GuestHeader from '../components/common/Header/GuestHeader';
+import GuestReviewSwiper from '../components/guest/GuestReview/GuestReviewSwiper';
 import { HTTP_STATUS } from '../constants/api';
 import { putGuestAlbum } from '../api/guest';
 

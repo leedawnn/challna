@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useSetAtom } from 'jotai';
 import { HOST_USER_KEY, getHostInformation } from '../api/guest';
 
-import GuestFileUpload from '../components/guest/GuestFileUpload';
+import GuestIntroUpload from '../components/guest/GuestIntroUpload/GuestIntroUpload';
 import GuestLogo from '../assets/images/guestMoment.png';
 import { guestAuthStore } from '../stores/guestStore';
 
@@ -29,7 +29,7 @@ const GuestPage = () => {
             <WelcomeTitle> 추억 앨범에 초대되셨습니다! </WelcomeTitle>
           </TitleWrapper>
         </WelcomeWrapper>
-        <GuestFileUpload />
+        <GuestIntroUpload />
       </Container>
     </Layout>
   );
