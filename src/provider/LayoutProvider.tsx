@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
-import Footer from '../components/layout/Footer';
-import Header from '../components/layout/Header';
-import MomentBody from '../components/layout/MomentBody';
+import Footer from '../components/common/Footer/Footer';
+import Header from '../components/common/Header/Header';
+import MainLayout from '../pages/layout/MainLayout';
 import { ROUTES_PATH } from '../constants/routes';
 
 type Props = {
@@ -19,11 +19,11 @@ const LayoutProvider = ({ children }: Props) => {
         {pathname === ROUTES_PATH.login || pathname.includes(ROUTES_PATH.guest) ? (
           children
         ) : (
-          <MomentBody>
+          <MainLayout>
             <Header />
             <Suspense fallback="...Loading">{children}</Suspense>
             <Footer />
-          </MomentBody>
+          </MainLayout>
         )}
       </Container>
     </Layout>

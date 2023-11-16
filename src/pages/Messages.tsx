@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { MAIN_MESSAGES_KEY, getMessageLists } from '../api/messages';
 
-import MessageList from '../components/messages/MessagesList';
+import MessageContents from '../components/home/Message/MessageContents/MessageContents';
 import { fetchQuery } from '../utils/fetchQuery';
 import useInfinityObserver from '../hooks/common/useInfinityObserver';
 import { useModal } from '../provider/ModalProvider';
@@ -42,7 +42,7 @@ const MessagesPage = () => {
 
   return (
     <>
-      <MessageList messageLists={messageData?.pages as any[]} />
+      <MessageContents messageLists={messageData?.pages as any[]} />
       <div ref={setTarget} />
     </>
   );

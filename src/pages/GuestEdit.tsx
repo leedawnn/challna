@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import { useSetAtom } from 'jotai';
-import GuestAlbumSwiper from '../components/guestEdit/GuestAlbumSwiper';
-import GuestHeader from '../components/layout/Header/GuestHeader';
+import GuestEditSwiper from '../components/guest/GuestEdit/GuestEditSwiper';
+import GuestHeader from '../components/common/Header/GuestHeader';
 import { ROUTES_PATH } from '../constants/routes';
 import { guestAlbumStore } from '../stores/guestStore';
 
@@ -25,7 +25,7 @@ const GuestEditPage = () => {
       <Container>
         <GuestHeader />
         <MessageTextArea placeholder="메시지 입력..." ref={messageText} />
-        <GuestAlbumSwiper />
+        <GuestEditSwiper />
         <FinishButton type="button" onClick={handleGuestMessageSubmit}>
           완료
         </FinishButton>
