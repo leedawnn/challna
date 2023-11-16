@@ -37,7 +37,7 @@ const UserMenu = () => {
   return (
     <S.Menu>
       <S.MenuList onClick={handleMoveEventPage}>
-        <S.ListContentText> moment 이벤트 </S.ListContentText>
+        <S.ListContentText> snapyy 이벤트 </S.ListContentText>
         <RightIcon $type="message" />
       </S.MenuList>
       <S.MenuList onClick={handleOpenLogoutModal}>
