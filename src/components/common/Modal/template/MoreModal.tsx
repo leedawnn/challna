@@ -20,17 +20,17 @@ const MoreModal = () => {
 
   return (
     <S.ModalContainer>
-      <MoreDeleteWrapper onClick={handleOpenDeleteModal}>
+      <MoreModalWrapper onClick={handleOpenDeleteModal}>
         <DeleteIcon active />
         <MoreDeleteText>삭제</MoreDeleteText>
-      </MoreDeleteWrapper>
+      </MoreModalWrapper>
     </S.ModalContainer>
   );
 };
 
 export default MoreModal;
 
-const MoreDeleteWrapper = styled.div`
+const MoreModalWrapper = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;

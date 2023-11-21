@@ -2,8 +2,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 import BackIcon from '../../../assets/icons/BackIcon';
+import GuestModal from '../../guest/Modal/GuestModal';
 import MoreIcon from '../../../assets/icons/MoreIcon';
-import MoreModal from '../Modal/template/MoreModal';
 import { ROUTES_PATH } from '../../../constants/routes';
 import { useModal } from '../../../provider/ModalProvider';
 
@@ -17,7 +17,7 @@ const GuestHeader = () => {
   };
 
   const handleMoreMenuOpen = () => {
-    openModal(<MoreModal />);
+    openModal(<GuestModal />);
   };
 
   return (
