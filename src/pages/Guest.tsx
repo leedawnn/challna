@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useSetAtom } from 'jotai';
 import { HOST_USER_KEY, getHostInformation } from '../api/guest';
@@ -6,17 +7,26 @@ import { HOST_USER_KEY, getHostInformation } from '../api/guest';
 import GuestIntroUpload from '../components/guest/GuestIntroUpload/GuestIntroUpload';
 import GuestLogo from '../assets/images/guestMoment.png';
 import { guestAuthStore } from '../stores/guestStore';
+import { useModal } from '../provider/ModalProvider';
 
 const GuestPage = () => {
+  const { closeModal } = useModal();
   const setGuestAuth = useSetAtom(guestAuthStore);
   const params = new URL(document.location.toString()).searchParams;
   const code = params.get('host');
 
   const { data: hostInformation } = useQuery(HOST_USER_KEY, () => getHostInformation(code!), {
     onSuccess: (res) => {
-      setGuestAuth(res.data);
+      setGuestAuth({
+        ...res.data,
+        kakaoId: code,
+      });
     },
   });
+
+  useEffect(() => {
+    closeModal();
+  }, []);
 
   return (
     <Layout>

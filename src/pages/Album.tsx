@@ -22,7 +22,7 @@ const AlbumPage = () => {
     closeModal();
   }, []);
 
-  return albumData ? (
+  return albumData?.pages.length ? (
     <>
       <AlbumContents data={(albumData?.pages as any[]) ?? []} />
       <div ref={setTarget} />

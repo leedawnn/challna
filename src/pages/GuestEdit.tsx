@@ -1,15 +1,18 @@
+import { useEffect, useRef } from 'react';
+
 import styled from 'styled-components';
+import { useAtom } from 'jotai';
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
-import { useSetAtom } from 'jotai';
 import GuestEditSwiper from '../components/guest/GuestEdit/GuestEditSwiper';
 import GuestHeader from '../components/common/Header/GuestHeader';
 import { ROUTES_PATH } from '../constants/routes';
 import { guestAlbumStore } from '../stores/guestStore';
+import { useModal } from '../provider/ModalProvider';
 
 const GuestEditPage = () => {
+  const { closeModal } = useModal();
   const messageText = useRef<HTMLTextAreaElement | null>(null);
-  const setGuestAlbum = useSetAtom(guestAlbumStore);
+  const [guestAlbum, setGuestAlbum] = useAtom(guestAlbumStore);
   const navigate = useNavigate();
 
   const handleGuestMessageSubmit = () => {
@@ -20,11 +23,15 @@ const GuestEditPage = () => {
     navigate(ROUTES_PATH.guestReview);
   };
 
+  useEffect(() => {
+    closeModal();
+  }, []);
+
   return (
     <Layout>
       <Container>
         <GuestHeader />
-        <MessageTextArea placeholder="메시지 입력..." ref={messageText} />
+        <MessageTextArea placeholder="메시지 입력..." ref={messageText} defaultValue={guestAlbum.message} />
         <GuestEditSwiper />
         <FinishButton type="button" onClick={handleGuestMessageSubmit}>
           완료
