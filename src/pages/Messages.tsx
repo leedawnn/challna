@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { MAIN_MESSAGES_KEY, getMessageLists } from '../api/messages';
 
+import EmptyContent from './layout/EmptyContent';
 import MessageContents from '../components/home/Message/MessageContents/MessageContents';
 import { fetchQuery } from '../utils/fetchQuery';
 import useInfinityObserver from '../hooks/common/useInfinityObserver';
@@ -40,11 +41,13 @@ const MessagesPage = () => {
     closeModal();
   }, []);
 
-  return (
+  return messageData?.pages?.length ? (
     <>
       <MessageContents messageLists={messageData?.pages as any[]} />
       <div ref={setTarget} />
     </>
+  ) : (
+    <EmptyContent contentType="main" />
   );
 };
 
