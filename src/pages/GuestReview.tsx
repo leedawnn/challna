@@ -16,7 +16,7 @@ const GuestReviewPage = () => {
       const formData = new FormData();
 
       guestAlbum?.images?.forEach((image, index) => {
-        formData.append(`image${index}`, image.file);
+        formData.append(`image${index + 1}`, image.file);
       });
 
       formData.append('content', guestAlbum.message);
