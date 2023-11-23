@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/common/Footer/Footer';
 import Header from '../components/common/Header/Header';
+import LoadingPage from '../pages/layout/Loading';
 import MainLayout from '../pages/layout/MainLayout';
 import { ROUTES_PATH } from '../constants/routes';
 
@@ -19,11 +20,13 @@ const LayoutProvider = ({ children }: Props) => {
         {pathname === ROUTES_PATH.login || pathname.includes(ROUTES_PATH.guest) ? (
           children
         ) : (
-          <MainLayout>
-            <Header />
-            <Suspense fallback="...Loading">{children}</Suspense>
-            <Footer />
-          </MainLayout>
+          <Suspense fallback={<LoadingPage />}>
+            <MainLayout>
+              <Header />
+              <Suspense fallback="...Loading">{children}</Suspense>
+              <Footer />
+            </MainLayout>
+          </Suspense>
         )}
       </Container>
     </Layout>
