@@ -15,17 +15,17 @@ const GuestPage = () => {
   const params = new URL(document.location.toString()).searchParams;
   const code = params.get('host');
 
-  const { data: hostInformation } = useQuery(HOST_USER_KEY, () => getHostInformation(code!), {
-    onSuccess: (res) => {
-      setGuestAuth({
-        ...res.data,
-        kakaoId: code,
-      });
-    },
-  });
+  const { data: hostInformation } = useQuery(HOST_USER_KEY, () => getHostInformation(code!));
 
   useEffect(() => {
     closeModal();
+
+    if (hostInformation?.data) {
+      setGuestAuth({
+        ...hostInformation.data,
+        kakaoId: code,
+      });
+    }
   }, []);
 
   return (
