@@ -9,9 +9,7 @@ const LoginPage = () => {
   return (
     <Layout>
       <Container>
-        <LogoWrapper>
-          <Logo />
-        </LogoWrapper>
+        <Logo />
         <SocialWrapper>
           <SocialTitle> 나만의 특별한 추억을 만들어 보세요. </SocialTitle>
           <SocialButton socialType="kakao" onClick={handleKakaoLogin} />
@@ -33,15 +31,6 @@ const Layout = styled.div`
 const Container = styled.main`
   width: 100%;
   min-height: calc(var(--vh, 1vh) * 100);
-`;
-
-const LogoWrapper = styled.div`
-  width: 100%;
-  height: calc(var(--vh, 1vh) * 80);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const SocialWrapper = styled.div`

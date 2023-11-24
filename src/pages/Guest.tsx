@@ -5,7 +5,7 @@ import { useSetAtom } from 'jotai';
 import { HOST_USER_KEY, getHostInformation } from '../api/guest';
 
 import GuestIntroUpload from '../components/guest/GuestIntroUpload/GuestIntroUpload';
-import GuestLogo from '../assets/images/guestMoment.png';
+import GuestLogo from '../assets/images/guestSnappy.png';
 import { guestAuthStore } from '../stores/guestStore';
 import { useModal } from '../provider/ModalProvider';
 
@@ -64,7 +64,7 @@ const Container = styled.main`
 `;
 
 const Logo = styled.img`
-  max-width: 120px;
+  max-width: 90px;
 
   position: absolute;
   top: 20px;
