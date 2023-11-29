@@ -1,19 +1,25 @@
 import { createBrowserRouter } from 'react-router-dom';
-import AlbumDetailPage from '../pages/AlbumDetail';
-import AlbumPage from '../pages/Album';
+import { lazy } from 'react';
 import App from '../App';
-import Auth from '../pages/Auth';
-import EventPage from '../pages/Event';
-import GuestEditPage from '../pages/GuestEdit';
-import GuestPage from '../pages/Guest';
-import GuestReviewPage from '../pages/GuestReview';
 import LocalErrorBoundary from '../components/common/ErrorBoundary/LocalErrorBoundary';
 import LoginPage from '../pages/Login';
-import MessageDetailPage from '../pages/MessageDetail';
-import MessagesPage from '../pages/Messages';
-import MyPage from '../pages/MyPage';
 import { ROUTES_PATH } from '../constants/routes';
 import { withAuth } from '../hoc/withAuth';
+
+const Auth = lazy(() => import('../pages/Auth'));
+
+const AlbumPage = lazy(() => import('../pages/Album'));
+const AlbumDetailPage = lazy(() => import('../pages/AlbumDetail'));
+
+const MessagesPage = lazy(() => import('../pages/Messages'));
+const MessageDetailPage = lazy(() => import('../pages/MessageDetail'));
+
+const MyPage = lazy(() => import('../pages/MyPage'));
+const EventPage = lazy(() => import('../pages/Event'));
+
+const GuestPage = lazy(() => import('../pages/Guest'));
+const GuestEditPage = lazy(() => import('../pages/GuestEdit'));
+const GuestReviewPage = lazy(() => import('../pages/GuestReview'));
 
 const router = createBrowserRouter([
   {
