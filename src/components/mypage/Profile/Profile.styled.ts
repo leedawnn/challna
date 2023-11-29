@@ -26,6 +26,8 @@ export const ProfileImage = styled.img`
   border-radius: 50%;
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.2);
 
+  object-fit: cover;
+
   cursor: pointer;
 `;
 

@@ -23,7 +23,7 @@ const LayoutProvider = ({ children }: Props) => {
           <Suspense fallback={<LoadingPage />}>
             <MainLayout>
               <Header />
-              <Suspense fallback="...Loading">{children}</Suspense>
+              {children}
               <Footer />
             </MainLayout>
           </Suspense>

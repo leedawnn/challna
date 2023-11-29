@@ -13,6 +13,8 @@ const Logo = () => {
 export default Logo;
 
 const Wrapper = styled.div`
+  width: max-content;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -25,9 +27,13 @@ const Wrapper = styled.div`
 `;
 
 const SubTitle = styled.h2`
+  width: 100%;
+
   font-size: ${({ theme }) => theme.typography.body2.fontSize};
   font-family: ${({ theme }) => theme.typography.body2.fontFamily};
   color: ${({ theme }) => theme.colors.white};
+
+  text-align: center;
 
   margin: 0;
 `;
